@@ -1,0 +1,20 @@
+<!--pages/mission/mission.wxml-->
+<view class='content_no_padding'>
+    <view class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+        <view class='backArea'>
+            <image src='../../utils/images/icon_back@2x.png'></image>
+            <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+        </view>
+        <view class='navigationTitle'>
+            <text>今日任务</text>
+        </view>
+    </view>
+    <view class="userinfo" wx:if="{{canIuseAvatar}}">
+        <open-data type="userAvatarUrl" class='user_avatar'></open-data>
+        <open-data type="userNickName" class="user_nickname"></open-data>
+    </view>
+    <view class="userinfo" wx:if="{{!canIuseAvatar}}">
+        <image src='{{submitData.apply.wechat_user.wechat_photo}}' class='user_avatar'></image>
+         <text class="user_nickname">{{submitData.apply.wechat_user.wechat_name}}</text> 
+    </view>
+</view>

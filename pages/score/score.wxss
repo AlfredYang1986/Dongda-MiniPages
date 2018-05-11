@@ -1,0 +1,13 @@
+/* pages/score/score.wxss */
+page {
+    height: 100%;
+}
+.score_wrapper {
+    text-align: center;
+    color: #fff;
+}
+.score_wrapper .score_title {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 48rpx;
+}

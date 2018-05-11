@@ -1,0 +1,145 @@
+<!--pages/business/business.wxml-->
+<view class='content-wrapper'>
+    <view class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+        <view class='backArea'>
+        <image src='../../utils/images/icon_back@2x.png'></image>
+        <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+        </view>
+        <view class='navigationTitle'><text>我是商家</text></view>
+    </view>
+    <view class="userinfo"  wx:if="{{canIuseAvatar}}">
+        <open-data type="userAvatarUrl" class='user_avatar'></open-data>
+        <open-data type="userNickName" class="user_nickname"></open-data>
+    </view>
+    <view class="userinfo"  wx:if="{{!canIuseAvatar}}">
+        <image src='{{submitData.apply.wechat_user.wechat_photo}}' class='user_avatar'></image>
+        <text class="user_nickname">{{submitData.apply.wechat_user.wechat_name}}</text>
+    </view>
+    <!-- <form bindsubmit="formSubmit"> -->
+
+        <view class="weui-cells_title">品牌名称</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="brand" bindblur="brandValue"  />
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells_title">活动地理位置</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="location" bindblur="locationValue"  placeholder="请依次填写 行政区域 街道 门牌号" placeholder-style="color:#d2d0d0;" />
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells_title">品牌提供的服务类型</view>
+        <!-- <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{services}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+        </radio-group> -->
+        <radio-group name="band_service" class="radio-group" bindchange="radioChange">
+            <!-- <view class="weui-flex">
+                <view class="weui-flex__item radio_item">
+                    <label class="radio">
+                        <radio value="kx" checked="true" />科学
+                    </label>
+                </view>
+                <view class="weui-flex__item radio_item">
+                    <label class="radio">
+                        <radio value="ys" />艺术
+                    </label>
+                </view>
+                <view class="weui-flex__item radio_item">
+                    <label class="radio">
+                        <radio value="yd" />运动
+                    </label>
+                </view>
+                <view class="weui-flex__item radio_item">
+                    <label class="radio">
+                        <radio value="kg" />看顾
+                    </label>
+                </view>
+            </view> -->
+            <view class='weui-flex'>
+                <view class="weui-flex__item radio_item" wx:for="{{services}}">
+                    <label class="radio  {{item.checked=='true'?'active':''}}">
+                        <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.value}}
+                    </label>
+                </view>
+            </view>
+        </radio-group>
+
+        <view class="weui-cells_title">具体服务分类名称</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="service_classify" bindblur='leafValue'  placeholder="水墨画" placeholder-style="color:#d2d0d0;" />
+                </view>
+            </view>
+        </view>
+        <!-- <view class="section">
+            <view class="section_title">具体服务分类名称</view>
+            <input name="service_classify" placeholder='水墨画' />
+        </view> -->
+        <!-- <label class='label'>适应孩子年龄</label> -->
+        <view class="weui-cells_title">适应孩子年龄</view>
+        <view class='age_flex'>
+            <picker name="minage" class='age_flex_item item_input' bindchange="miniAge" value="{{miniIndex}}" range="{{miniAges}}">
+                <view class="picker picker_placeholder" wx:if="{{miniIndex === 0}}">最小年龄</view>
+                <view class="picker" wx:elif="{{miniIndex > 0}}">{{miniAges[miniIndex]}}</view>
+                <!-- <view class="picker">
+                    {{miniAges[miniIndex]}}
+                </view> -->
+            </picker>
+            <text class='age_flex_item item_text'>——</text>
+            <!-- <input class='age_flex_item item_input' type='number' placeholder='最大年龄'></input> -->
+            <picker name="maxage" class='age_flex_item item_input' bindchange="maxAge" value="{{maxIndex}}" range="{{maxAges}}">
+            <view class="picker picker_placeholder" wx:if="{{maxIndex === 0}}">最大年龄</view>
+            <view class="picker" wx:elif="{{maxIndex > 0}}">{{maxAges[maxIndex]}}</view>
+                <!-- <view class="picker">
+                    {{maxAges[maxIndex]}}
+                </view> -->
+            </picker>
+        </view>
+
+        <view class="weui-cells_title">打卡口令</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="keys" bindblur='pwdValue' placeholder="给孩子一个玩转未来的通关密令" placeholder-style="color:#d2d0d0;" />
+                </view>
+            </view>
+        </view>
+
+        <view class='line'></view>
+
+        <view class="weui-cells_title">负责人名称</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="leader_name" bindblur='nameValue'  />
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells_title">联系方式</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" type='number' name="phone_number" bindblur='noValue'  placeholder="手机号码" placeholder-style="color:#d2d0d0;" />
+                </view>
+            </view>
+        </view>
+        <view class="weui-flex">
+            <view class="weui-flex__item submit_view">
+                <image class='btn img_active' src='../../utils/images/submit@2x.png'></image>
+                <button bindtap='submitInfo' class='btn-submit' ></button>
+            </view>
+        </view>
+        <!-- <button formType="submit" class='btn-submit'>提交</button> -->
+    <!-- </form> -->
+</view>

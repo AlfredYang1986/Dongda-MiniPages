@@ -1,0 +1,91 @@
+/* pages/bizsuccess/bizsuccess.wxss */
+
+page {
+    display: block;
+    height: 100%;
+    background-image: url(https://i.loli.net/2018/05/08/5af140ea1c9f1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.content-no-padding {
+    height: 100%;
+}
+.navigationBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4f5b8b; 
+}
+.navigationBar .backArea {
+    float: left;
+    position: relative;
+    padding-left: 18rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+}
+.navigationBar .backArea image {
+    margin-top: 17rpx;
+    width: 30rpx;
+    height: 54rpx;
+}
+.btn_back {
+    position: absolute;
+    left: 0;
+    width: 100rpx;
+    height: 88rpx;
+    background: transparent;
+}
+.navigationBar .navigationTitle {
+    height: 88rpx;
+    line-height: 88rpx;
+    width: 160rpx;
+    margin: 0 auto;
+    color: #fff;
+}
+
+
+.content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.done {
+    /* padding: 80rpx 40rpx 40rpx; */
+    padding-left: 24rpx;
+    padding-bottom: 40rpx;
+    text-align: center;
+}
+.done image {
+    padding-left: 40rpx;
+    width: 240rpx;
+    height: 240rpx;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20rpx;
+}
+.success_title {
+    color: orange;
+    font-size: 48rpx;
+}
+.add_title {
+    margin-top: 100rpx;
+}
+.add_title text {
+    font-size: 40rpx;
+    letter-spacing: 3rpx;
+    color: #fff;
+}
+
+.qrcode {
+    margin-top: 40rpx;
+    text-align: center;
+}
+
+.qrcode image {
+    width: 300rpx;
+    height: 300rpx;
+}

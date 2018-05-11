@@ -1,0 +1,15 @@
+<!--pages/player/players.wxml-->
+<!-- <view class='content-wrapper'></view> -->
+<view class='content_no_padding'>
+    <view class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+        <view class='backArea'>
+            <image src='../../utils/images/icon_back@2x.png'></image>
+            <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+        </view>
+        <view class='navigationTitle'>
+            <text>我是玩家</text>
+        </view>
+    </view>
+    <image class='coming' src='../../utils/images/open_soon_font@2x.png' mode='widthFix'></image>
+
+</view>

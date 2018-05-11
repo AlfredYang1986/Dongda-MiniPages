@@ -1,0 +1,97 @@
+/**app.wxss**/
+
+button::after {
+    border: none;
+}
+
+.content-wrapper {
+    height: 100%;
+    padding: 20rpx;
+}
+
+.content_no_padding {
+    height: 100%;
+    background-image: url(https://i.loli.net/2018/05/10/5af3c56308d9b.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.navigationBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 88rpx;
+    padding-top: 40rpx;
+    background-color: transparent;
+}
+
+.navigationBar .backArea {
+    float: left;
+    position: relative;
+    padding-left: 18rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+.navigationBar .backArea image {
+    margin-top: 17rpx;
+    width: 30rpx;
+    height: 54rpx;
+}
+
+.btn_back {
+    position: absolute;
+    left: 0;
+    width: 100rpx;
+    height: 88rpx;
+    background: transparent;
+}
+
+.navigationBar .navigationTitle {
+    height: 88rpx;
+    line-height: 88rpx;
+    width: 160rpx;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.nav {
+    height: 44px;
+    padding-top: 20px;
+}
+
+.nav.iosx {
+    padding-top: 44px;
+}
+
+.nav.android {
+    height: 48px;
+    padding-top: 24px;
+}
+
+.userinfo {
+    padding: 160rpx 0 20rpx 20rpx;
+}
+
+.userinfo .user_avatar {
+    display: inline-block;
+    width: 72rpx;
+    height: 72rpx;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.userinfo .user_nickname {
+    display: inline-block;
+    padding-left: 40rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    vertical-align: top;
+    color: #fff;
+}
+
+.userinfo .scan {
+    margin-left: 20rpx;
+}

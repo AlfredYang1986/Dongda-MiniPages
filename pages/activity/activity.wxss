@@ -1,0 +1,14 @@
+/* pages/activity/activity.wxss */
+page {
+    height: 100%;
+}
+.content_no_padding {
+    height: 100%;
+    background-image: url(https://i.loli.net/2018/05/10/5af3c56308d9b.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.activity_wrapper .distribute {
+    margin: 10px 0;
+}

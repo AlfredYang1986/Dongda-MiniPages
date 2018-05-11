@@ -1,0 +1,22 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/activity/activity",
+        "pages/countingdown/countingdown",
+        "pages/bizsuccess/bizsuccess",        
+        "pages/business/business",
+        "pages/player/players",
+        "pages/details/details",
+        "pages/score/score",
+        "pages/mission/mission",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "white",
+        "navigationStyle": "custom",
+        "backgroundColorTop": "transparent"
+    }
+}

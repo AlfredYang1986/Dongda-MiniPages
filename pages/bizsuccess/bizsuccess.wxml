@@ -1,0 +1,30 @@
+<!--pages/bizsuccess/bizsuccess.wxml-->
+<view class='content-no-padding'>
+    <view class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+        <view class='backArea'>
+        <image src='../../utils/images/icon_back@2x.png'></image>
+        <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+        </view>
+        <!-- <view class='navigationTitle'><text>我是商家</text></view> -->
+    </view>
+    <view class='content'>
+        <view class='done'>
+            <image src='../../utils/images/done@2x.png'></image>
+        </view>
+
+        <view class="title success_title">报名成功</view>
+        <view class='title add_title'>
+            <view>
+                <text>请添加咚哒客服</text>
+            </view>
+            <view>
+                <text>及时了解活动信息</text>
+            </view>
+        </view>
+        <view class='qrcode'>
+            <image src='../../utils/images/qr@2x.png'></image>
+        </view>
+        <button bindtap='scanQr'>扫码</button>
+    </view>
+
+</view>

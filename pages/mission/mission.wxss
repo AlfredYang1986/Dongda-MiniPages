@@ -1,0 +1,4 @@
+/* pages/mission/mission.wxss */
+page {
+    height: 100%;
+}

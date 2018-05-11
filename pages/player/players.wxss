@@ -1,0 +1,20 @@
+/* pages/player/players.wxss */
+page {
+    height: 100%;
+}
+.content_no_padding {
+    height: 100%;
+    background-image: url(https://i.loli.net/2018/05/10/5af3c56308d9b.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+image.coming {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* image {
+    margin-top: -16rpx;
+    width: 100%;
+} */
