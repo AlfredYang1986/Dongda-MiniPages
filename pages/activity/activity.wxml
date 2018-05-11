@@ -6,24 +6,49 @@
             <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
         </view>
         <view class='navigationTitle'>
-            <text>活动详情</text>
+            <text></text>
         </view>
     </view>
-    <view class="userinfo" wx:if="{{canIuseAvatar}}">
+    <view class='user_avatar' wx:if="{{canIuseAvatar}}">
+        <open-data type="userAvatarUrl" class='avatar'></open-data>
+    </view>
+    <view class='user_avatar' wx:if="{{!canIuseAvatar}}">
+        <image src='{{submitData.apply.wechat_user.wechat_photo}}' class='avatar'></image>
+    </view>
+    <!-- <view class="userinfo" wx:if="{{canIuseAvatar}}">
         <open-data type="userAvatarUrl" class='user_avatar'></open-data>
-        <!-- <open-data type="userNickName" class="user_nickname"></open-data> -->
-        <button  bindtap='scanQr' plain='true' class="user_nickname scan">扫码</button>
+         <open-data type="userNickName" class="user_nickname"></open-data> 
+         <button  bindtap='scanQr' plain='true' class="user_nickname scan">扫码</button> 
     </view>
     <view class="userinfo" wx:if="{{!canIuseAvatar}}">
         <image src='{{submitData.apply.wechat_user.wechat_photo}}' class='user_avatar'></image>
-        <!-- <text class="user_nickname">{{submitData.apply.wechat_user.wechat_name}}</text> -->
+         <text class="user_nickname">{{submitData.apply.wechat_user.wechat_name}}</text> 
         <button bindtap='scanQr' plain='true' class="user_nickname scan">扫码</button>
+    </view> -->
+    <view class='game_cloud'>
+        <image src='../../utils/images/game_cloud@2x.png' mode='widthFilled'></image>
     </view>
     <view class='activity_wrapper'>
-        <button class='distribute' type='primary' bindtap='score'>分数</button>
-        <button class='distribute' type='primary' bindtap='mission'>今日任务</button>
-        <button class='distribute' type='warn' bindtap='question'>答题</button>
-        
+        <view class='list'>
+            <image src='../../utils/images/btn_list@2x.png'></image>
+            <button bindtap='list'></button>
+        </view>
+
+        <view class='score_mission'>
+            <view class='s_m_item score'>
+                <image src='../../utils/images/btn_score@2x.png'></image>
+                <button bindtap='score'></button>
+            </view>
+            <view class='s_m_item  mission'>
+                <image src='../../utils/images/btn_mission@2x.png'></image>
+                <button bindtap='mission'></button>
+            </view>
+        </view>
+
+    </view>
+    <view class='scan_qr'>
+        <image src='../../utils/images/checkin@2x.png' mode='widthFilled'></image>
+        <button class="scan" bindtap='scanQr'></button>
     </view>
 </view>
 

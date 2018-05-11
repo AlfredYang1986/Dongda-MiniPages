@@ -19,15 +19,45 @@ Page({
             }
         })
     },
-    score: () =>{
+    score: () =>{      
         wx.navigateTo({
             url: '../score/score',
         })
     },
     mission: () => {
-        wx.navigateTo({
-            url: '../mission/mission',
+        wx.getSetting({
+            success: (res) => {
+                console.log(res.authSetting['scope.userLocation']);
+                if(!res.authSetting['scope.userLocation']) {
+                    wx.getLocation({
+                        success: function (res) {
+                            console.log(res);
+                        },
+                        fail: (error) => {
+                            console.log(error);
+                        }
+                    })
+                }
+                /*
+                 * res.authSetting = {
+                 *   "scope.userInfo": true,
+                 *   "scope.userLocation": true
+                 * }
+                 */
+            }
         })
+        // console.log(scope.userLocation)
+        wx.getLocation({
+            success: function (res) {
+                console.log(res);
+            },
+            fail: (error) => {
+                console.log(error);
+            }
+        })
+        // wx.navigateTo({
+        //     url: '../mission/mission',
+        // })
     },
     question: ()=> {
         // wx.navigateTo({
