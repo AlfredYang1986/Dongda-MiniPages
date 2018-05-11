@@ -25,39 +25,41 @@ Page({
         })
     },
     mission: () => {
-        wx.getSetting({
-            success: (res) => {
-                console.log(res.authSetting['scope.userLocation']);
-                if(!res.authSetting['scope.userLocation']) {
-                    wx.getLocation({
-                        success: function (res) {
-                            console.log(res);
-                        },
-                        fail: (error) => {
-                            console.log(error);
-                        }
-                    })
-                }
-                /*
-                 * res.authSetting = {
-                 *   "scope.userInfo": true,
-                 *   "scope.userLocation": true
-                 * }
-                 */
-            }
-        })
-        // console.log(scope.userLocation)
         wx.getLocation({
             success: function (res) {
                 console.log(res);
+                wx.navigateTo({
+                    url: '../mission/mission?latitude:'+res.latitude+'&longitude:'+res.longitude,
+                })
             },
             fail: (error) => {
                 console.log(error);
+                wx.getSetting({
+                    success: (res) => {
+                        console.log(res.authSetting['scope.userLocation']);
+                        if (!res.authSetting['scope.userLocation']) {
+                            wx.showModal({
+                                title: '需要获取位置',
+                                content: '请允许获取地理位置，才能更好地向您推荐距离您近的任务',
+                                success: (res) => {
+                                    if (res.confirm) {
+                                        wx.openSetting({
+                                            success: (res) => {
+                                                console.log(res);
+                                            }
+                                        })
+                                    } else {
+                                        wx.navigateTo({
+                                            url: "../mission/mission?latitude=39.9219&longitude=116.44355",
+                                        })
+                                    }
+                                }
+                            })
+                        }
+                    }
+                })
             }
         })
-        // wx.navigateTo({
-        //     url: '../mission/mission',
-        // })
     },
     question: ()=> {
         // wx.navigateTo({

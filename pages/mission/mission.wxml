@@ -6,7 +6,7 @@
             <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
         </view>
         <view class='navigationTitle'>
-            <text>今日任务</text>
+            <text></text>
         </view>
     </view>
     <view class="userinfo" wx:if="{{canIuseAvatar}}">
