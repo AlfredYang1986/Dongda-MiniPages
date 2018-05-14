@@ -18,7 +18,8 @@
         <view class="weui-flex">
             <view class="weui-flex__item">
                 <image class='btn img_active' src='../../utils/images/btn_enter@2x.png'></image>
-                <button id='activity' class='btn_active' open-type='getUserInfo' bindgetuserinfo="getUserInfo" lang='zh_CN' size='default' bindtap='canIgetUserInfo'></button>
+                <button id='activity' class='btn_active' open-type='getUserInfo' bindgetuserinfo="getUserInfo" lang='zh_CN' size='default'></button>
+                <!-- <button id='activity' class='btn_active' open-type='getUserInfo' bindgetuserinfo="getUserInfo" lang='zh_CN' size='default' bindtap='canIgetUserInfo'></button> -->
             </view>
             
         </view>

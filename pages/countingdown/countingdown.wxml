@@ -9,7 +9,10 @@
     </view>
     <image class='time' src='http://192.168.100.115:9000/assets/images/countingdowncloud@2x.png'  mode='widthFix'></image>
     <view class='restday'><text>{{restDay}}</text></view>
-    <button class='test' bindtap='testBtn'>测试按钮</button>
+    <view class='early'>
+        <button class='taste' bindtap='testBtn'>提前体验</button>
+    </view>
+    
 </view>
 
 <!-- <image src='../../utils/images/countingdown@2x.png' mode='widthFix'></image> -->

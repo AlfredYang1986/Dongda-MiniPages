@@ -9,11 +9,11 @@
             <text></text>
         </view>
     </view>
-    <view class='user_avatar' wx:if="{{canIuseAvatar}}">
+    <view class="user_avatar {{android?'user_avatar_android':'user_avatar'}} {{iosX?'user_avatar_iosx':''}}" wx:if="{{canIuseAvatar}}">
         <open-data type="userAvatarUrl" class='avatar'></open-data>
     </view>
     <view class='user_avatar' wx:if="{{!canIuseAvatar}}">
-        <image src='{{submitData.apply.wechat_user.wechat_photo}}' class='avatar'></image>
+        <image src='{{userAvatar}}' class='avatar'></image>
     </view>
     <!-- <view class="userinfo" wx:if="{{canIuseAvatar}}">
         <open-data type="userAvatarUrl" class='user_avatar'></open-data>
@@ -25,8 +25,21 @@
          <text class="user_nickname">{{submitData.apply.wechat_user.wechat_name}}</text> 
         <button bindtap='scanQr' plain='true' class="user_nickname scan">扫码</button>
     </view> -->
+    <!-- <view class='test_animation'>
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="1600" duration="0">
+            <block wx:for="{{imgUrls}}">
+                <swiper-item>
+                    <image animation="{{animationData}}" src="{{item}}" class="slide-image" width="355" height="150" />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view> -->
     <view class='game_cloud'>
-        <image src='../../utils/images/game_cloud@2x.png' mode='widthFilled'></image>
+        <!-- <view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view> -->
+        <image animation="{{animationData}}" src='../../utils/images/game_cloud@2x.png' mode='widthFilled'></image>
+        <!-- <image animation="{{animationData}}" src='../../utils/images/checkin@2x.png' mode='widthFilled'></image>
+        <image animation="{{animationData}}" src='../../utils/images/btn_list@2x .png' mode='widthFilled'></image> -->
+
     </view>
     <view class='activity_wrapper'>
         <view class='list'>

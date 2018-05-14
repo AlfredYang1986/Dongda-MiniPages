@@ -14,15 +14,21 @@
         <open-data type="userNickName" class="user_nickname"></open-data>
     </view>
     <view class="userinfo" wx:if="{{!canIuseAvatar}}">
-        <image src='{{submitData.apply.wechat_user.wechat_photo}}' class='user_avatar'></image>
-         <text class="user_nickname">{{submitData.apply.wechat_user.wechat_name}}</text> 
+        <image src='{{userAvatar}}' class='user_avatar'></image>
+         <!-- <text class="user_nickname">{{userNickname}}</text>  -->
     </view>
-    <view class='score_wrapper'>
-        <view class='score_title'>最高分数</view>
-        <view class='score_num'>1125</view>
-        <view class='score_title'>今日分数</view>
-        <view class='score_num'>125</view>
+    <view class='score_wrapper' wx:if="{{hasScores}}">
+        <view class='score_title'>普通打卡分数</view>
+        <view class='score_num'>{{scores.scores_A}}</view>
+        <view class='score_title'>高级打卡分数</view>
+        <view class='score_num'>{{scores.scores_B}}</view>
+        <view class='score_title'>答题分数</view>
+        <view class='score_num'>{{scores.scores_C}}</view>
     </view>
+    <view class='back_activity' wx:else>
+        <view>暂未参加任何活动</view>
+    </view>
+    
 </view>
 
 <!-- <image src='../../utils/images/countingdown@2x.png' mode='widthFix'></image> -->

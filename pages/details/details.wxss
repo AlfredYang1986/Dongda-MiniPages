@@ -2,3 +2,128 @@
 page {
     height: 100%;
 }
+.top_blank_nav {
+    height: 44px;
+    padding-top: 130rpx;
+     /* height: 218rpx;  */
+}
+.top_blank_android {
+    height: 48px;
+    padding-top: 138rpx;
+    /* height: 234rpx; */
+}
+.top_blank_iosx {
+    padding-top: 178rpx;
+    /* height: 286rpx; */
+}
+.brand_info {
+    padding: 40rpx;
+    border-radius: 8px;
+    background-color: #fff;
+}
+.brand_detail {
+    position: relative;
+    /* margin-top: 220rpx; */
+}
+.brand_detail .logo_area {
+    position: absolute;
+    top: -40rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 80rpx;
+    width: 90%;
+    border-radius: 40rpx;
+    line-height: 80rpx;
+    background-color: lightblue;
+    
+}
+.brand_detail .logo_area text{
+    font-size: 24rpx;
+    color: #fff;
+}
+.brand_detail .logo_area text:first-child{
+    float: left;
+    margin-left: 40rpx;
+    width: 45%;
+}
+.brand_detail .logo_area text:last-child{
+    float: right;
+    margin-right: 40rpx;
+}
+.brand_detail .logo_area image{
+    position: absolute;
+    top: -50rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 180rpx;
+    width: 180rpx;
+    border: 6rpx solid lightskyblue; 
+    border-radius: 10rpx;
+    /* box-shadow: 0 4rpx 4rpx 4rpx #eee;  */
+     /* box-shadow: #999 0px 0px 8px; */
+}
+
+.brand_detail .brand_name {
+    padding-top: 100rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 48rpx;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.brand_detail .one_punch_line {
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    font-size: 24rpx;
+    letter-spacing: 1px;
+}
+.brand_detail .hight_light {
+    display: flex;
+    padding: 20rpx 0;
+    font-size: 32rpx;
+}
+.brand_detail .hight_light .hight_light_item {
+    flex: 1;
+    text-align: center;
+}
+.brand_detail .hight_light .hight_light_item image {
+    width: 44rpx;
+    height: 40rpx;
+}
+.brand_detail .story {
+    font-size: 24rpx;
+}
+
+.brand_address {
+    margin: 20rpx 0;
+    font-size: 0;
+}
+.brand_address text {
+    display: inline-block;
+    padding-left: 28rpx;
+    height: 46rpx;
+    font-size: 40rpx;
+    line-height: 46rpx;
+    vertical-align: bottom;
+}
+.brand_address image {
+    display: inline-block;
+    width: 40rpx;
+    height: 46rpx;
+    vertical-align: bottom;
+}
+.brand_descript {
+    
+}
+.brand_descript .descript_title {
+    font-size: 48rpx;
+    letter-spacing: 1px;
+}
+.brand_descript .descript_content {
+    font-size: 36rpx;
+}
+.bottom_blank {
+    height: 20rpx;
+}

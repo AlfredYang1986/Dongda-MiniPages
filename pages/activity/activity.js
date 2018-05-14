@@ -8,18 +8,25 @@ Page({
         canIuseAvatar: wx.canIUse('open-data.type.userAvatarUrl'),
         android: false,
         iosX: false,
+        animationData: {},
+        userAvatar:'',
     },
-    scanQr: function() {
+    list: () => {
+        wx.navigateTo({
+            url: '../lists/lists',
+        })
+    },
+    scanQr: function () {
         wx.scanCode({
             success: (res) => {
                 console.log(res.path);
                 wx.navigateTo({
-                    url: "../../"+res.path,
+                    url: "../../" + res.path,
                 })
             }
         })
     },
-    score: () =>{      
+    score: () => {
         wx.navigateTo({
             url: '../score/score',
         })
@@ -29,7 +36,7 @@ Page({
             success: function (res) {
                 console.log(res);
                 wx.navigateTo({
-                    url: '../mission/mission?latitude:'+res.latitude+'&longitude:'+res.longitude,
+                    url: '../mission/mission?latitude=' + res.latitude + '&longitude=' + res.longitude,
                 })
             },
             fail: (error) => {
@@ -61,7 +68,7 @@ Page({
             }
         })
     },
-    question: ()=> {
+    question: () => {
         // wx.navigateTo({
         //     url: '../question/question',
         // })
@@ -75,7 +82,7 @@ Page({
     backBeforePage: function () {
         console.log('back')
         wx.navigateBack({
-            delta: 2
+            delta: 1
         })
     },
     /**
@@ -84,7 +91,8 @@ Page({
     onLoad: function (options) {
         this.setData({
             android: getApp().globalData.android,
-            iosX: getApp().globalData.iosX
+            iosX: getApp().globalData.iosX,
+            userAvatar: getApp().globalData.wechat_user.wechat_photo
         });
     },
 
@@ -99,7 +107,31 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        // var animation = wx.createAnimation({
+        //     duration: 1600,
+        //     timingFunction: 'ease',
+        // })
 
+        // this.animation = animation
+
+        // animation.scale(1.5, 1.5).opacity(0).step()
+        // animation.scale(1, 1).opacity(1).step()
+        // this.setData({
+        //     animationData: animation.export()
+        // })
+        // setInterval(function () {
+        //     console.log("donghua");
+        //     animation.scale(1.5, 1.5).opacity(0).step({ duration: 1600 }).scale(1, 1).opacity(1).step({ duration: 10 })
+        //     this.setData({
+        //         animationData: animation.export()
+        //     })
+        // }.bind(this), 1010)
+        // setTimeout(function () {
+        //     animation.translate(30).step()
+        //     this.setData({
+        //         animationData: animation.export()
+        //     })
+        // }.bind(this), 1600)
     },
 
     /**

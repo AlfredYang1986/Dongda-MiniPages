@@ -11,7 +11,6 @@ Page({
     },
     // 计算时间
     calcDay: function () {
-
         this.setData({
             restDay: (31 - new Date().getDate())
         })

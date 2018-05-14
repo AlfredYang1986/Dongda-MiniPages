@@ -11,3 +11,8 @@ page {
     line-height: 60rpx;
     font-size: 48rpx;
 }
+.back_activity {
+    text-align: center;
+    font-size: 48rpx;
+    color: #fff;
+}

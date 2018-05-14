@@ -1,0 +1,29 @@
+<!--pages/lists/lists.wxml-->
+<view class='content_has_padding'>
+    <view class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+        <view class='backArea'>
+            <image src='../../utils/images/icon_back@2x.png'></image>
+            <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+        </view>
+        <view class='navigationTitle'>
+            <text></text>
+        </view>
+    </view>
+    <view class='top_blank'></view>
+    <view class='items' wx:for="{{businessList}}">
+        <image class='brand_logo' src='{{item.logo}}'></image>
+        <view class='brand_name'>{{item.brand_name}}</view>
+        <view class='brand_type'>{{item.service_type}}·{{item.service_leaf}}</view>
+        <view class='brand_onepunchline'>{{item.onepunchline}}</view>
+        <view class='brand_difference'>
+            <view class='brand_differenct_item' wx:for="{{item.difference}}">
+                <view>{{item}}</view>
+            </view>
+        </view>
+
+        <view class='brand_address'>
+            <image src='../../utils/images/icon_location_s@2x.png'></image>
+            <text>{{item.address}}</text></view>
+    </view>
+    <view class='bottom_blank'></view>
+</view>

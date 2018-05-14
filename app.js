@@ -15,16 +15,15 @@ App({
             method: 'POST',
             data: data,
             success: function (res) {
-                // let applies = res.data.result.applies;
-                console.log(res);
+                // console.log(res);
                 that.globalData.userId = res.data.result.user.user_id;
                 wx.setStorageSync('userId', res.data.result.user.user_id);
             },
             fail: function (error) {
                 console.log(error);
                 wx.showModal({
-                    title: "网络出错",
-                    content: '网络出错,请查看网络连接',
+                    title: "网络繁忙",
+                    content: '网络繁忙,请稍后重试',
                     showCancel: false,
                     success: function (res) {
 

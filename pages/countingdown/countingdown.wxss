@@ -26,10 +26,12 @@ image.time {
     font-size: 70rpx;
     font-weight: 700;
     text-align: center;
-    color: #fff;
+    color: lightcoral;
     
 }
-.test {
+.taste {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 50px;
 }

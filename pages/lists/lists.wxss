@@ -1,0 +1,97 @@
+/* pages/lists/lists.wxss */
+
+page {
+    height: 100%;
+}
+
+.top_blank {
+    height: 160rpx;
+}
+
+.items {
+    position: relative;
+    margin: 60rpx 0;
+    padding: 30rpx;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.items:last-child {
+    margin-bottom: 0;
+}
+
+.items .brand_logo {
+    position: absolute;
+    right: 40rpx;
+    top: -40rpx;
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 4px lightblue;
+}
+
+.items .brand_name {
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 44rpx;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.items .brand_type {
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 32rpx;
+    letter-spacing: 1px;
+}
+
+.items .brand_onepunchline {
+    margin-top: 20rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 32rpx;
+    color: #676767;
+    text-overflow : ellipsis; 
+    white-space : nowrap; 
+    overflow : hidden; 
+}
+
+.items .brand_difference {
+    display: flex;
+    padding: 20rpx 0;
+}
+
+.items .brand_difference .brand_differenct_item {
+    flex: 1;
+    padding: 0 20rpx;
+    margin: 0 10rpx; 
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-radius: 40rpx;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: lightblue;
+}
+.items .brand_address {
+    font-size: 0;
+}
+.items .brand_address image {
+    display: inline-block;
+    width: 22rpx;
+    height: 26rpx;
+    vertical-align: bottom;
+}
+.items .brand_address text {
+    display: inline-block;
+    padding-left: 20rpx;
+    height: 26rpx;
+    vertical-align: bottom;
+    font-size: 24rpx;
+    line-height: 26rpx;
+}
+.bottom_blank {
+    height: 20rpx;
+}
+
+

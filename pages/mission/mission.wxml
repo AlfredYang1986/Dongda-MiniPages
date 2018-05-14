@@ -9,12 +9,13 @@
             <text></text>
         </view>
     </view>
-    <view class="userinfo" wx:if="{{canIuseAvatar}}">
+    <!-- <view class="userinfo" wx:if="{{canIuseAvatar}}">
         <open-data type="userAvatarUrl" class='user_avatar'></open-data>
         <open-data type="userNickName" class="user_nickname"></open-data>
     </view>
     <view class="userinfo" wx:if="{{!canIuseAvatar}}">
         <image src='{{submitData.apply.wechat_user.wechat_photo}}' class='user_avatar'></image>
          <text class="user_nickname">{{submitData.apply.wechat_user.wechat_name}}</text> 
-    </view>
+    </view> -->
+    <view class='open_soon'></view>
 </view>

@@ -8,10 +8,16 @@ button::after {
     height: 100%;
     padding: 20rpx;
 }
-
+.content_has_padding {
+    min-height: 100%;
+    padding: 0 40rpx;
+    background-image: url(http://192.168.100.115:9000/assets/images/countingdown_bg@2x.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
 .content_no_padding {
     height: 100%;
-    background-image: url(https://i.loli.net/2018/05/10/5af3c56308d9b.png);
+    background-image: url(http://192.168.100.115:9000/assets/images/countingdown_bg@2x.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }

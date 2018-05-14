@@ -14,11 +14,18 @@ page {
     margin-top: -52rpx;
 }
 
+.user_avatar_android {
+    padding: 144rpx 0 60rpx;
+}
 .user_avatar {
-    padding: 100rpx 0 60rpx;
+    padding: 128rpx 0 60rpx;
     height: 120rpx;
     text-align: center;
 }
+.user_avatar_iosx {
+    padding: 176rpx 0 60rpx;
+}
+
 .user_avatar .avatar {
     display: inline-block;
     border: 2rpx solid #eee;
@@ -35,6 +42,7 @@ page {
     width: 426rpx;
     height: 272rpx;
 }
+
 
 
 .list {
@@ -85,7 +93,7 @@ page {
 
 .scan_qr {
     position: absolute;
-    bottom: 110rpx;
+    bottom: 60rpx;
     left: 50%;
     transform: translateX(-50%);
 }
