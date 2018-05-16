@@ -1,15 +1,25 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/details/details",
         "pages/lists/lists",
+        
+        "pages/mission/mission",
+        "pages/replace/replace",
+        
+        "pages/score/score",
+        
+        
+        
         "pages/activity/activity",
+        
+        "pages/details/details",
+        
         "pages/countingdown/countingdown",
         "pages/bizsuccess/bizsuccess",
         "pages/business/business",
         "pages/player/players",
-        "pages/score/score",
-        "pages/mission/mission",
+        
+        
         "pages/logs/logs"
     ],
     "window": {

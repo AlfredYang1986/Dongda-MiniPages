@@ -8,14 +8,15 @@ Page({
         canIuseAvatar: wx.canIUse('open-data.type.userAvatarUrl'),
         android: false,
         iosX: false,
-        userAvatar: '',
         hasScores: true,
+        hasScroll: false,
         scores: {
             scores_A: 1,    // 普通扫码分数
             user_id:"",
             scores_C: 0,    // 答题分数
             scores_B: 0,    // 高级扫码分数
-            scores_id: ""
+            scores_id: "",
+            
         },
     },
     // 返回
@@ -23,6 +24,19 @@ Page({
         wx.navigateBack({
             delta: 1
         })
+    },
+    onPageScroll: function(res) {
+        var that = this;
+        if (res.scrollTop > 0) {
+            that.setData({
+                hasScroll: true
+            })
+        } else {
+            that.setData({
+                hasScroll: false
+            })
+        }
+        // console.log(res);
     },
     /**
      * 生命周期函数--监听页面加载
@@ -32,7 +46,6 @@ Page({
         this.setData({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX,
-            userAvatar: getApp().globalData.wechat_user.wechat_photo
         });
         wx.showLoading({
             title: '获取数据中...',
@@ -43,6 +56,7 @@ Page({
                 wechat_id: getApp().globalData.userOpenId
             }
         };
+
         wx.request({
             url: 'http://192.168.100.115:9000/scores/query',
             data: data,
@@ -68,17 +82,18 @@ Page({
                 wx.hideLoading();
                 wx.showModal({
                     title: '网络繁忙',
-                    content: '获取信息失败',
-                    confirmText: '重新获取',
-                    showCancel: false,
+                    content: '获取信息失败,请稍后重试',
+                    // confirmText: '重新获取',
+                    // showCancel: false,
                     success: (res) => {
                         if (res.confirm) {
-                            that.onLoad();
+                            // that.onLoad();
                         }
                     }
                 })
             }
         })
+
     },
 
     /**

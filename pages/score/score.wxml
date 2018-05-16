@@ -1,34 +1,75 @@
 <!--pages/score/score.wxml-->
-<view class='content_no_padding'>
-    <view class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+<view class='content_has_padding'>
+    <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
         <view class='backArea'>
             <image src='../../utils/images/icon_back@2x.png'></image>
             <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
         </view>
         <view class='navigationTitle'>
-            <text>分数</text>
+            <text></text>
         </view>
     </view>
-    <view class="userinfo" wx:if="{{canIuseAvatar}}">
+    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+    <!-- <view class="userinfo" wx:if="{{canIuseAvatar}}">
         <open-data type="userAvatarUrl" class='user_avatar'></open-data>
         <open-data type="userNickName" class="user_nickname"></open-data>
     </view>
-    <view class="userinfo" wx:if="{{!canIuseAvatar}}">
+    <view class="userinfo" wx:else>
         <image src='{{userAvatar}}' class='user_avatar'></image>
-         <!-- <text class="user_nickname">{{userNickname}}</text>  -->
-    </view>
+          <text class="user_nickname">{{userNickname}}</text>  
+    </view> -->
     <view class='score_wrapper' wx:if="{{hasScores}}">
-        <view class='score_title'>普通打卡分数</view>
+        <view class='eggs_line'>
+            <view class='egg'>
+                <image class='egg_bg' src='../../utils/images/bg_egg@2x.png'></image>
+                <image class='egg_item' src='../../utils/images/egg_heart@2x.png'></image>
+                <image class='egg_bottom' src='../../utils/images/egg_light@2x.png'></image>
+                <text class='egg_count'>x{{scores.scores_A}}</text>
+            </view>
+            <view class='egg'>
+                <image class='egg_bg' src='../../utils/images/bg_egg@2x.png'></image>
+                <image class='egg_item' src='../../utils/images/egg_heart@2x.png'></image>
+                <image class='egg_bottom' src='../../utils/images/egg_light@2x.png'></image>
+                <text class='egg_count'>x{{scores.scores_B}}</text>
+                
+            </view>
+        </view>
+        <view class='eggs_line'>
+            <view class='egg'>
+                <image class='egg_bg' src='../../utils/images/bg_egg@2x.png'></image>
+                <image class='egg_item' src='../../utils/images/egg_heart@2x.png'></image>
+                <image class='egg_bottom' src='../../utils/images/egg_light@2x.png'></image>
+                <text class='egg_count'>x{{scores.scores_C}}</text>
+                
+            </view>
+            <view class='egg'>
+                <image class='egg_bg' src='../../utils/images/bg_egg@2x.png'></image>
+                <image class='egg_item' src='../../utils/images/egg_heart@2x.png'></image>
+                <image class='egg_bottom' src='../../utils/images/egg_light@2x.png'></image>
+                <text class='egg_count'>x{{scores.scores_A}}</text>
+                
+            </view>
+        </view>
+        <view class='eggs_explain'>
+            <view class='egg_title'><text>彩蛋攻略</text></view>
+            <view class='egg_content'>
+            <view style='font-weight:700;margin: 10rpx 0;'>经典彩蛋</view>
+                <text>经典彩蛋一共四种类型，分别是科学蛋、艺术蛋、运动蛋和体验蛋。
+活动期间，集齐不同类型的三枚经典彩蛋，即可获得由咚哒提供给孩子的“6.1经典礼物”。（一个帐号最多兑换两次）
+每个微信帐号在每个场地扫码只能获得一个经典彩蛋。</text>
+            </view>
+        </view>
+        <!-- <view class='score_title'>普通打卡分数</view>
         <view class='score_num'>{{scores.scores_A}}</view>
         <view class='score_title'>高级打卡分数</view>
         <view class='score_num'>{{scores.scores_B}}</view>
         <view class='score_title'>答题分数</view>
-        <view class='score_num'>{{scores.scores_C}}</view>
+        <view class='score_num'>{{scores.scores_C}}</view> -->
     </view>
     <view class='back_activity' wx:else>
         <view>暂未参加任何活动</view>
     </view>
-    
+    <view class='bottom_blank'></view>
 </view>
 
 <!-- <image src='../../utils/images/countingdown@2x.png' mode='widthFix'></image> -->

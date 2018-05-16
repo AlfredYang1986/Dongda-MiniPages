@@ -8,11 +8,18 @@ page {
     height: 160rpx;
 }
 
+.didi_area {
+    margin-top: 20rpx;
+    height: 294rpx;
+    border-radius: 24rpx;
+    background: #FF964F;
+}
+
 .items {
     position: relative;
     margin: 60rpx 0;
     padding: 30rpx;
-    border-radius: 8px;
+    border-radius: 24rpx;
     background-color: #fff;
 }
 
@@ -26,16 +33,59 @@ page {
     top: -40rpx;
     width: 160rpx;
     height: 160rpx;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 4px lightblue;
+    border: 3px solid #7FAEDD;
+    border-radius: 24rpx;
+    background-color: #fff;
+    /* box-shadow: 0 4px 8px 4px lightblue; */
+}
+.items .brand_logo_star {
+    position: absolute;
+    right: 40rpx;
+    top: -40rpx;
+    width: 160rpx;
+    height: 160rpx;
+    border: 3px solid #FEE594;
+    border-radius: 24rpx;
+    background-color: #fff;
+}
+.items .brand_logo image:first-child ,.items .brand_logo_star image:first-child{
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 24rpx;
+}
+.items .brand_logo_star image.star{
+    position: absolute;
+    left: 50%;
+    bottom: -20rpx;
+    transform: translateX(-50%);
+    width: 50rpx;
+    height: 48rpx;
+}
+.items .checked {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 102rpx;
+    height: 102rpx;
 }
 
 .items .brand_name {
-    height: 50rpx;
-    line-height: 50rpx;
+    /* height: 50rpx; */
+    margin-bottom: 20rpx;
+    padding-right: 180rpx;
+    line-height: 56rpx;
     font-size: 44rpx;
     font-weight: 700;
     letter-spacing: 1px;
+    color: #112A51;
+}
+.items .brand_name text {
+    padding-left: 20rpx;
+    line-height: 56rpx;
+    font-size: 26rpx;
+    font-weight: 100;
+    color: #8A8C96;
+    /* text-align: center; */
 }
 
 .items .brand_type {
@@ -45,7 +95,7 @@ page {
     letter-spacing: 1px;
 }
 
-.items .brand_onepunchline {
+/* .items .brand_onepunchline {
     margin-top: 20rpx;
     height: 40rpx;
     line-height: 40rpx;
@@ -54,44 +104,54 @@ page {
     text-overflow : ellipsis; 
     white-space : nowrap; 
     overflow : hidden; 
-}
+} */
 
 .items .brand_difference {
-    display: flex;
+    /* display: flex; */
     padding: 20rpx 0;
 }
 
 .items .brand_difference .brand_differenct_item {
-    flex: 1;
-    padding: 0 20rpx;
+    /* flex: 1; */
+    display: inline-block;
+    /* padding: 0 8rpx; */
     margin: 0 10rpx; 
-    height: 60rpx;
-    line-height: 60rpx;
+    width: 164rpx;
+    height: 48rpx;
+    line-height: 48rpx;
     text-align: center;
     border-radius: 40rpx;
-    font-size: 28rpx;
+    font-size: 26rpx;
+    overflow: hidden;
     color: #fff;
-    background-color: lightblue;
+    background-color: #BFD6EE;
 }
+/* .items .brand_difference .brand_differenct_item view {
+    height: 48rpx;
+} */
 .items .brand_address {
+    position: relative;
     font-size: 0;
 }
 .items .brand_address image {
-    display: inline-block;
+    position: absolute;
+    top: 8rpx;
+    left: 0;
     width: 22rpx;
     height: 26rpx;
-    vertical-align: bottom;
 }
 .items .brand_address text {
     display: inline-block;
-    padding-left: 20rpx;
-    height: 26rpx;
-    vertical-align: bottom;
-    font-size: 24rpx;
-    line-height: 26rpx;
+    padding-left: 30rpx;
+    padding-right: 180rpx;
+    /* height: 26rpx; */
+    vertical-align: top;
+    font-size: 30rpx;
+    line-height: 42rpx;
+    color: #112A51;
 }
-.bottom_blank {
+/* .bottom_blank {
     height: 20rpx;
-}
+} */
 
 

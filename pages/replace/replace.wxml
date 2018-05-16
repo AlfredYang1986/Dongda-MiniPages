@@ -1,4 +1,4 @@
-<!--pages/details/details.wxml-->
+<!--pages/replace/replace.wxml-->
 <view class='content_has_padding'>
     <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
         <view class='backArea'>
@@ -11,11 +11,9 @@
     </view>
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
     <view class='brand_detail brand_info'>
-        <view class="logo_area  {{businessInfo.isPaid?'paid':'normal'}}">
-            <!-- <text>{{businessInfo.service_type}}-{{businessInfo.service_leaf}}</text> -->
+        <view class="logo_area {{businessInfo.isPaid?'paid':'normal'}}">
             <image src='{{businessInfo.logo}}'></image>
-            <image wx:if="{{businessInfo.isPaid}}" class='star' src='../../utils/images/star@2x.png'></image>
-            <!-- <text>{{businessInfo.found_date}}</text> -->
+            <image wx:if="{{businessInfo.isPaid}}" class='star' src="../../utils/images/star@2x.png"></image>
         </view>
         <view class='brand_name'>{{businessInfo.brand_name}}</view>
         <view class='one_punch_line'>"{{businessInfo.onepunchline}}"</view>
@@ -43,7 +41,7 @@
             <text class='point point_green'></text>
             <text>六一儿童专属活动</text>
         </view>
-        <view class='descript_content'>{{businessInfo.festival}}</view>
+        <view class='descript_content'>{{businessInfo.sixone}}</view>
     </view>
     <view class='brand_descript brand_info'>
         <view class='title'>
@@ -53,7 +51,6 @@
 
         <view class='descript_content'>{{businessInfo.description}}</view>
     </view>
-    <!-- <navigator url='/pages/lists/lists'>测试-listpage</navigator> -->
     <view class='bottom_blank'>
 
     </view>

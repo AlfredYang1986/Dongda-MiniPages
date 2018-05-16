@@ -1,27 +1,13 @@
-/* pages/details/details.wxss */
+/* pages/replace/replace.wxss */
 
 page {
     height: 100%;
 }
+
 .content_has_padding {
     background-image: url(http://192.168.100.115:9000/assets/images/bg_detail@2x.png);
 }
-.top_blank_nav {
-    height: 44px;
-    padding-top: 130rpx;
-    /* height: 218rpx;  */
-}
 
-.top_blank_android {
-    height: 48px;
-    padding-top: 138rpx;
-    /* height: 234rpx; */
-}
-
-.top_blank_iosx {
-    padding-top: 178rpx;
-    /* height: 286rpx; */
-}
 
 .brand_info {
     padding: 40rpx;
@@ -31,35 +17,36 @@ page {
 
 .brand_detail {
     position: relative;
-    /* margin-top: 220rpx; */
 }
 
 .brand_detail .logo_area {
     position: absolute;
-    top: -100rpx;
+     top: -100rpx; 
     left: 50%;
     transform: translateX(-50%);
-    height: 200rpx; 
     width: 200rpx;
-    /* border: 6rpx solid #7FAEDD; */
+    height: 200rpx;
     border-radius: 24rpx;
     background-color: #fff;
-    /* overflow: hidden; */
-}
-.brand_detail .logo_area image.star {
-    position: absolute;
-    bottom: -20rpx;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50rpx;
-    height: 48rpx;
 }
 
 .brand_detail .logo_area image:first-child {
-
+    position: absolute;
+    /* top: -50rpx; */
+    left: 50%;
+    transform: translateX(-50%);
     height: 200rpx;
     width: 200rpx;
-    border-radius: 24rpx; 
+    border-radius: 24rpx;
+}
+.brand_detail .logo_area .star {
+    position: absolute;
+     bottom: -24rpx;  
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50rpx;
+    width: 48rpx;
+
 }
 
 .brand_detail .brand_name {
@@ -136,9 +123,9 @@ page {
 
 .brand_address text {
     height: 42rpx;
-    line-height: 42rpx;    
+    line-height: 42rpx;
+    font-weight: 700;    
     font-size: 30rpx;
-    font-weight: 700;
     color: #112a51;
 }
 
@@ -153,6 +140,7 @@ page {
     margin-bottom: 20rpx;
     position: relative;
 }
+
 .brand_descript .child {
     position: absolute;
     top: 0;
@@ -160,6 +148,7 @@ page {
     width: 60rpx;
     height: 68rpx;
 }
+
 .descript_title {
     margin: 20rpx 0;
     height: 60rpx;
@@ -169,8 +158,6 @@ page {
     letter-spacing: 1px;
     color: #34384a;
 }
-
-
 
 .brand_descript .title {
     font-size: 0;
@@ -182,14 +169,13 @@ page {
     height: 42rpx;
     line-height: 42rpx;
     vertical-align: middle;
-    
 }
 
 .brand_descript .title text:last-child {
     font-size: 30rpx;
     font-weight: 700;
     letter-spacing: 1px;
-    color: #112A51;    
+    color: #112a51;
 }
 
 .brand_descript .title .point {
@@ -210,7 +196,7 @@ page {
 .brand_descript .descript_content {
     line-height: 42rpx;
     font-size: 30rpx;
-    color: #34384A;
+    color: #34384a;
     letter-spacing: 1px;
 }
 

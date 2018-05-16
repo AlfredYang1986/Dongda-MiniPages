@@ -1,4 +1,4 @@
-// pages/details/details.js
+// pages/replace/replace.js
 Page({
 
     /**
@@ -9,14 +9,13 @@ Page({
         android: false,
         iosX: false,
         hasScroll: false,
-        businessId: "",
         businessInfo: {
             address: "请重试...",
             brand_name: "请重试...",
             date: 15612345678,
             description: "请重试...",
-            festival: '大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解【哦',
-            difference: ['自主研发','明星教练'],
+            fesvital: '大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解【哦',
+            difference: ['自主研发', '明星教练'],
             found_date: "请重试",
             logo: "https://wx.qlogo.cn/mmopen/vi_32/a3IHtceichjtH9d62Zezng3kDqfwN3pzY64bIFtf2q1lfzUduhhDfIlTempgHZDibfOWj3icDrZKMMliaibKuom9dZQ/132",
             onepunchline: "请重试",
@@ -25,8 +24,9 @@ Page({
             service_type: "运动",
             story: "dfadfasdsfgsdfgsdfgsdfgsd服饰股份的公司分公司如果是大法官是否公司分公司答复讽德诵功是大法官 ",
             short_name: " ",
+            festival: "",
             isPaid: 1,
-
+            is_checked: 0,
         }
     },
     // 返回
@@ -64,7 +64,6 @@ Page({
                 wx.hideNavigationBarLoading();
                 // 停止下拉动作  
                 wx.stopPullDownRefresh();
-                console.log(res.data)
                 if (res.data.result.check_in === "already checked") {
 
                 } else {
@@ -101,7 +100,7 @@ Page({
         })
     },
     // 获取商家详情
-    getBusinessDetail: function(data) {
+    getBusinessDetail: function (data) {
         var that = this;
         wx.request({
             url: 'http://192.168.100.115:9000/checkin',
@@ -153,51 +152,27 @@ Page({
             iosX: getApp().globalData.iosX
         });
         var open_id = getApp().globalData.userOpenId;
-        wx.showLoading({
-            title: '获取数据中...',
-        })
+        // wx.showLoading({
+        //     title: '获取数据中...',
+        // })
         var userId = wx.getStorageSync('userId') || '';
-        // console.log(userId);
+        console.log(userId);
         var that = this;
-        // console.log(!options);
-        if (!options) {
+
             var data = {
                 condition: {
                     wechat_id: open_id,
-                    brand_name: that.data.businessId
-                }
-            }
-        } else {
-            that.setData({
-                businessId: options.id
-            });
-            var data = {
-                condition: {
-                    wechat_id: open_id,
-                    brand_name: options.id
+                    provider_id: options.id
                 }
             };
-        };
 
         wx.request({
-            url: 'http://192.168.100.115:9000/checkin',
+            url: 'http://192.168.100.115:9000/provider/query',
             data: data,
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                if (res.data.result.check_in === "already checked") {
-                    // wx.showModal({
-                    //     title: '已打卡',
-                    //     content: '请勿多次打卡',
-                    //     showCancel: false,
-                    // })
-                } else {
-                    wx.showModal({
-                        title: '打卡成功',
-                        content: '打卡成功',
-                        showCancel: false,
-                    })
-                }
+                
                 that.setData({
                     businessInfo: res.data.result.provider
                 });
@@ -205,7 +180,7 @@ Page({
                 that.setData({
                     businessInfo: that.data.businessInfo
                 });
-                // console.log(res.data);
+                console.log(res.data);
                 console.log(that.data.businessInfo)
             },
             fail: (error) => {
@@ -223,7 +198,7 @@ Page({
                 })
             }
         })
- 
+
     },
 
     /**
