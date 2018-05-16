@@ -9,11 +9,20 @@
             <text></text>
         </view>
     </view>
+
     <view class="user_avatar {{android?'user_avatar_android':'user_avatar'}} {{iosX?'user_avatar_iosx':''}}" wx:if="{{canIuseAvatar}}">
-        <open-data type="userAvatarUrl" class='avatar'></open-data>
+        <view class='avatar_content'>
+            <image class='myeggs' src='../../utils/images/icon_myeggs@2x.png'></image>
+            <open-data type="userAvatarUrl" class='avatar'></open-data>
+            <button class='avatar_btn' bindtap=' '></button>
+        </view>
+
     </view>
     <view class='user_avatar' wx:if="{{!canIuseAvatar}}">
-        <image src='{{userAvatar}}' class='avatar'></image>
+        <view class='avatar_content'>
+            <image class='myeggs' src='../../utils/images/icon_myeggs@2x.png'></image>
+            <image src='{{userAvatar}}' class='avatar'></image>
+        </view>
     </view>
     <!-- <view class="userinfo" wx:if="{{canIuseAvatar}}">
         <open-data type="userAvatarUrl" class='user_avatar'></open-data>
@@ -47,7 +56,11 @@
             <button bindtap='list'></button>
         </view>
 
-        <view class='score_mission'>
+        <view class='challenge'>
+            <image src='../../utils/images/btn_challenge@2x.png' mode='widthFix'></image>
+            <button bindtap='mission'></button>
+        </view>
+        <!-- <view class='score_mission'>
             <view class='s_m_item score'>
                 <image src='../../utils/images/btn_score@2x.png'></image>
                 <button bindtap='score'></button>
@@ -56,7 +69,7 @@
                 <image src='../../utils/images/btn_mission@2x.png'></image>
                 <button bindtap='mission'></button>
             </view>
-        </view>
+        </view> -->
 
     </view>
     <view class='scan_qr'>

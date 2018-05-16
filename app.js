@@ -11,11 +11,11 @@ App({
             }
         };
         wx.request({
-            url: 'http://192.168.100.115:9000/login',
+            url: that.globalData.httpsAddress+'/login',
             method: 'POST',
             data: data,
             success: function (res) {
-                // console.log(res);
+                console.log(res);
                 that.globalData.userId = res.data.result.user.user_id;
                 wx.setStorageSync('userId', res.data.result.user.user_id);
             },
@@ -49,10 +49,42 @@ App({
         wx.login({
             success: res => {
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                // console.log(res.code);
                 let code = res.code;
-                let appid = 'wx6b85b33678a1dad6';
-                let secret = '0597961696fcbfdd07368bbf631c2054';
+                // let appid = 'wx6b85b33678a1dad6';
+                // let secret = '0597961696fcbfdd07368bbf631c2054';
+                wx.request({
+                    url: getApp().globalData.httpAddress+'/login',
+                    method: "POST",
+                    data: {
+                        wx: {
+                            code: res.code
+                        }
+                    },
+                    success: function(res) {
+                        console.log(res.data);
+                        that.globalData.userOpenId = res.data.result.open_id;
+                        // that.hasUserExist();
+                        that.globalData.wechat_user.wechat_open_id = res.data.result.open_id;
+                        // that.globalData.wechat_user.wechat_token = res.data.session_key;
+                        that.globalData.wechat_user.wechat_name = wx.getStorageSync('nickName');
+                        that.globalData.wechat_user.wechat_photo = wx.getStorageSync('avatarUrl');
+                        that.globalData.userId = res.data.result.user.user_id;
+                        wx.setStorageSync('userId', res.data.result.user.user_id);
+                        console.log(that.globalData.userOpenId);
+                        console.log(that.globalData.wechat_user.wechat_open_id);
+                        console.log(that.globalData.userId);
+                    },
+                    fail: function (error) {
+                        console.log(error);
+                        wx.showModal({
+                            title: "网络繁忙",
+                            content: '网络繁忙,请稍后重试',
+                            showCancel: false,
+                        })
+
+                    }
+                })
+/*
                 wx.request({
                     url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appid + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
                     data: {
@@ -60,9 +92,7 @@ App({
                     },
                     success: function (res) {
                         console.log(res.data);
-                        // console.log(that.globalData.userOpenId);
                         that.globalData.userOpenId = res.data.openid;
-
                         that.globalData.userToken = res.data.session_key;
                         that.hasUserExist();
                         that.globalData.wechat_user.wechat_open_id = res.data.openid;
@@ -71,6 +101,7 @@ App({
                         that.globalData.wechat_user.wechat_photo = wx.getStorageSync('avatarUrl')
                     }
                 })
+            */
             }
         });
         // 获取设备信息
@@ -125,5 +156,7 @@ App({
         },
         userOpenId: '',
         userToken: '',
+        httpsAddress: 'https://dongdakid.com',
+        httpAddress: 'http://192.168.100.115:9000'
     }
 })

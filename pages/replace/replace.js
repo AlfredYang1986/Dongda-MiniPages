@@ -55,7 +55,7 @@ Page({
         wx.showNavigationBarLoading();
         var that = this;
         wx.request({
-            url: 'http://192.168.100.115:9000/checkin',
+            url: getApp().globalData.httpsAddress+'/checkin',
             data: data,
             method: 'POST',
             success: (res) => {
@@ -103,7 +103,7 @@ Page({
     getBusinessDetail: function (data) {
         var that = this;
         wx.request({
-            url: 'http://192.168.100.115:9000/checkin',
+            url: getApp().globalData.httpsAddress+'/checkin',
             data: data,
             method: 'POST',
             success: (res) => {
@@ -167,7 +167,7 @@ Page({
             };
 
         wx.request({
-            url: 'http://192.168.100.115:9000/provider/query',
+            url: getApp().globalData.httpsAddress+'/provider/query',
             data: data,
             method: 'POST',
             success: (res) => {

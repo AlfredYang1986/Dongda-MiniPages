@@ -1,13 +1,12 @@
 /* pages/replace/replace.wxss */
-
+/* 
 page {
     height: 100%;
 }
 
 .content_has_padding {
-    background-image: url(http://192.168.100.115:9000/assets/images/bg_detail@2x.png);
+    background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png);
 }
-
 
 .brand_info {
     padding: 40rpx;
@@ -21,7 +20,7 @@ page {
 
 .brand_detail .logo_area {
     position: absolute;
-     top: -100rpx; 
+    top: -100rpx;
     left: 50%;
     transform: translateX(-50%);
     width: 200rpx;
@@ -32,21 +31,20 @@ page {
 
 .brand_detail .logo_area image:first-child {
     position: absolute;
-    /* top: -50rpx; */
     left: 50%;
     transform: translateX(-50%);
     height: 200rpx;
     width: 200rpx;
     border-radius: 24rpx;
 }
+
 .brand_detail .logo_area .star {
     position: absolute;
-     bottom: -24rpx;  
+    bottom: -24rpx;
     left: 50%;
     transform: translateX(-50%);
     height: 50rpx;
     width: 48rpx;
-
 }
 
 .brand_detail .brand_name {
@@ -104,7 +102,6 @@ page {
     font-weight: 700;
     opacity: 0.6;
     color: #112a51;
-    
 }
 
 .brand_detail .story {
@@ -124,7 +121,7 @@ page {
 .brand_address text {
     height: 42rpx;
     line-height: 42rpx;
-    font-weight: 700;    
+    font-weight: 700;
     font-size: 30rpx;
     color: #112a51;
 }
@@ -135,6 +132,303 @@ page {
     width: 40rpx;
     height: 46rpx;
 }
+
+.brand_descript {
+    margin-bottom: 20rpx;
+    position: relative;
+}
+
+.brand_descript .child {
+    position: absolute;
+    top: 0;
+    right: 40rpx;
+    width: 60rpx;
+    height: 68rpx;
+}
+
+.descript_title {
+    margin: 20rpx 0;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 44rpx;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #34384a;
+}
+
+.brand_descript .title {
+    font-size: 0;
+    margin-bottom: 10rpx;
+}
+
+.brand_descript .title text {
+    display: inline-block;
+    height: 42rpx;
+    line-height: 42rpx;
+    vertical-align: middle;
+}
+
+.brand_descript .title text:last-child {
+    font-size: 30rpx;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #112a51;
+}
+
+.brand_descript .title .point {
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.point_green {
+    background: #59d5c7;
+}
+
+.point_yellow {
+    background: #ffdc6c;
+}
+
+.brand_descript .descript_content {
+    line-height: 42rpx;
+    font-size: 30rpx;
+    color: #34384a;
+    letter-spacing: 1px;
+}
+
+.bottom_blank {
+    height: 20rpx;
+} */
+page {
+    height: 100%;
+}
+
+.content_has_padding {
+    background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png);
+}
+
+.top_blank_nav {
+    height: 44px;
+    padding-top: 130rpx;
+    /* height: 218rpx;  */
+}
+
+.top_blank_android {
+    height: 48px;
+    padding-top: 138rpx;
+    /* height: 234rpx; */
+}
+
+.top_blank_iosx {
+    padding-top: 178rpx;
+    /* height: 286rpx; */
+}
+
+.brand_info {
+    padding: 40rpx;
+    border-radius: 24rpx;
+    background-color: #fff;
+}
+
+.brand_detail {
+    position: relative;
+}
+.brand_address {
+    margin: 0 0 120rpx;
+    font-size: 0;
+    text-align: center;
+}
+.brand_address image.icon_location {
+    display: inline-block;
+    margin-bottom: 10rpx;
+    width: 40rpx;
+    height: 46rpx;
+}
+
+.brand_address .address_text {
+    /* height: 42rpx; */
+    line-height: 42rpx;
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #34384a;
+}
+
+.brand_address .place {
+    display: flex;
+    margin: 20rpx;
+}
+
+.brand_address .place .place_item {
+    flex: 1;
+    text-align: center;
+    font-size: 0;
+}
+
+.brand_address .place .place_item image {
+    width: 50rpx;
+    height: 48rpx;
+}
+
+.brand_address .place .place_item .place_name {
+    margin-top: 10rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    font-size: 22rpx;
+    color: #34384a;
+}
+
+.brand_address .descript .title {
+    margin: 20rpx 0;
+    height: 40rpx;
+    text-align: center;
+    font-size: 28rpx;
+    font-weight: 700;
+    letter-spacing: 2rpx;
+    color: #5f6270;
+}
+
+.brand_address .descript .descript_items {
+    display: flex;
+    margin: 20rpx 0;
+}
+
+.brand_address .descript .descript_item {
+    vertical-align: top;
+}
+
+.brand_address .descript .data_left {
+    flex: 0 0 140rpx;
+}
+
+.brand_address .descript .data_left .point {
+    display: inline-block;
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.brand_address .descript .data_left text:last-child {
+    font-size: 28rpx;
+    letter-spacing: 0.93px;
+    color: #112a51;
+}
+
+.brand_address .descript .content_right {
+    flex: 1;
+    padding-left: 10rpx;
+    line-height: 40rpx;
+    text-align: left;
+    font-size: 28rpx;
+    letter-spacing: 0.93px;
+    color: #5f6270;
+}
+
+.brand_detail .logo_area {
+    position: absolute;
+    top: -70rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 140rpx;
+    width: 140rpx;
+    /* line-height: 250rpx; */
+    border-radius: 24rpx;
+    background-color: #fff;
+}
+
+.brand_detail .logo_area image.star {
+    position: absolute;
+    bottom: -20rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50rpx;
+    height: 48rpx;
+}
+
+.brand_detail .logo_area image:first-child {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* height: 200rpx; *//* height: auto; */
+    width: 140rpx;
+    border-radius: 24rpx;
+}
+
+.brand_detail .brand_name {
+    padding-top: 100rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #112a51;
+}
+
+.brand_detail .one_punch_line {
+    height: 44rpx;
+    line-height: 44rpx;
+    text-align: center;
+    font-size: 28rpx;
+    letter-spacing: 1px;
+    color: #112a51;
+}
+
+.brand_detail .leaf_type {
+    margin-bottom: 10rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    font-size: 26rpx;
+    letter-spacing: 1px;
+    color: rgb(138, 140, 150);
+}
+
+.brand_detail .hight_light {
+    display: flex;
+    margin-bottom: 10rpx;
+    padding: 20rpx 0;
+    font-size: 32rpx;
+}
+
+.brand_detail .hight_light .hight_light_item {
+    flex: 1;
+    text-align: center;
+}
+
+.brand_detail .hight_light .hight_light_item image {
+    width: 44rpx;
+    height: 40rpx;
+}
+
+.brand_detail .hight_light .hight_light_item .diff {
+    height: 42rpx;
+    line-height: 42rpx;
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: 700;
+    opacity: 0.6;
+    color: #112a51;
+}
+
+.brand_detail .story {
+    line-height: 36rpx;
+    font-size: 26rpx;
+    opacity: 0.5;
+    color: #112a51;
+    letter-spacing: 1px;
+}
+
+
+
+/* .brand_address image {
+    display: inline-block;
+    margin-bottom: 10rpx;
+    width: 40rpx;
+    height: 46rpx;
+} */
 
 .brand_descript {
     margin-bottom: 20rpx;

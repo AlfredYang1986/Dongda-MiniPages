@@ -9,7 +9,14 @@
             <text></text>
         </view>
     </view>
-    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}">
+    <view class='eggs_total'>
+            <view class='total'>
+                <image src='../../utils/images/coins@2x.png' mode='widthFix'></image>
+                <text class='total_num'>{{scores.scores_B}}</text>
+            </view>
+        </view>
+        </view>
     <!-- <view class="userinfo" wx:if="{{canIuseAvatar}}">
         <open-data type="userAvatarUrl" class='user_avatar'></open-data>
         <open-data type="userNickName" class="user_nickname"></open-data>
@@ -18,56 +25,65 @@
         <image src='{{userAvatar}}' class='user_avatar'></image>
           <text class="user_nickname">{{userNickname}}</text>  
     </view> -->
-    <view class='score_wrapper' wx:if="{{hasScores}}">
+    <view class='score_wrapper'>
+        <!-- <view class='eggs_total'>
+            <view class='total'>
+                <image src='../../utils/images/coins@2x.png' mode='widthFix'></image>
+                <text class='total_num'>{{scores.scores_B}}</text>
+            </view>
+        </view> -->
         <view class='eggs_line'>
             <view class='egg'>
-                <image class='egg_bg' src='../../utils/images/bg_egg@2x.png'></image>
+                <image class='egg_bg' src='../../utils/images/bg_egg_classicl@2x.png' mode='widthFix'></image>
                 <image class='egg_item' src='../../utils/images/egg_heart@2x.png'></image>
                 <image class='egg_bottom' src='../../utils/images/egg_light@2x.png'></image>
                 <text class='egg_count'>x{{scores.scores_A}}</text>
+                <button class='show_hint' bindtap='showHint'></button>
             </view>
             <view class='egg'>
-                <image class='egg_bg' src='../../utils/images/bg_egg@2x.png'></image>
-                <image class='egg_item' src='../../utils/images/egg_heart@2x.png'></image>
-                <image class='egg_bottom' src='../../utils/images/egg_light@2x.png'></image>
-                <text class='egg_count'>x{{scores.scores_B}}</text>
-                
-            </view>
-        </view>
-        <view class='eggs_line'>
-            <view class='egg'>
-                <image class='egg_bg' src='../../utils/images/bg_egg@2x.png'></image>
+                <image class='egg_bg' src='../../utils/images/bg_egg_surprise@2x.png' mode='widthFix'></image>
                 <image class='egg_item' src='../../utils/images/egg_heart@2x.png'></image>
                 <image class='egg_bottom' src='../../utils/images/egg_light@2x.png'></image>
                 <text class='egg_count'>x{{scores.scores_C}}</text>
-                
-            </view>
-            <view class='egg'>
-                <image class='egg_bg' src='../../utils/images/bg_egg@2x.png'></image>
-                <image class='egg_item' src='../../utils/images/egg_heart@2x.png'></image>
-                <image class='egg_bottom' src='../../utils/images/egg_light@2x.png'></image>
-                <text class='egg_count'>x{{scores.scores_A}}</text>
-                
+                <button class='show_hint' bindtap='showHint'></button>
             </view>
         </view>
+        <view class='eggs_line'>
+            <view class='egg_big'>
+                <image class='egg_bg' src='../../utils/images/bg_egg_king@2x.png' mode='widthFix'></image>
+                <image class='egg_item' src='../../utils/images/egg_heart@2x.png'></image>
+                <image class='egg_bottom' src='../../utils/images/egg_light@2x.png'></image>
+                <text class='egg_count'>x{{scores.scores_D}}</text>
+                <button class='show_hint' bindtap='showHint'></button>
+            </view>
+
+        </view>
         <view class='eggs_explain'>
-            <view class='egg_title'><text>彩蛋攻略</text></view>
+            <view class='egg_title'>
+                <text>彩蛋攻略</text>
+            </view>
             <view class='egg_content'>
-            <view style='font-weight:700;margin: 10rpx 0;'>经典彩蛋</view>
+                <view style='font-weight:700;margin: 10rpx 0;'>经典彩蛋</view>
                 <text>经典彩蛋一共四种类型，分别是科学蛋、艺术蛋、运动蛋和体验蛋。
 活动期间，集齐不同类型的三枚经典彩蛋，即可获得由咚哒提供给孩子的“6.1经典礼物”。（一个帐号最多兑换两次）
 每个微信帐号在每个场地扫码只能获得一个经典彩蛋。</text>
             </view>
         </view>
-        <!-- <view class='score_title'>普通打卡分数</view>
-        <view class='score_num'>{{scores.scores_A}}</view>
-        <view class='score_title'>高级打卡分数</view>
-        <view class='score_num'>{{scores.scores_B}}</view>
-        <view class='score_title'>答题分数</view>
-        <view class='score_num'>{{scores.scores_C}}</view> -->
     </view>
-    <view class='back_activity' wx:else>
-        <view>暂未参加任何活动</view>
+    <view class='hint' wx:if="{{hint}}">
+
+        <view class='hint_content'>
+            <view class='egg_title'>
+                <text>惊喜彩蛋</text>
+            </view>
+            <view class='egg_content'>
+                <text>6月2日-10日，到达任意一家品牌机构签到扫码，均可获得一个经典彩蛋</text>
+            </view>
+            <view class='egg_close'>
+                <image src='../../utils/images/icon_close@2x.png'></image>
+                <button class='hint_close' bindtap='closeHint'></button>
+            </view>
+        </view>
     </view>
     <view class='bottom_blank'></view>
 </view>

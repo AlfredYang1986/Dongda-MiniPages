@@ -26,7 +26,7 @@ Page({
             }
         })
     },
-    score: () => {
+    colorEggs: () => {
         wx.navigateTo({
             url: '../score/score',
         })

@@ -5,7 +5,7 @@ page {
 }
 .content_no_padding {
     height: 100%;
-    background-image: url(http://192.168.100.115:9000/assets/images/game_bg@2x.png);
+    background-image: url(https://dongdakid.com/assets/images/game_bg@2x.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -18,21 +18,43 @@ page {
     padding: 144rpx 0 60rpx;
 }
 .user_avatar {
-    padding: 128rpx 0 60rpx;
+    padding: 128rpx 40rpx 60rpx;
     height: 120rpx;
-    text-align: center;
+    /* text-align: center; */
+}
+.user_avatar .avatar_content{
+    position: relative;
+
+    /* text-align: center; */
 }
 .user_avatar_iosx {
     padding: 176rpx 0 60rpx;
 }
-
+.user_avatar .myeggs {
+    width: 304rpx;
+    height: 112rpx;
+}
 .user_avatar .avatar {
+    position: absolute;
+    left: 20rpx;
+    top: 44%;
+    transform: translateY(-50%);
     display: inline-block;
-    border: 2rpx solid #eee;
+    border: 2rpx solid #fff;
     border-radius: 50%;
-    width: 120rpx;
-    height: 120rpx;
+    width: 80rpx;
+    height: 80rpx;
     overflow: hidden;
+}
+.user_avatar .avatar_btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 304rpx;
+    height: 112rpx;
+    border-radius: 24rpx;
+    background-color: transparent;
+    
 }
 .game_cloud {
     padding: 0 40rpx;
@@ -62,7 +84,22 @@ page {
     background-color: transparent;
 }
 
-
+.challenge {
+    position: relative;
+    padding: 0 40rpx;
+    text-align: center;
+}
+.challenge image {
+    width: 670rpx;
+    /* height: 144rpx; */
+}
+.challenge button {
+    position: absolute;
+    top: 0;
+    width: 670rpx;
+    height: 154rpx;
+    background-color: transparent;
+}
 .score_mission {
     position: relative;
     padding: 0 40rpx;  

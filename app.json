@@ -1,24 +1,24 @@
 {
     "pages": [
-        "pages/index/index",
-        "pages/lists/lists",
         
-        "pages/mission/mission",
-        "pages/replace/replace",
-        
+        "pages/details/details",
         "pages/score/score",
-        
-        
+        "pages/index/index",
+        "pages/replace/replace",
         
         "pages/activity/activity",
         
-        "pages/details/details",
+        
+        
+        "pages/lists/lists",
+        "pages/mission/mission",
+        
+        
         
         "pages/countingdown/countingdown",
         "pages/bizsuccess/bizsuccess",
         "pages/business/business",
         "pages/player/players",
-        
         
         "pages/logs/logs"
     ],

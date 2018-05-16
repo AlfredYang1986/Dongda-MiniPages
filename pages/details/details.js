@@ -11,7 +11,7 @@ Page({
         hasScroll: false,
         businessId: "",
         businessInfo: {
-            address: "请重试...",
+            address: "大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到",
             brand_name: "请重试...",
             date: 15612345678,
             description: "请重试...",
@@ -23,7 +23,7 @@ Page({
             provider_id: " ",
             service_leaf: "leaf",
             service_type: "运动",
-            story: "dfadfasdsfgsdfgsdfgsdfgsd服饰股份的公司分公司如果是大法官是否公司分公司答复讽德诵功是大法官 ",
+            story: "dfadfasdsfgsdfgsdfgsdfgsd服饰股份的公司分公司如果是大法官是否公司分公司答复大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解讽德诵功是大法官 ",
             short_name: " ",
             isPaid: 1,
 
@@ -55,7 +55,7 @@ Page({
         wx.showNavigationBarLoading();
         var that = this;
         wx.request({
-            url: 'http://192.168.100.115:9000/checkin',
+            url: getApp().globalData.httpAddress+'/checkin',
             data: data,
             method: 'POST',
             success: (res) => {
@@ -104,7 +104,7 @@ Page({
     getBusinessDetail: function(data) {
         var that = this;
         wx.request({
-            url: 'http://192.168.100.115:9000/checkin',
+            url: getApp().globalData.httpsAddress+'/checkin',
             data: data,
             method: 'POST',
             success: (res) => {
@@ -180,10 +180,11 @@ Page({
         };
 
         wx.request({
-            url: 'http://192.168.100.115:9000/checkin',
+            url: getApp().globalData.httpAddress+'/checkin',
             data: data,
             method: 'POST',
             success: (res) => {
+                console.log(res.data)
                 wx.hideLoading();
                 if (res.data.result.check_in === "already checked") {
                     // wx.showModal({
@@ -201,10 +202,10 @@ Page({
                 that.setData({
                     businessInfo: res.data.result.provider
                 });
-                that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
-                that.setData({
-                    businessInfo: that.data.businessInfo
-                });
+                // that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
+                // that.setData({
+                //     businessInfo: that.data.businessInfo
+                // });
                 // console.log(res.data);
                 console.log(that.data.businessInfo)
             },

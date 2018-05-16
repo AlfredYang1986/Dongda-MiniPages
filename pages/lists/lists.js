@@ -28,7 +28,7 @@ Page({
             },
             {
                 address: "十六号文创园东外五十六号文创园东外五十六号文创园 ",
-                brand_name: "万国击剑万国击剑万国击剑万国",
+                brand_name: "万国击剑万国击剑万国击剑万国国击剑万国",
                 date: 1526025748479,
                 description: " ",
                 difference: [' 自主研发', '明星的教练','开心就好啊'],
@@ -99,7 +99,7 @@ Page({
         };
 
         wx.request({
-            url: 'http://192.168.100.115:9000/provider/search',
+            url: getApp().globalData.httpAddress+'/provider/search',
             data: data,
             method: 'POST',
             success: (res) => {
@@ -107,9 +107,9 @@ Page({
                 console.log(res.data);
                 var resultData = res.data.result.providers;
 
-                for(let i = 0,len = res.data.result.providers.length; i<len; i++) {
-                    resultData[i].difference = resultData[i].difference.split(',');
-                }
+                // for(let i = 0,len = res.data.result.providers.length; i<len; i++) {
+                //     resultData[i].difference = resultData[i].difference.split(',');
+                // }
                 that.setData({
                     businessList: resultData
                 });
@@ -129,6 +129,7 @@ Page({
                 })
             }
         })
+   
     },
 
     /**

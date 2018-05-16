@@ -10,13 +10,14 @@ Page({
         iosX: false,
         hasScores: true,
         hasScroll: false,
+        hint: false,
         scores: {
             scores_A: 1,    // 普通扫码分数
             user_id:"",
             scores_C: 0,    // 答题分数
             scores_B: 0,    // 高级扫码分数
+            scores_D: 0,
             scores_id: "",
-            
         },
     },
     // 返回
@@ -25,6 +26,7 @@ Page({
             delta: 1
         })
     },
+    // 检测页面滚动
     onPageScroll: function(res) {
         var that = this;
         if (res.scrollTop > 0) {
@@ -37,6 +39,20 @@ Page({
             })
         }
         // console.log(res);
+    },
+    // 显示提示
+    showHint: function() {
+        this.setData({
+            hint: true
+        })
+
+    },
+    // 关闭提示
+    closeHint: function () {
+        this.setData({
+            hint: false
+        })
+
     },
     /**
      * 生命周期函数--监听页面加载
@@ -58,7 +74,7 @@ Page({
         };
 
         wx.request({
-            url: 'http://192.168.100.115:9000/scores/query',
+            url: getApp().globalData.httpsAddress+'/scores/query',
             data: data,
             method: 'POST',
             success: (res) => {

@@ -4,7 +4,7 @@ page {
 }
 .content_no_padding {
     height: 100%;
-    background-image: url(http://192.168.100.115:9000/assets/images/countingdown_bg@2x.png);
+    background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
