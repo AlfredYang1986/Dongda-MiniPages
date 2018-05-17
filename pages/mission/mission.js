@@ -16,7 +16,7 @@ Page({
             description: " ",
             difference: [' 自主研发', '明星的教练'],
             found_date: " ",
-            logo: "../../utils/images/bus_logo.jpg",
+            logo: "avatar_default@2x.png",
             onepunchline: " ",
             provider_id: " ",
             service_leaf: "leaf",
@@ -24,25 +24,10 @@ Page({
             story: " ",
             short_name: " ",
             is_checked: 0,
-            isPayed: 1,
-        },
-        {
-            address: "朝阳区东外五十六号文创园",
-            brand_name: "万国击剑万国击剑万国击剑万国万国击剑万国击剑万国击剑万国",
-            date: 1526025748479,
-            description: " ",
-            difference: [' 自主研发', '明星的教练', '开心就好啊'],
-            found_date: " ",
-            logo: " ",
-            onepunchline: " ",
-            provider_id: " ",
-            service_leaf: "leaf",
-            service_type: "运动",
-            story: " ",
-            short_name: " ",
-            is_checked: 1,
             isPaid: 1,
-        }],
+            is_top: 1,
+        }
+        ],
     },
     // 返回
     backBeforePage: function () {
@@ -65,13 +50,13 @@ Page({
         // console.log(res);
     },
     // 查看星耀商家
-    checkStarDetail: function(e) {
+    checkStarDetail: function (e) {
         var that = this;
         console.log(e);
         var id = e.currentTarget.dataset.brandid
         // var id = that.data.
         wx.navigateTo({
-            url: '../replace/replace?id='+id,
+            url: '../replace/replace?id=' + id,
         })
     },
     /**
@@ -79,32 +64,29 @@ Page({
      */
     onLoad: function (options) {
         var that = this;
-
         this.setData({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX
         });
         var open_id = getApp().globalData.userOpenId;
-        // wx.showLoading({
-        //     title: '获取数据中...',
-        // })
+        wx.showLoading({
+            title: '获取数据中...',
+        })
         var userId = wx.getStorageSync('userId') || '';
-        // console.log(!options);
-            var data = {
-                condition: {
-                    wechat_id: open_id,
-                }
+        var data = {
+            condition: {
+                wechat_id: open_id,
             }
-    /*  
+        }
         wx.request({
-            url: getApp().globalData.httpsAddress+'/answer',
+            url: getApp().globalData.httpsAddress + '/provider/collection',
             data: data,
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
                 console.log(res.data.result)
                 that.setData({
-                    businessList: res.data.result
+                    businessList: res.data.result.providers
                 });
 
             },
@@ -123,7 +105,6 @@ Page({
                 })
             }
         })
-    */
     },
 
     /**

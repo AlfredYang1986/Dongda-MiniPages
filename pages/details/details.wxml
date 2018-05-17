@@ -18,7 +18,7 @@
             <image class='egg_coin' src='../../utils/images/egg_coins@2x.png'></image>
             <view class='egg_text'><text>经典彩蛋</text></view>
         </view>
-        <view ><text>同一商家多次扫码仅可获得一枚彩蛋</text></view>
+        <view class='egg_explain'><text>同一商家多次扫码仅可获得一枚彩蛋</text></view>
     </view>
     <!-- <view class='brand_address brand_info'>
         <image class='icon_location' src='../../utils/images/icon_location@2x.png'></image>
@@ -65,16 +65,21 @@
         </view>
     </view> -->
     <view class='brand_detail brand_info'>
-        <view class="logo_area  {{businessInfo.isPaid?'paid':'normal'}}">
+        <view class="logo_area {{businessInfo.is_top?'king':''}} {{businessInfo.isPaid?'paid':'normal'}}">
+        <!-- <image src='' mode='widthFix'></image> -->
             <image src='http://192.168.100.115:9000/assets/images/{{businessInfo.logo}}' mode='widthFix'></image>
-            <image wx:if="{{businessInfo.isPaid}}" class='star' src='../../utils/images/star@2x.png'></image>
+            
+            <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
+            <image wx:elif="{{businessInfo.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
+            <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image>
+            
         </view>
         <view class='brand_name'>{{businessInfo.brand_name}}</view>
         <view class='one_punch_line'>"{{businessInfo.onepunchline}}"</view>
         <view class='leaf_type'>
             <text>{{businessInfo.service_leaf}}·{{businessInfo.service_type}}</text>
         </view>
-        <view class='hight_light'>
+        <view class='hight_light' wx:if="{{businessInfo.difference.length > 0}}">
             <view class='hight_light_item' wx:for="{{businessInfo.difference}}">
                 <image src='../../utils/images/icon_diff@2x.png'></image>
                 <view class='diff'>{{item}}</view>

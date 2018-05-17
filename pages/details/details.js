@@ -11,22 +11,7 @@ Page({
         hasScroll: false,
         businessId: "",
         businessInfo: {
-            address: "大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到",
-            brand_name: "请重试...",
-            date: 15612345678,
-            description: "请重试...",
-            festival: '大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解【哦',
-            difference: ['自主研发','明星教练'],
-            found_date: "请重试",
-            logo: "https://wx.qlogo.cn/mmopen/vi_32/a3IHtceichjtH9d62Zezng3kDqfwN3pzY64bIFtf2q1lfzUduhhDfIlTempgHZDibfOWj3icDrZKMMliaibKuom9dZQ/132",
-            onepunchline: "请重试",
-            provider_id: " ",
-            service_leaf: "leaf",
-            service_type: "运动",
-            story: "dfadfasdsfgsdfgsdfgsdfgsd服饰股份的公司分公司如果是大法官是否公司分公司答复大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解讽德诵功是大法官 ",
-            short_name: " ",
-            isPaid: 1,
-
+            logo: "avatar_default@2x.png",
         }
     },
     // 返回
@@ -55,7 +40,7 @@ Page({
         wx.showNavigationBarLoading();
         var that = this;
         wx.request({
-            url: getApp().globalData.httpAddress+'/checkin',
+            url: getApp().globalData.httpsAddress+'/checkin',
             data: data,
             method: 'POST',
             success: (res) => {
@@ -180,7 +165,7 @@ Page({
         };
 
         wx.request({
-            url: getApp().globalData.httpAddress+'/checkin',
+            url: getApp().globalData.httpsAddress+'/checkin',
             data: data,
             method: 'POST',
             success: (res) => {
@@ -206,8 +191,8 @@ Page({
                 // that.setData({
                 //     businessInfo: that.data.businessInfo
                 // });
-                // console.log(res.data);
-                console.log(that.data.businessInfo)
+                console.log(res.data);
+                // console.log(that.data.businessInfo)
             },
             fail: (error) => {
                 wx.hideLoading();
@@ -224,7 +209,7 @@ Page({
                 })
             }
         })
- 
+
     },
 
     /**

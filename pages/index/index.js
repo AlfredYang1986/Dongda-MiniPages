@@ -203,8 +203,8 @@ Page({
         else if (e.detail.errMsg == 'getUserInfo:fail auth deny') { // 当用户点击拒绝时
             wx.hideLoading();
             wx.showModal({
-                title: '无法进入下一页面',
-                content: '必须点击同意才能进入下一页面',
+                title: '需要您点击同意',
+                content: '点击同意我们才能更好地为您服务',
                 showCancel: false,
             }) // 提示用户，需要授权才能登录
             // callback('fail to modify scope', null)

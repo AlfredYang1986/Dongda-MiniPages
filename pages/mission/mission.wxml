@@ -9,7 +9,7 @@
             <text></text>
         </view>
     </view>
-    <view class='top_blank'></view>
+    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
     <view class='didi_area'>
         <image src='../../utils/images/didi@2x.png' mode='widthFix'></image>
     </view>
@@ -20,9 +20,12 @@
             <text>{{item.address}}</text>
         </view>
         <view class='brand_logo_area'>
-            <view class='brand_logo'>
-                <image src='{{item.logo}}' mode='widthFix'></image>
-                <image class='star' src='../../utils/images/star@2x.png'></image>
+            <view class="brand_logo {{item.is_top?'king':'paid'}}">
+                <image src='http://192.168.100.115:9000/assets/images/{{item.logo}}' mode='widthFix'></image>
+                <!-- <image class='star' src='../../utils/images/star@2x.png'></image> -->
+                <image wx:if="{{item.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
+                <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
+                <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image>
             </view>
         </view>
 
@@ -37,9 +40,7 @@
         </view> -->
         <view class='brand_difference'>
             <view class='brand_differenct_item' wx:for="{{item.difference}}">
-                <view>
                     <view class='diff'>{{item}}</view>
-                </view>
             </view>
         </view>
     </view>

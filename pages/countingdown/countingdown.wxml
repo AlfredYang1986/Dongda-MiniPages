@@ -7,7 +7,9 @@
         </view>
         <view class='navigationTitle'><text></text></view>
     </view>
-    <image class='time' src='https://dongdakid.com/assets/images/countingdowncloud@2x.png'  mode='widthFix'></image>
+     <image class='time' src='https://dongdakid.com/assets/images/countingdowncloud@2x.png'  mode='widthFix'></image> 
+    <!-- <image class='time' src='http://192.168.100.115:9000/assets/images/countingdowncloud@2x.png'  mode='widthFix'></image> -->
+    
     <view class='restday'><text>{{restDay}}</text></view>
     <view class='early'>
         <button class='taste' bindtap='testBtn'>提前体验</button>

@@ -1,7 +1,7 @@
 /* pages/business/business.wxss */
 @import "../../utils/weui.wxss";
 .content-wrapper {
-    background-image: url(https://i.loli.net/2018/05/08/5af140ea1c9f1.png);
+    background-image: url(https://dongdakid.com/assets/images/counting_down@2x.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }

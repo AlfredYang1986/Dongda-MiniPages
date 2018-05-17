@@ -1,40 +1,47 @@
 /* pages/activity/activity.wxss */
 @import "../../utils/weui.wxss";
+
 page {
     height: 100%;
 }
+
 .content_no_padding {
     height: 100%;
-    background-image: url(https://dongdakid.com/assets/images/game_bg@2x.png);
+    background-image: url(https://dongdakid.com/assets/images/game_bg@2x.png); 
+    /* background-image: url(http://192.168.100.115:9000/assets/images/game_bg@2x.png);  */
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
 .activity_wrapper {
-    margin-top: -52rpx;
+    margin-top: -55rpx;
 }
 
 .user_avatar_android {
-    padding: 144rpx 0 60rpx;
+    padding: 144rpx 40rpx 60rpx;
+    height: 120rpx;
 }
+
+.user_avatar_iosx {
+    padding: 176rpx 40rpx 60rpx !important;
+}
+
 .user_avatar {
     padding: 128rpx 40rpx 60rpx;
     height: 120rpx;
-    /* text-align: center; */
 }
-.user_avatar .avatar_content{
-    position: relative;
 
-    /* text-align: center; */
+.avatar_area .avatar_content {
+    position: relative;
+    margin-top: 24rpx;
 }
-.user_avatar_iosx {
-    padding: 176rpx 0 60rpx;
-}
-.user_avatar .myeggs {
+
+.avatar_area .myeggs {
     width: 304rpx;
     height: 112rpx;
 }
-.user_avatar .avatar {
+
+.avatar_area .avatar {
     position: absolute;
     left: 20rpx;
     top: 44%;
@@ -46,7 +53,8 @@ page {
     height: 80rpx;
     overflow: hidden;
 }
-.user_avatar .avatar_btn {
+
+.avatar_area .avatar_btn {
     position: absolute;
     left: 0;
     top: 0;
@@ -54,27 +62,28 @@ page {
     height: 112rpx;
     border-radius: 24rpx;
     background-color: transparent;
-    
 }
+
 .game_cloud {
     padding: 0 40rpx;
     text-align: center;
 }
+
 .game_cloud image {
-    width: 426rpx;
-    height: 272rpx;
+    width: 474rpx;
+    height: 302rpx;
 }
-
-
 
 .list {
     position: relative;
     padding: 0 40rpx;
 }
+
 .list image {
     width: 100%;
     height: 308rpx;
 }
+
 .list button {
     position: absolute;
     left: 0;
@@ -89,10 +98,11 @@ page {
     padding: 0 40rpx;
     text-align: center;
 }
+
 .challenge image {
     width: 670rpx;
-    /* height: 144rpx; */
 }
+
 .challenge button {
     position: absolute;
     top: 0;
@@ -100,25 +110,31 @@ page {
     height: 154rpx;
     background-color: transparent;
 }
+
 .score_mission {
     position: relative;
-    padding: 0 40rpx;  
+    padding: 0 40rpx;
     height: 144rpx;
 }
+
 .score_mission .s_m_item {
     display: inline-block;
     position: relative;
 }
+
 .score_mission .score {
     float: left;
 }
+
 .score_mission .mission {
     float: right;
 }
+
 .score_mission .s_m_item image {
     width: 320rpx;
     height: 144rpx;
 }
+
 .score_mission .s_m_item button {
     position: absolute;
     left: 0;
@@ -134,14 +150,17 @@ page {
     left: 50%;
     transform: translateX(-50%);
 }
+
 .scan_qr image {
     width: 200rpx;
     height: 195rpx;
 }
+
 .scan_qr .scan {
     position: absolute;
     left: 0;
     top: 0;
+    padding: 0;
     width: 100%;
     height: 100%;
     background-color: transparent;

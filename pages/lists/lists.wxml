@@ -9,10 +9,13 @@
             <text></text>
         </view>
     </view>
-    <view class='top_blank'></view>
+
+    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+
     <view class='didi_area'>
         <image src='../../utils/images/didi@2x.png' mode='widthFix'></image>
     </view>
+
     <view class='items' wx:for="{{businessList}}" data-brandid='{{item.provider_id}}' bindtap='checkDetail'>
         <image class='checked' src='../../utils/images/mark@2x.png' wx:if="{{item.is_checked}}"></image>
         <view class='brand_address'>
@@ -20,9 +23,13 @@
             <text>{{item.address}}</text>
         </view>
         <view class='brand_logo_area'>
-            <view class="{{item.isPaid?'brand_logo_star':'brand_logo'}} brand_avatar">
+            <view class="brand_avatar {{item.is_top?'king':''}} {{item.isPaid?'paid':'normal'}}">
                 <image src='http://192.168.100.115:9000/assets/images/{{item.logo}}' mode='widthFix'></image>
-                <image class='star' src='../../utils/images/star@2x.png' wx:if="{{item.isPaid}}"></image>
+                <!-- <image class='star' src='../../utils/images/star@2x.png' wx:if="{{item.isPaid}}"></image> -->
+                <image wx:if="{{item.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
+            
+            <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
+            <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image>
             </view>
             <view class='brand_name_area'>
                 <view class='brand_name'>{{item.brand_name}}</view>
@@ -34,8 +41,7 @@
             <image wx:if="{{item.isPaid}}" class='star' src='../../utils/images/star@2x.png'></image>
         </view> -->
 
-
-        <view class='brand_difference'>
+        <view class='brand_difference' wx:if='{{item.difference.length > 0}}'>
             <view class='brand_differenct_item' wx:for="{{item.difference}}">
                 <view>{{item}}</view>
             </view>

@@ -4,13 +4,9 @@ page {
     height: 100%;
 }
 
-.score_wrapper {
-}
-
 .eggs_total {
     position: relative;
-    /* margin: 30rpx 0; */
-    /* height: 78rpx; */
+    margin: 20rpx 0;
 }
 
 .eggs_total .total image:first-child {
@@ -20,17 +16,17 @@ page {
 .eggs_total .total .total_num {
     position: absolute;
     display: inline-block;
-    /* top: 50%; *//* transform: translateY(-50%); */
     top: 16rpx;
-    left: 120rpx;
-    /* height: 38rpx; */
+    left: 116rpx;
     width: 100rpx;
     font-size: 32rpx;
+    font-weight: 700;
     letter-spacing: 1px;
     color: #fff;
 }
 
 .eggs_line {
+    margin-top: 30rpx;
 }
 
 .eggs_line .egg {
@@ -52,7 +48,6 @@ page {
     top: 0;
     left: 0;
     width: 100%;
-    /* height: 238rpx; */
 }
 
 .eggs_line .egg:last-child {
@@ -87,7 +82,7 @@ page {
 .eggs_line .egg .egg_count, .eggs_line .egg_big .egg_count {
     position: absolute;
     bottom: 24rpx;
-    right: 10rpx;
+    right: 14rpx;
     display: inline-block;
     height: 62rpx;
     font-weight: 700;
@@ -110,7 +105,7 @@ page {
 
 .eggs_explain {
     position: relative;
-    margin-top: 80rpx;
+    margin-top: 120rpx;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.8);
 }
@@ -118,43 +113,36 @@ page {
 .eggs_explain .egg_title {
     position: absolute;
     left: 50%;
-    top: -59rpx;
+    top: -49rpx;
     transform: translateX(-50%);
     z-index: 2;
     width: 520rpx;
     height: 98rpx;
-    background: #ffdc6c;
-    border-radius: 12px;
-    font-size: 48rpx;
     line-height: 98rpx;
+    border-radius: 24rpx;
+    font-size: 48rpx;
     text-align: center;
-    letter-spacing: 1px;
-    opacity: 1;
     color: #fff;
+    background-color: #ffdc6c;
 }
 
 .eggs_explain .egg_content {
-    /* position: absolute;  */
     margin-bottom: 20rpx;
-    padding: 59rpx 20rpx 40rpx;
+    padding: 59rpx 32rpx 60rpx;
+    line-height: 40rpx;
     font-size: 28rpx;
     color: #5f6270;
-    /* opacity: 0.8;  
-    border-radius: 12px;
-    background: #fff;  */
 }
 
-.score_wrapper .score_title {
-    height: 60rpx;
-    line-height: 60rpx;
-    font-size: 48rpx;
+.eggs_explain .egg_content .title {
+    margin: 20rpx 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #34384A;
+    
 }
 
-.back_activity {
-    text-align: center;
-    font-size: 48rpx;
-    color: #fff;
-}
+
 
 .hint {
     position: fixed;
@@ -163,21 +151,18 @@ page {
     bottom: 0;
     left: 0;
     z-index: 10;
-    /* width: 100%;
-    height: 100%; *//* opacity: 0.7; */
-    background-color: rgba(20, 34, 57, 0.7);
-    /* background: #142239; */
+    background-color: rgba(20, 34, 57, .7);
+ 
 }
 
 .hint .hint_content {
-    position: relative;
+    position: absolute;
     margin: 0 40rpx;
-    padding-bottom: 40rpx;
+    padding-bottom: 20rpx;
     top: 50%;
     transform: translateY(-50%);
-    /* margin-top: 80rpx; */
     border-radius: 24rpx;
-    background: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .hint .hint_content .egg_title {
@@ -191,28 +176,24 @@ page {
     background: #ffdc6c;
     border-radius: 92rpx;
     font-size: 32rpx;
+    font-weight: 700;
     line-height: 92rpx;
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 1.07px;
     color: #fff;
 }
 
 .hint .hint_content .egg_content {
-    /* position: absolute;  */
     margin-bottom: 20rpx;
     padding: 59rpx 32rpx 40rpx;
     line-height: 40rpx;
     font-size: 28rpx;
-    color: #34384a;
     letter-spacing: 1px;
-    /* opacity: 0.8;  
-    border-radius: 12px;
-    background: #fff;  */
+    color: #34384a;
 }
 
 .hint .hint_content .egg_close {
     position: relative;
-    
     text-align: center;
 }
 
@@ -228,5 +209,5 @@ page {
     transform: translateX(-50%);
     width: 140rpx;
     height: 80rpx;
-    background-color: transparent; 
+    background-color: transparent;
 }

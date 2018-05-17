@@ -1,6 +1,5 @@
 // pages/lists/lists.js
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -10,39 +9,42 @@ Page({
         hasScroll: false,
         businessList: [
             {
-                address: "东外五十六号文创园东外五十六号文创园东外五 ",
-                brand_name: "万国击剑",
-                date: 1526025748479,
-                description: " ",
-                difference: [' 自主研发', '明星的教练'],
-                found_date: " ",
-                logo: "https://wx.qlogo.cn/mmopen/vi_32/a3IHtceichjtH9d62Zezng3kDqfwN3pzY64bIFtf2q1lfzUduhhDfIlTempgHZDibfOWj3icDrZKMMliaibKuom9dZQ/132",
-                onepunchline: " ",
-                provider_id: " ",
-                service_leaf: "leaf",
-                service_type: "运动",
-                story: " ",
-                short_name: " ",
-                isPaid: 1,
-                is_checked: 0,
-            },
-            {
-                address: "十六号文创园东外五十六号文创园东外五十六号文创园 ",
-                brand_name: "万国击剑万国击剑万国击剑万国国击剑万国",
-                date: 1526025748479,
-                description: " ",
-                difference: [' 自主研发', '明星的教练','开心就好啊'],
-                found_date: " ",
-                logo: "https://wx.qlogo.cn/mmopen/vi_32/a3IHtceichjtH9d62Zezng3kDqfwN3pzY64bIFtf2q1lfzUduhhDfIlTempgHZDibfOWj3icDrZKMMliaibKuom9dZQ/132",
-                onepunchline: " ",
-                provider_id: " ",
-                service_leaf: "leaf",
-                service_type: "运动",
-                story: " ",
-                short_name: " ",
-                isPaid: 0,
-                is_checked: 1,
+                logo: 'avatar_default@2x.png' 
             }
+            // {
+            //     address: "东外五十六号文创园东外五十六号文创园东外五 ",
+            //     brand_name: "万国击剑",
+            //     date: 1526025748479,
+            //     description: " ",
+            //     difference: [' 自主研发', '明星的教练'],
+            //     found_date: " ",
+            //     logo: "",
+            //     onepunchline: " ",
+            //     provider_id: " ",
+            //     service_leaf: "leaf",
+            //     service_type: "运动",
+            //     story: " ",
+            //     short_name: " ",
+            //     isPaid: 1,
+            //     is_checked: 0,
+            // },
+            // {
+            //     address: "十六号文创园东外五十六号文创园东外五十六号文创园 ",
+            //     brand_name: "万国击剑万国击剑万国击剑万国国击剑万国",
+            //     date: 1526025748479,
+            //     description: " ",
+            //     difference: [' 自主研发', '明星的教练','开心就好啊'],
+            //     found_date: " ",
+            //     logo: "",
+            //     onepunchline: " ",
+            //     provider_id: " ",
+            //     service_leaf: "leaf",
+            //     service_type: "运动",
+            //     story: " ",
+            //     short_name: " ",
+            //     isPaid: 0,
+            //     is_checked: 1,
+            // }
         ]
     },
     // 返回
@@ -70,13 +72,9 @@ Page({
         var that = this;
         console.log(e);
         var id = e.currentTarget.dataset.brandid
-        // var id = that.data.
         wx.navigateTo({
             url: '../replace/replace?id=' + id,
         })
-        // wx.navigateTo({
-        //     url: '../details/details',
-        // })
     },
     /**
      * 生命周期函数--监听页面加载
@@ -99,7 +97,7 @@ Page({
         };
 
         wx.request({
-            url: getApp().globalData.httpAddress+'/provider/search',
+            url: getApp().globalData.httpsAddress+'/provider/search',
             data: data,
             method: 'POST',
             success: (res) => {
@@ -107,9 +105,6 @@ Page({
                 console.log(res.data);
                 var resultData = res.data.result.providers;
 
-                // for(let i = 0,len = res.data.result.providers.length; i<len; i++) {
-                //     resultData[i].difference = resultData[i].difference.split(',');
-                // }
                 that.setData({
                     businessList: resultData
                 });

@@ -17,7 +17,7 @@ Page({
             fesvital: '大的说法是独立房间爱上的联发科Joe案件发动机奥拉夫金额哦啊接到了客服哈斯打了付款金额哦啊多了解【哦',
             difference: ['自主研发', '明星教练'],
             found_date: "请重试",
-            logo: "https://wx.qlogo.cn/mmopen/vi_32/a3IHtceichjtH9d62Zezng3kDqfwN3pzY64bIFtf2q1lfzUduhhDfIlTempgHZDibfOWj3icDrZKMMliaibKuom9dZQ/132",
+            logo: "avatar_default@2x.png",
             onepunchline: "请重试",
             provider_id: " ",
             service_leaf: "leaf",
@@ -55,7 +55,7 @@ Page({
         wx.showNavigationBarLoading();
         var that = this;
         wx.request({
-            url: getApp().globalData.httpsAddress+'/checkin',
+            url: getApp().globalData.httpsAddress +'/provider/query',
             data: data,
             method: 'POST',
             success: (res) => {
@@ -76,10 +76,10 @@ Page({
                 that.setData({
                     businessInfo: res.data.result.provider
                 });
-                that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
-                that.setData({
-                    businessInfo: that.data.businessInfo
-                });
+                // that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
+                // that.setData({
+                //     businessInfo: that.data.businessInfo
+                // });
                 // console.log(res.data);
                 // console.log(that.data.businessInfo)
             },
@@ -103,7 +103,7 @@ Page({
     getBusinessDetail: function (data) {
         var that = this;
         wx.request({
-            url: getApp().globalData.httpsAddress+'/checkin',
+            url: getApp().globalData.httpsAddress +'/provider/query',
             data: data,
             method: 'POST',
             success: (res) => {
@@ -120,12 +120,12 @@ Page({
                 that.setData({
                     businessInfo: res.data.result.provider
                 });
-                that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
-                that.setData({
-                    businessInfo: that.data.businessInfo
-                });
-                console.log(res.data);
-                console.log(that.data.businessInfo)
+                // that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
+                // that.setData({
+                //     businessInfo: that.data.businessInfo
+                // });
+                // console.log(res.data);
+                // console.log(that.data.businessInfo)
             },
             fail: (error) => {
                 wx.hideLoading();
@@ -152,9 +152,9 @@ Page({
             iosX: getApp().globalData.iosX
         });
         var open_id = getApp().globalData.userOpenId;
-        // wx.showLoading({
-        //     title: '获取数据中...',
-        // })
+        wx.showLoading({
+            title: '获取数据中...',
+        })
         var userId = wx.getStorageSync('userId') || '';
         console.log(userId);
         var that = this;
@@ -176,12 +176,12 @@ Page({
                 that.setData({
                     businessInfo: res.data.result.provider
                 });
-                that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
-                that.setData({
-                    businessInfo: that.data.businessInfo
-                });
+                // that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
+                // that.setData({
+                //     businessInfo: that.data.businessInfo
+                // });
                 console.log(res.data);
-                console.log(that.data.businessInfo)
+                // console.log(that.data.businessInfo)
             },
             fail: (error) => {
                 wx.hideLoading();

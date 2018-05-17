@@ -53,7 +53,7 @@ App({
                 // let appid = 'wx6b85b33678a1dad6';
                 // let secret = '0597961696fcbfdd07368bbf631c2054';
                 wx.request({
-                    url: getApp().globalData.httpAddress+'/login',
+                    url: getApp().globalData.httpsAddress+'/login',
                     method: "POST",
                     data: {
                         wx: {
@@ -70,9 +70,9 @@ App({
                         that.globalData.wechat_user.wechat_photo = wx.getStorageSync('avatarUrl');
                         that.globalData.userId = res.data.result.user.user_id;
                         wx.setStorageSync('userId', res.data.result.user.user_id);
-                        console.log(that.globalData.userOpenId);
-                        console.log(that.globalData.wechat_user.wechat_open_id);
-                        console.log(that.globalData.userId);
+                        // console.log(that.globalData.userOpenId);
+                        // console.log(that.globalData.wechat_user.wechat_open_id);
+                        // console.log(that.globalData.userId);
                     },
                     fail: function (error) {
                         console.log(error);
@@ -107,14 +107,18 @@ App({
         // 获取设备信息
         wx.getSystemInfo({
             success: function (res) {
-                
+                console.log(res)
                 if (res.platform === 'android') {
                     that.globalData.android = true;
                 } else {
-                    if (res.model === "iPhone X") {
+                    if (res.model.slice(0,8) === "iPhone X") {
+                        // console.log("this is true");
                         that.globalData.iosX = true;
                     } else {
                         that.globalData.iosX = false;
+                    } 
+                    if (res.model === "Nexus 5") {
+                        that.globalData.android = true;
                     }
                 }
             }
@@ -143,6 +147,7 @@ App({
         */
     },
     globalData: {
+
         userExist: false,
         android: false,
         iosX: false,
@@ -156,7 +161,7 @@ App({
         },
         userOpenId: '',
         userToken: '',
-        httpsAddress: 'https://dongdakid.com',
-        httpAddress: 'http://192.168.100.115:9000'
+        httpsAddress: 'https://dongdakid.com'
+        // httpsAddress: 'http://192.168.100.115:9000'
     }
 })

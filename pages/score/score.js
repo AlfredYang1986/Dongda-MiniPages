@@ -12,7 +12,7 @@ Page({
         hasScroll: false,
         hint: false,
         scores: {
-            scores_A: 1,    // 普通扫码分数
+            scores_A: 0,    // 普通扫码分数
             user_id:"",
             scores_C: 0,    // 答题分数
             scores_B: 0,    // 高级扫码分数

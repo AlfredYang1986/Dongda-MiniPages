@@ -10,18 +10,19 @@
         </view>
     </view>
 
-    <view class="user_avatar {{android?'user_avatar_android':'user_avatar'}} {{iosX?'user_avatar_iosx':''}}" wx:if="{{canIuseAvatar}}">
+    <view class="avatar_area {{android?'user_avatar_android':'user_avatar'}} {{iosX?'user_avatar_iosx':''}}" wx:if="{{canIuseAvatar}}">
         <view class='avatar_content'>
             <image class='myeggs' src='../../utils/images/icon_myeggs@2x.png'></image>
             <open-data type="userAvatarUrl" class='avatar'></open-data>
-            <button class='avatar_btn' bindtap=' '></button>
+            <button class='avatar_btn' bindtap='colorEggs'></button>
         </view>
 
     </view>
-    <view class='user_avatar' wx:if="{{!canIuseAvatar}}">
+    <view class="avatar_area {{android?'user_avatar_android':'user_avatar'}} {{iosX?'user_avatar_iosx':''}}" wx:else>
         <view class='avatar_content'>
             <image class='myeggs' src='../../utils/images/icon_myeggs@2x.png'></image>
-            <image src='{{userAvatar}}' class='avatar'></image>
+            <open-data type="userAvatarUrl" class='avatar'></open-data>
+            <button class='avatar_btn' bindtap='colorEggs'></button>
         </view>
     </view>
     <!-- <view class="userinfo" wx:if="{{canIuseAvatar}}">

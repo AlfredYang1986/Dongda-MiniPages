@@ -10,9 +10,7 @@ page {
 
 .didi_area {
     margin-top: 20rpx;
-    /* height: 294rpx; */
     border-radius: 24rpx;
-    /* background: #FF964F; */
 }
 
 .didi_area image {
@@ -21,18 +19,17 @@ page {
 
 .items {
     position: relative;
+    padding-bottom: 32rpx;
     margin: 60rpx 0;
-    padding: 32rpx;
     border-radius: 24rpx;
     background-color: #fff;
 }
 
 .items .brand_address {
-    padding: 0 0 10rpx;
+    padding: 32rpx 32rpx 10rpx;
     margin: 0 0 10rpx;
     border-bottom: 2rpx solid rgba(0, 0, 0, 0.05);
     font-size: 0;
-    /* text-align: center; */
 }
 
 .items .brand_address image {
@@ -51,6 +48,7 @@ page {
 
 .items .brand_logo_area {
     display: flex;
+    padding: 0 32rpx;
     margin: 20rpx 0;
 }
 
@@ -63,13 +61,6 @@ page {
     background-color: #fff;
 }
 
-.items .brand_logo_area .brand_logo_star {
-    border: 3px solid #fee594;
-}
-
-.items .brand_logo_area .brand_logo {
-    border: 3px solid #7faedd;
-}
 
 .items .brand_logo_area .brand_avatar image:first-child {
     position: absolute;
@@ -77,15 +68,16 @@ page {
     transform: translateY(-50%);
     width: 110rpx;
     border-radius: 24rpx;
+    max-height: 110rpx;
 }
 
 .items .brand_logo_area .brand_avatar image.star {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -20rpx;
+    bottom: -25rpx;
     width: 50rpx;
-    height: 48rpx;
+    height: 50rpx;
 }
 
 .items .brand_logo_area .brand_name_area {
@@ -97,10 +89,13 @@ page {
 }
 
 .items .brand_logo_area .brand_name_area .brand_name {
-    margin: 20rpx 0;
+    margin: 8rpx 0 20rpx;
     line-height: 44rpx;
     font-size: 32rpx;
     font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     color: #112a51;
 }
 
@@ -124,14 +119,11 @@ page {
 }
 
 .items .brand_difference {
-    /* display: flex; */
-    padding: 20rpx 0;
+    padding: 20rpx 32rpx 0rpx;
 }
 
 .items .brand_difference .brand_differenct_item {
-    /* flex: 1; */
     display: inline-block;
-    /* padding: 0 8rpx; */
     margin: 0 10rpx;
     width: 164rpx;
     height: 48rpx;
@@ -142,6 +134,10 @@ page {
     overflow: hidden;
     color: #fff;
     background-color: #7faedd;
+}
+
+.items .brand_difference .brand_differenct_item:first-child {
+    margin: 0 10rpx 0 0;
 }
 
 /* .bottom_blank {

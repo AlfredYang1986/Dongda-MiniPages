@@ -8,6 +8,7 @@ Page({
         canIuseAvatar: wx.canIUse('open-data.type.userAvatarUrl'),
         android: false,
         iosX: false,
+        disabled: true,
         animationData: {},
         userAvatar:'',
     },
@@ -27,11 +28,14 @@ Page({
         })
     },
     colorEggs: () => {
+    console.log('color eggs');
         wx.navigateTo({
             url: '../score/score',
+
         })
     },
     mission: () => {
+
         wx.getLocation({
             success: function (res) {
                 console.log(res);

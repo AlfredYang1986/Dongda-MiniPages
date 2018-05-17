@@ -8,17 +8,19 @@ page {
 .container {
     position: relative;
     height: 100%;
-    background-image: url(https://dongdakid.com/assets/images/activity_bg@2x.png);
+     background-image: url(https://dongdakid.com/assets/images/activity_bg@2x.png); 
+    /* background-image: url(http://192.168.100.115:9000/assets/images/activity_bg@2x.png);  */
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .goldegg {
     height: 100%;
-    background-image: url(https://dongdakid.com/assets/images/activity.png); 
+     background-image: url(https://dongdakid.com/assets/images/activity.png);  
+    /* background-image: url(http://192.168.100.115:9000/assets/images/activity.png);  */
     background-repeat: no-repeat;
      background-size: 100%; 
-    background-position-y: center;
+    background-position-y: bottom;
 }
 
 .goldegg image {
