@@ -11,7 +11,7 @@ page {
 }
 
 .brand_info {
-    padding: 40rpx;
+    padding: 32rpx;
     border-radius: 24rpx;
     background-color: #fff;
 }
@@ -21,7 +21,7 @@ page {
 }
 
 .brand_address {
-    margin: 0 0 120rpx;
+    margin: 0 0 40rpx;
     font-size: 0;
     text-align: center;
 }
@@ -43,7 +43,7 @@ page {
 
 .brand_address .place {
     display: flex;
-    margin: 20rpx;
+    /* margin: 20rpx; */
 }
 
 .brand_address .place .place_item {
@@ -65,45 +65,47 @@ page {
     opacity:0.5;
     color: #112A51;
 }
+.descript {
+    margin-bottom: 120rpx;
+}
 
-.brand_address .descript .title {
+.descript .title {
     margin: 20rpx 0;
     height: 40rpx;
-    text-align: center;
+    text-align: left;
     font-size: 28rpx;
     font-weight: 700;
     letter-spacing: 2rpx;
     color: #5f6270;
 }
 
-.brand_address .descript .descript_items {
+.descript .descript_items {
     display: flex;
-    margin: 20rpx 0;
+    /* margin: 20rpx 0; */
 }
 
-.brand_address .descript .descript_item {
-    vertical-align: top;
+
+.descript .data_left {
+    flex: 0 0 20rpx;
+    position: relative;
 }
 
-.brand_address .descript .data_left {
-    flex: 0 0 140rpx;
-}
-
-.brand_address .descript .data_left .point {
+.descript .data_left .point {
+    position: absolute;
+    top: 13rpx;
     display: inline-block;
     width: 16rpx;
     height: 16rpx;
     border-radius: 50%;
-    margin-right: 20rpx;
 }
 
-.brand_address .descript .data_left text:last-child {
+.descript .data_left text:last-child {
     font-size: 28rpx;
     letter-spacing: 0.93px;
     color: #112a51;
 }
 
-.brand_address .descript .content_right {
+.descript .content_right {
     flex: 1;
     padding-left: 10rpx;
     line-height: 40rpx;
@@ -269,8 +271,4 @@ page {
     font-size: 30rpx;
     color: #34384a;
     letter-spacing: 1px;
-}
-
-.bottom_blank {
-    height: 20rpx;
 }

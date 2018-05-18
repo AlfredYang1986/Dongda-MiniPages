@@ -76,6 +76,13 @@ Page({
             url: '../replace/replace?id=' + id,
         })
     },
+    // didi
+    didiCoupon: function() {
+        // console.log("didi")
+        wx.navigateTo({
+            url: '../../pages/didi/didi',
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

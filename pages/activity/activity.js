@@ -13,6 +13,10 @@ Page({
         userAvatar:'',
     },
     list: () => {
+        wx.showLoading({
+            title: '正在加载中',
+            mask: true,
+        })
         wx.navigateTo({
             url: '../lists/lists',
         })
@@ -24,27 +28,33 @@ Page({
                 wx.navigateTo({
                     url: "../../" + res.path,
                 })
+            },
+            fail: (error) => {
+                console.log(error)
             }
         })
     },
     colorEggs: () => {
-    console.log('color eggs');
+    // console.log('color eggs');
         wx.navigateTo({
             url: '../score/score',
 
         })
     },
     mission: () => {
-
+        wx.showLoading({
+            title: '正在加载中',
+            mask: true,
+        })
         wx.getLocation({
             success: function (res) {
-                console.log(res);
+                // console.log(res);
                 wx.navigateTo({
                     url: '../mission/mission?latitude=' + res.latitude + '&longitude=' + res.longitude,
                 })
             },
             fail: (error) => {
-                console.log(error);
+                // console.log(error);
                 wx.getSetting({
                     success: (res) => {
                         console.log(res.authSetting['scope.userLocation']);
@@ -56,7 +66,7 @@ Page({
                                     if (res.confirm) {
                                         wx.openSetting({
                                             success: (res) => {
-                                                console.log(res);
+                                                // console.log(res);
                                             }
                                         })
                                     } else {
@@ -73,9 +83,6 @@ Page({
         })
     },
     question: () => {
-        // wx.navigateTo({
-        //     url: '../question/question',
-        // })
         wx.showModal({
             title: '即将推出',
             content: '敬请期待',
@@ -84,10 +91,12 @@ Page({
     },
     // 返回
     backBeforePage: function () {
-        console.log('back')
-        wx.navigateBack({
-            delta: 1
+        wx.reLaunch({
+            url: '../index/index'
         })
+        // wx.navigateTo({
+        //     url: '../index/index',
+        // })
     },
     /**
      * 生命周期函数--监听页面加载

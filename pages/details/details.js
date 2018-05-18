@@ -16,9 +16,15 @@ Page({
     },
     // 返回
     backBeforePage: function () {
-        wx.navigateBack({
-            delta: 1
+        // wx.navigateBack({
+        //     delta: 1
+        // })
+        wx.reLaunch({
+            url: '../activity/activity'
         })
+        // wx.navigateTo({
+        //     url: '../activity/activity',
+        // })
     },
     // 监听页面滚动
     onPageScroll: function (res) {

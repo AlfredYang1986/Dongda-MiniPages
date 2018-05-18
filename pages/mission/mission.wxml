@@ -10,7 +10,7 @@
         </view>
     </view>
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
-    <view class='didi_area'>
+    <view class='didi_area' bindtap='didiCoupon' wx:if="{{businessList.length>0}}">
         <image src='../../utils/images/didi@2x.png' mode='widthFix'></image>
     </view>
     <view class='items' data-brandid='{{item.provider_id}}' wx:for="{{businessList}}" bindtap='checkStarDetail'>
@@ -21,7 +21,8 @@
         </view>
         <view class='brand_logo_area'>
             <view class="brand_logo {{item.is_top?'king':'paid'}}">
-                <image src='http://192.168.100.115:9000/assets/images/{{item.logo}}' mode='widthFix'></image>
+                <image src='https://dongdakid.com/assets/images/{{item.logo}}' mode='widthFix'></image>
+                <!-- <image src='http://192.168.100.115:9000/assets/images/{{item.logo}}' mode='widthFix'></image> -->
                 <!-- <image class='star' src='../../utils/images/star@2x.png'></image> -->
                 <image wx:if="{{item.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
                 <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
@@ -40,11 +41,26 @@
         </view> -->
         <view class='brand_difference'>
             <view class='brand_differenct_item' wx:for="{{item.difference}}">
-                    <view class='diff'>{{item}}</view>
+                <view class='diff'>{{item}}</view>
             </view>
         </view>
     </view>
     <view class='bottom_blank'></view>
-    <!-- <view class='open_soon'>
-    </view> -->
+
+    <view class='hint' wx:if="{{businessList.length === 0}}">
+        <view class='hint_content'>
+            <!-- <view class='egg_title'>
+                <text>惊喜彩蛋</text>
+            </view> -->
+            <view class='egg_content'>
+
+                <text>今天还没有星耀挑战呦
+去收集其他彩蛋吧</text>
+            </view>
+            <view class='egg_close'>
+                <image src='../../utils/images/icon_close@2x.png'></image>
+                <button class='hint_close' bindtap='closeHint'></button>
+            </view>
+        </view>
+    </view>
 </view>

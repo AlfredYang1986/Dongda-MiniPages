@@ -30,9 +30,14 @@ image.time {
     color: lightcoral;
     
 }
-.taste {
+.early {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 50px;
+    bottom: 20px;
+    text-align: center;
+}
+.early image {
+    width: 670rpx;
+    height: 112rpx;
 }

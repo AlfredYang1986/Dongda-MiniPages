@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
     data: {
-        restDay: 0,
+        activityPage: false,
         targetId: '',
         userInfo: {},
         hasUserInfo: false,
@@ -12,108 +12,113 @@ Page({
     },
     // 计算时间
     calcDay: function () {
-        this.setData({
-            restDay: (31 - new Date().getDate())
-        })
+        // console.log(new Date().getMonth() + 1)
+        var currentMonth = new Date().getMonth() + 1;
+        if (currentMonth === 6) {
+            this.setData({
+                activityPage: true,
+            })
+        }
+
     },
     // canIgetUserInfo
-/*
-    canIgetUserInfo: function() {
-        console.log('canigetuseinfo');
-        console.log(wx.canIUse('button.open-type.getUserInfo'))
-        if (!wx.canIUse('button.open-type.getUserInfo')) { // 对应的功能就是通过按钮获取用户资料
-            wx.showModal({
-                title: '微信版本太旧',
-                content: '使用旧版本微信，导致无法进入下一步，请前往应用商店进行更新。',
-                showCancel: false,
-            }) 
-        }
-    },
-*/
-/*
-    // 请求用户存在
-    hasUserExist: function (e) {
-        // console.log(e.target.id);
-        var that = this;
-        var openId = app.globalData.userOpenId;
-        var data = {
-            condition: {
-                wechat_open_id: openId,
+    /*
+        canIgetUserInfo: function() {
+            console.log('canigetuseinfo');
+            console.log(wx.canIUse('button.open-type.getUserInfo'))
+            if (!wx.canIUse('button.open-type.getUserInfo')) { // 对应的功能就是通过按钮获取用户资料
+                wx.showModal({
+                    title: '微信版本太旧',
+                    content: '使用旧版本微信，导致无法进入下一步，请前往应用商店进行更新。',
+                    showCancel: false,
+                }) 
             }
-        };
-        wx.request({
-            url: 'http://192.168.100.115:9000/provider/apply/search',
-            method: 'POST',
-            data: data,
-            success: function (res) {
-                wx.hideLoading();
-                let applies = res.data.result.applies;
-                if (applies.length > 0) {
-                    app.globalData.userExist = true;
-                    if (e.target.id === "activity") {
-                        wx.navigateTo({
-                            url: '../activity/activity'
-                        })
-                    } else if (e.target.id === "business") {
-                        if (app.globalData.userExist) {
+        },
+    */
+    /*
+        // 请求用户存在
+        hasUserExist: function (e) {
+            // console.log(e.target.id);
+            var that = this;
+            var openId = app.globalData.userOpenId;
+            var data = {
+                condition: {
+                    wechat_open_id: openId,
+                }
+            };
+            wx.request({
+                url: 'http://192.168.100.115:9000/provider/apply/search',
+                method: 'POST',
+                data: data,
+                success: function (res) {
+                    wx.hideLoading();
+                    let applies = res.data.result.applies;
+                    if (applies.length > 0) {
+                        app.globalData.userExist = true;
+                        if (e.target.id === "activity") {
                             wx.navigateTo({
-                                url: '../bizsuccess/bizsuccess'
+                                url: '../activity/activity'
                             })
-                        } else {
+                        } else if (e.target.id === "business") {
+                            if (app.globalData.userExist) {
+                                wx.navigateTo({
+                                    url: '../bizsuccess/bizsuccess'
+                                })
+                            } else {
+                                wx.navigateTo({
+                                    url: '../business/business'
+                                })
+                            }
+                        } else if (e.target.id === "player") {
+                            if (app.globalData.userExist) {
+                                wx.navigateTo({
+                                    url: '../bizsuccess/bizsuccess'
+                                })
+                            } else {
+                                wx.navigateTo({
+                                    url: '../player/players'
+                                })
+                            }
+                        }
+                    } else {
+                        app.globalData.userExist = false;
+                        if (e.target.id === "activity") {
+                            wx.navigateTo({
+                                url: '../activity/activity'
+                            })
+                        } else if (e.target.id === "business") {
                             wx.navigateTo({
                                 url: '../business/business'
                             })
-                        }
-                    } else if (e.target.id === "player") {
-                        if (app.globalData.userExist) {
-                            wx.navigateTo({
-                                url: '../bizsuccess/bizsuccess'
-                            })
-                        } else {
+    
+                        } else if (e.target.id === "player") {
                             wx.navigateTo({
                                 url: '../player/players'
                             })
+    
                         }
                     }
-                } else {
-                    app.globalData.userExist = false;
-                    if (e.target.id === "activity") {
-                        wx.navigateTo({
-                            url: '../activity/activity'
-                        })
-                    } else if (e.target.id === "business") {
-                        wx.navigateTo({
-                            url: '../business/business'
-                        })
-
-                    } else if (e.target.id === "player") {
-                        wx.navigateTo({
-                            url: '../player/players'
-                        })
-
-                    }
+                },
+                fail: function (error) {
+                    console.log(error);
+                    wx.hideLoading();
+                    wx.showModal({
+                        title: "网络繁忙",
+                        content: '网络繁忙，请稍后再试',
+                        showCancel: false,
+                        success: function (res) {
+                            if (res.confirm) {
+                                // wx.navigateBack({
+                                //     delta: 1
+                                // })
+                            }
+                        }
+                    })
+    
                 }
-            },
-            fail: function (error) {
-                console.log(error);
-                wx.hideLoading();
-                wx.showModal({
-                    title: "网络繁忙",
-                    content: '网络繁忙，请稍后再试',
-                    showCancel: false,
-                    success: function (res) {
-                        if (res.confirm) {
-                            // wx.navigateBack({
-                            //     delta: 1
-                            // })
-                        }
-                    }
-                })
-
-            }
-        })
-    },
-*/
+            })
+        },
+    */
     onLoad: function () {
         this.calcDay();
         if (app.globalData.userInfo) {
@@ -144,7 +149,6 @@ Page({
         }
     },
     getUserInfo: function (e) {
-        // console.log(e);
         wx.showLoading({
             title: '加载资源中...',
         })
@@ -159,45 +163,15 @@ Page({
                 hasUserInfo: true
             });
             wx.hideLoading();
-            if (this.data.restDay === 30) {
+            if (this.data.activityPage) {
                 wx.navigateTo({
                     url: '../activity/activity',
-                    
-                    // url: '../countingdown/countingdown',
                 })
             } else {
                 wx.navigateTo({
-                    // url: '../activity/activity',
                     url: '../countingdown/countingdown',
-                    
                 })
             }
-            // this.hasUserExist(e);
-            // if(e.target.id === "activity") {
-            //     wx.navigateTo({
-            //         url: '../activity/activity'
-            //     })
-            // } else if ( e.target.id === "business") {
-            //     if(app.globalData.userExist) {
-            //         wx.navigateTo({
-            //             url: '../bizsuccess/bizsuccess'
-            //         })
-            //     } else {
-            //         wx.navigateTo({
-            //             url: '../business/business'
-            //         })
-            //     }
-            // } else if (e.target.id === "player") {
-            //     if (app.globalData.userExist) {
-            //         wx.navigateTo({
-            //             url: '../bizsuccess/bizsuccess'
-            //         })
-            //     } else {
-            //         wx.navigateTo({
-            //             url: '../player/players'
-            //         })
-            //     }
-            // }
             // wx.request({}) // 将用户信息、匿名识别符发送给服务器，调用成功时执行 callback(null, res)
         }
         else if (e.detail.errMsg == 'getUserInfo:fail auth deny') { // 当用户点击拒绝时

@@ -14,13 +14,14 @@ Page({
         this.setData({
             restDay: (31 - new Date().getDate())
         })
-        // console.log(new Date().getDate())
     },
     // 返回
     backBeforePage: function () {
-        console.log('back')
-        wx.navigateBack({
-            delta: 2
+        // wx.navigateBack({
+        //     delta: 1
+        // })
+        wx.reLaunch({
+            url: '../activity/activity'
         })
     },
     testBtn: ()=> {

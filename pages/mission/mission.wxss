@@ -148,3 +148,57 @@ page {
 .bottom_blank {
     height: 20rpx;
 }
+
+
+.hint {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(20, 34, 57, .7);
+ 
+}
+
+.hint .hint_content {
+    position: absolute;
+    margin: 0 40rpx;
+    padding: 32rpx;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80%;
+    text-align: center;
+    border-radius: 24rpx;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+
+.hint .hint_content .egg_content {
+    margin-bottom: 20rpx;
+    padding: 59rpx 32rpx 40rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    letter-spacing: 1px;
+    color: #34384a;
+}
+
+.hint .hint_content .egg_close {
+    position: relative;
+    text-align: center;
+}
+
+.hint .hint_content .egg_close image {
+    width: 72rpx;
+    height: 72rpx;
+}
+
+.hint .hint_content .egg_close .hint_close {
+    position: absolute;
+    top: 0rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140rpx;
+    height: 80rpx;
+    background-color: transparent;
+}

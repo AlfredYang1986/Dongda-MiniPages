@@ -1,0 +1,30 @@
+<!--pages/didi/didi.wxml-->
+<!-- <text>pages/didi/didi.wxml</text> -->
+<view class='content_has_padding'>
+       <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+        <view class='backArea'>
+            <image src='../../utils/images/icon_back@2x.png'></image>
+            <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+        </view>
+        <view class='navigationTitle'>
+            <text></text>
+        </view>
+    </view>
+
+    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+    <view class='didi_logo'>
+        <!-- <image src='../../utils/images/qr@2x.png'></image> -->
+    </view>
+     <view class='qr_code'> 
+        <image src='../../utils/images/qr@2x.png' mode='widthFix'  bindlongpress='saveImage'></image>
+     </view> 
+    <view class='qr_text'>
+        <view><text>保存二维码</text></view>
+        <view><text>扫一扫获取滴滴专车优惠券</text></view>
+    </view>
+    <view class='user_rule'>
+        <view class='rule_title'><text>使用规则</text></view>
+        <view class='rule_content'><text>规则详细内容，规则详细内容规则详细内容。规则详细内容，规则详细内容。</text></view>
+        
+    </view>
+</view>

@@ -1,0 +1,37 @@
+/* pages/didi/didi.wxss */
+
+page {
+    height: 100%;
+}
+
+.qr_code {
+    margin: 40rpx 0;
+    text-align: center;
+}
+
+.qr_code image {
+    width: 280rpx;
+}
+
+.qr_text {
+    text-align: center;
+    line-height: 22px;
+    font-size: 16px;
+    color: #34384a;
+    text-align: center;
+}
+.user_rule {
+    margin-top: 40rpx;
+}
+.user_rule .rule_title {
+    margin: 20rpx 0;
+    line-height: 19px;
+    font-size: 16px;
+    color: #5f6270;
+}
+
+.user_rule .rule_content {
+    line-height: 20px;
+    font-size: 14px;
+    color: #5f6270;
+}

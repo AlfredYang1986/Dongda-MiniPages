@@ -33,12 +33,12 @@
                 </view>
             </view>
         </view>
-        <view class='descript'>
+        <!-- <view class='descript'>
             <view class='title'>活动描述</view>
             <view class='descript_items'>
                 <view class='data_left descript_item'>
                     <text class='point point_green'></text>
-                    <text>6月2日</text>
+                     <text>6月2日</text> 
                 </view>
                 <view class='content_right descript_item'>
                     <text>头号玩家专属活动</text>
@@ -55,11 +55,36 @@
                     <view>哇Sakai的咖啡机贷款金额哦电视里的看法就饿哦爱的看见了看见</view>
                 </view>
             </view>
-        </view>
+        </view> -->
     </view>
+    <view class='brand_info descript'>
+            <view class='title'>活动描述</view>
+            <view class='descript_items'>
+                <view class='data_left descript_item'>
+                    <text class='point point_green'></text>
+                     <!-- <text>6月2日</text>  -->
+                </view>
+                <view class='content_right descript_item'>
+                    <text>头号玩家专属活动</text>
+                    <view>{{businessInfo.description}}</view>
+                </view>
+            </view>
+            <!-- <view class='descript_items'>
+                <view class='data_left descript_item'>
+                    <text class='point point_yellow'></text>
+                     <text>6月3日</text> 
+                </view>
+                <view class='content_right descript_item'>
+                    <text>品牌体验课</text>
+                    <view>哇Sakai的咖啡机贷款金额哦电视里的看法就饿哦爱的看见了看见</view>
+                </view>
+            </view> -->
+        </view>
     <view class='brand_detail brand_info'>
         <view class="logo_area {{businessInfo.is_top?'king':''}} {{businessInfo.isPaid?'paid':'normal'}}">
-            <image src='http://192.168.100.115:9000/assets/images/{{businessInfo.logo}}' mode='widthFix'></image>
+            <image src='https://dongdakid.com/assets/images/{{businessInfo.logo}}' mode='widthFix'></image>
+        
+            <!-- <image src='http://192.168.100.115:9000/assets/images/{{businessInfo.logo}}' mode='widthFix'></image> -->
             <!-- <image wx:if="{{businessInfo.isPaid}}" class='star' src='../../utils/images/star@2x.png'></image> -->
             <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
             <image wx:elif="{{businessInfo.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>

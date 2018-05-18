@@ -12,7 +12,8 @@
     
     <view class='restday'><text>{{restDay}}</text></view>
     <view class='early'>
-        <button class='taste' bindtap='testBtn'>提前体验</button>
+        <image src='../../utils/images/btn_pr@2x.png' mode='widthFix' bindtap='testBtn'></image>
+        <!-- <button class='taste' bindtap='testBtn'>提前体验</button> -->
     </view>
     
 </view>

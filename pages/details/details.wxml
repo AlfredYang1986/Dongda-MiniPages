@@ -14,7 +14,7 @@
         <image class='light' src='../../utils/images/congratulation@2x.png'></image>
         <view class='title'>恭喜获得!</view>
         <view class='egg_type'>
-            <image class='egg_pic' src='../../utils/images/egg_heart@2x.png'></image>
+            <image class='egg_pic' src='../../utils/images/egg_classic@2x.png'></image>
             <image class='egg_coin' src='../../utils/images/egg_coins@2x.png'></image>
             <view class='egg_text'><text>经典彩蛋</text></view>
         </view>
@@ -66,8 +66,8 @@
     </view> -->
     <view class='brand_detail brand_info'>
         <view class="logo_area {{businessInfo.is_top?'king':''}} {{businessInfo.isPaid?'paid':'normal'}}">
-        <!-- <image src='' mode='widthFix'></image> -->
-            <image src='http://192.168.100.115:9000/assets/images/{{businessInfo.logo}}' mode='widthFix'></image>
+            <image src='https://dongdakid.com/assets/images/{{businessInfo.logo}}' mode='widthFix'></image>
+            <!-- <image src='http://192.168.100.115:9000/assets/images/{{businessInfo.logo}}' mode='widthFix'></image> -->
             
             <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
             <image wx:elif="{{businessInfo.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>

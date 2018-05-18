@@ -9,23 +9,10 @@ Page({
         android: false,
         iosX: false,
         hasScroll: false,
-        businessList: [{
-            address: "东外五十六号文创园东外五十六号文创园东外五 ",
-            brand_name: "我是一个联系人",
-            date: 1526025748479,
-            description: " ",
-            difference: [' 自主研发', '明星的教练'],
-            found_date: " ",
+        hint: false,
+        businessList: [
+            {
             logo: "avatar_default@2x.png",
-            onepunchline: " ",
-            provider_id: " ",
-            service_leaf: "leaf",
-            service_type: "运动",
-            story: " ",
-            short_name: " ",
-            is_checked: 0,
-            isPaid: 1,
-            is_top: 1,
         }
         ],
     },
@@ -47,7 +34,31 @@ Page({
                 hasScroll: false
             })
         }
-        // console.log(res);
+    },
+    // 显示提示
+    showHint: function () {
+        wx.hideLoading();
+        this.setData({
+            hint: true
+        })
+
+    },
+    // 关闭提示
+    closeHint: function () {
+        this.setData({
+            hint: false
+        });
+        wx.navigateBack({
+            delta: 1,
+        })
+
+    },
+    // didi
+    didiCoupon: function () {
+        // console.log("didi")
+        wx.navigateTo({
+            url: '../../pages/didi/didi',
+        })
     },
     // 查看星耀商家
     checkStarDetail: function (e) {

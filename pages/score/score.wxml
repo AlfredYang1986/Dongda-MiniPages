@@ -73,7 +73,6 @@
         </view>
     </view>
     <view class='hint' wx:if="{{hint}}">
-
         <view class='hint_content'>
             <view class='egg_title'>
                 <text>惊喜彩蛋</text>

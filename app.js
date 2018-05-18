@@ -1,9 +1,8 @@
 //app.js
 App({
-
+/*
     hasUserExist: function () {
         var that = this;
-
         var openId = that.globalData.userOpenId;
         var data = {
             condition: {
@@ -38,20 +37,14 @@ App({
             }
         })
     },
-
+*/
     onLaunch: function () {
-        // 展示本地存储能力
-        // var logs = wx.getStorageSync('logs') || []
-        // logs.unshift(Date.now())
-        // wx.setStorageSync('logs', logs)
         var that = this;
         // 登录
         wx.login({
             success: res => {
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
                 let code = res.code;
-                // let appid = 'wx6b85b33678a1dad6';
-                // let secret = '0597961696fcbfdd07368bbf631c2054';
                 wx.request({
                     url: getApp().globalData.httpsAddress+'/login',
                     method: "POST",
@@ -63,7 +56,6 @@ App({
                     success: function(res) {
                         console.log(res.data);
                         that.globalData.userOpenId = res.data.result.open_id;
-                        // that.hasUserExist();
                         that.globalData.wechat_user.wechat_open_id = res.data.result.open_id;
                         // that.globalData.wechat_user.wechat_token = res.data.session_key;
                         that.globalData.wechat_user.wechat_name = wx.getStorageSync('nickName');
@@ -81,45 +73,25 @@ App({
                             content: '网络繁忙,请稍后重试',
                             showCancel: false,
                         })
-
                     }
                 })
-/*
-                wx.request({
-                    url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appid + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
-                    data: {
-                        code: res.code
-                    },
-                    success: function (res) {
-                        console.log(res.data);
-                        that.globalData.userOpenId = res.data.openid;
-                        that.globalData.userToken = res.data.session_key;
-                        that.hasUserExist();
-                        that.globalData.wechat_user.wechat_open_id = res.data.openid;
-                        that.globalData.wechat_user.wechat_token = res.data.session_key;
-                        that.globalData.wechat_user.wechat_name = wx.getStorageSync('nickName')
-                        that.globalData.wechat_user.wechat_photo = wx.getStorageSync('avatarUrl')
-                    }
-                })
-            */
             }
         });
         // 获取设备信息
         wx.getSystemInfo({
             success: function (res) {
-                console.log(res)
+                // console.log(res)
                 if (res.platform === 'android') {
                     that.globalData.android = true;
                 } else {
                     if (res.model.slice(0,8) === "iPhone X") {
-                        // console.log("this is true");
                         that.globalData.iosX = true;
                     } else {
                         that.globalData.iosX = false;
                     } 
-                    if (res.model === "Nexus 5") {
-                        that.globalData.android = true;
-                    }
+                    // if (res.model === "Nexus 5") {
+                    //     that.globalData.android = true;
+                    // }
                 }
             }
         })
@@ -147,7 +119,6 @@ App({
         */
     },
     globalData: {
-
         userExist: false,
         android: false,
         iosX: false,
