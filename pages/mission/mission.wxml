@@ -13,7 +13,8 @@
     <view class='didi_area' bindtap='didiCoupon' wx:if="{{businessList.length>0}}">
         <image src='../../utils/images/didi@2x.png' mode='widthFix'></image>
     </view>
-    <view class='items' data-brandid='{{item.provider_id}}' wx:for="{{businessList}}" bindtap='checkStarDetail'>
+
+    <!-- <view class='items' data-brandid='{{item.provider_id}}' wx:for="{{businessList}}" bindtap='checkStarDetail'>
         <image class='checked' src='../../utils/images/mark@2x.png' wx:if="{{item.is_checked}}"></image>
         <view class='brand_address'>
             <image src='../../utils/images/star_location@2x.png'></image>
@@ -22,38 +23,49 @@
         <view class='brand_logo_area'>
             <view class="brand_logo {{item.is_top?'king':'paid'}}">
                 <image src='https://dongdakid.com/assets/images/{{item.logo}}' mode='widthFix'></image>
-                <!-- <image src='http://192.168.100.115:9000/assets/images/{{item.logo}}' mode='widthFix'></image> -->
-                <!-- <image class='star' src='../../utils/images/star@2x.png'></image> -->
                 <image wx:if="{{item.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
                 <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
                 <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image>
             </view>
         </view>
 
-        <!-- <image class='brand_logo' src='{{item.logo}}'></image> -->
-        <!-- <image class='brand_logo_star' src='../../utils/images/star@2x.png'></image> -->
         <view class='brand_name'>{{item.brand_name}}</view>
         <view class='brand_type'>{{item.service_type}}·{{item.service_leaf}}</view>
 
-        <!-- <view class='brand_address'>
-            <image src='../../utils/images/star_location@2x.png'></image>
-            <text>{{item.address}}</text>
-        </view> -->
         <view class='brand_difference'>
             <view class='brand_differenct_item' wx:for="{{item.difference}}">
                 <view class='diff'>{{item}}</view>
             </view>
         </view>
+    </view> -->
+
+    <view class='item' data-brandid='{{item.provider_id}}' wx:for="{{businessList}}" bindtap='checkStarDetail'>
+        <image class='checked' src='../../utils/images/mark@2x.png' wx:if="{{item.is_checked}}"></image>
+        <view class='brand_place'>
+            <image wx:if="{{item.is_top}}" class='star' src='../../utils/images/flag_king_l@2x.png' mode='widthFix'></image>
+            <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/flag_star_l@2x.png' mode='widthFix'></image>
+        </view>
+        <view class="brand_avatar {{item.is_top?'king':'paid'}}">
+            <image src='https://dongdakid.com/assets/images/{{item.logo}}' mode='widthFix'></image>
+        </view>
+        <view class='brand_address'>
+            <image src='../../utils/images/icon_location_s_gray@2x.png'></image>
+            <text>{{item.address}}</text>
+        </view>
+        <view class='brand_name'>{{item.brand_name}}</view>
+        <view class='brand_type'>{{item.service_leaf}}·{{item.service_type}}</view>
+        <view class='brand_difference'>
+            <view class='brand_differenct_item' wx:for="{{item.difference}}" wx:for-item="diff">
+                <view class="diff">{{diff}}</view>
+            </view>
+        </view>
+
     </view>
     <view class='bottom_blank'></view>
 
     <view class='hint' wx:if="{{businessList.length === 0}}">
         <view class='hint_content'>
-            <!-- <view class='egg_title'>
-                <text>惊喜彩蛋</text>
-            </view> -->
             <view class='egg_content'>
-
                 <text>今天还没有星耀挑战呦
 去收集其他彩蛋吧</text>
             </view>

@@ -1,8 +1,10 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/replace/replace",
         "pages/mission/mission",
+        
+        "pages/replace/replace",
+        
         "pages/lists/lists",
         
         "pages/questions/questions",
@@ -14,8 +16,7 @@
         "pages/details/details",
         
         "pages/activity/activity",
-        
-        
+         
         "pages/countingdown/countingdown",
         "pages/bizsuccess/bizsuccess",
         "pages/business/business",

@@ -6,8 +6,6 @@ page {
 
 .content_has_padding {
      background-image: url(https://dongdakid.com/assets/images/bg_star@2x.png); 
-    /* background-image: url(http://192.168.100.115:9000/assets/images/bg_star@2x.png);  */
-
 }
 
 .top_blank {
@@ -23,14 +21,16 @@ page {
     width: 100%;
 }
 
-.items {
+.item {
     position: relative;
-    margin: 60rpx 0;
-    padding-bottom: 32rpx;
+    margin: 60rpx 0 95rpx;
+     padding: 32rpx; 
     border-radius: 24rpx;
+    box-shadow: 0 4px 10px 0 rgba(96, 104, 138, 0.2);
     background-color: #fff;
 }
 
+/*
 .items .brand_address {
     padding: 32rpx;
     margin: 0 0 10rpx;
@@ -144,11 +144,120 @@ page {
 .items .brand_difference .brand_differenct_item:last-child  {
     text-align: left;
 } 
+*/
+
+.item .checked {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 102rpx;
+    height: 102rpx;
+}
+
+.item .brand_place {
+    position: absolute;
+    left: 32rpx;
+    right: 32rpx;
+    top: -1rpx;
+    text-align: center;
+}
+
+.item .brand_place image {
+    width: 602rpx;
+    max-height: 226rpx;
+}
+
+.item .brand_avatar {
+    position: absolute;
+    left: 50%;
+    top: -55rpx;
+    transform: translateX(-50%);
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 24rpx;
+    background-color: #fff;
+    line-height: 110rpx;
+    /* box-shadow: 0 4px 10px 0 rgba(59,105,181,0.16); */
+}
+
+.item .brand_avatar image {
+    width: 110rpx;
+    max-height: 110rpx;
+    border-radius: 24rpx;
+}
+.item .brand_address {
+    padding-top: 196rpx;
+    margin: 0 0 10rpx;
+    font-size: 0;
+    text-align: center;
+}
+
+.item .brand_address image {
+    width: 22rpx;
+    height: 26rpx;
+}
+
+.item .brand_address text {
+    padding-left: 10rpx;
+    line-height: 44rpx;
+    font-size: 32rpx;
+    letter-spacing: 1px;
+    color: #112a51;
+}
+
+.item .brand_name {
+    margin-top: 40rpx;
+    line-height: 44rpx;
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #112A51;
+}
+
+.item .brand_type {
+    margin-bottom: 20rpx;
+    line-height: 36rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #8a8c96;
+}
+
+.item .brand_difference {
+    display: flex;
+    padding: 0 32rpx;
+}
+
+.item .brand_difference .brand_differenct_item {
+    flex: 1;
+    text-align: center;
+}
+
+.item .brand_difference .brand_differenct_item .diff {
+    display: inline-block;
+    margin: 0 auto;
+    width: 144rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    text-align: center;
+    border-radius: 48rpx;
+    font-size: 22rpx;
+    color: #8A8C96;
+    background-color: #F2F2F2;
+}
+
+
+/* .item .brand_difference .brand_differenct_item:first-child {
+    text-align: right;
+}
+
+.item .brand_difference .brand_differenct_item:last-child  {
+    text-align: left;
+}  */
+
 
 .bottom_blank {
     height: 20rpx;
 }
-
 
 .hint {
     position: fixed;
@@ -157,8 +266,7 @@ page {
     bottom: 0;
     left: 0;
     z-index: 10;
-    background-color: rgba(20, 34, 57, .7);
- 
+    background-color: rgba(20, 34, 57, 0.7);
 }
 
 .hint .hint_content {
@@ -172,7 +280,6 @@ page {
     border-radius: 24rpx;
     background: rgba(255, 255, 255, 0.9);
 }
-
 
 .hint .hint_content .egg_content {
     margin-bottom: 20rpx;

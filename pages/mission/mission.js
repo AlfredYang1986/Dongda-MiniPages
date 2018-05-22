@@ -11,9 +11,39 @@ Page({
         hasScroll: false,
         hint: false,
         businessList: [
-            {
-            logo: "avatar_default@2x.png",
-        }
+            // {
+            //     address: "打发打发立刻决定发链接打发打发立刻决定发链",
+            //     brand_name: "打发打发立刻决定发链打发打发立刻决定发链",
+            //     date: 156476123,
+            //     description: "dalfjda代付款垃圾袋sofais地方啦开始的减肥肯德基",
+            //     difference: ["专业东西", "很好好好"],
+            //     festival: "dfakldfdlakjf",
+            //     fonund_date: "2016.04.01",
+            //     isPaid: 1,
+            //     is_checked: 1,
+            //     is_top: 1,
+            //     logo: "avatar_default@2x.png",
+            //     onepunchline: "onepunchline",
+            //     service_leaf: "足球",
+            //     service_type: "运动",
+            //     story: "番小茄的成立和创始人任昕昕的第一个宝宝有关,小孩两三岁的时候体质非常虚弱,经常发烧、感冒、咳嗽,那个时候也在创业,做的成人推拿,推拿老师就说“试试小儿推拿吧”,三个月的时间,小孩的体质明显得到提升,印"
+            // }, {
+            //     address: "打发打发立刻决定发链接",
+            //     brand_name: "的法律的几番",
+            //     date: 156476123,
+            //     description: "dalfjda代付款垃圾袋sofais地方啦开始的减肥肯德基",
+            //     difference: ["专业东西", "很好好好","这是五个字"],
+            //     festival: "dfakldfdlakjf",
+            //     fonund_date: "2016.04.01",
+            //     isPaid: 1,
+            //     is_checked: 0,
+            //     is_top: 0,
+            //     logo: "avatar_default@2x.png",
+            //     onepunchline: "onepunchline",
+            //     service_leaf: "tuina",
+            //     service_type: "dfad",
+            //     story: "番小茄的成立和创始人任昕昕的第一个宝宝有关,小孩两三岁的时候体质非常虚弱,经常发烧、感冒、咳嗽,那个时候也在创业,做的成人推拿,推拿老师就说“试试小儿推拿吧”,三个月的时间,小孩的体质明显得到提升,印"
+            // }
         ],
     },
     // 返回
@@ -80,15 +110,16 @@ Page({
             iosX: getApp().globalData.iosX
         });
         var open_id = getApp().globalData.userOpenId;
-        wx.showLoading({
-            title: '获取数据中...',
-        })
+        // wx.showLoading({
+        //     title: '获取数据中...',
+        // })
         var userId = wx.getStorageSync('userId') || '';
         var data = {
             condition: {
                 wechat_id: open_id,
             }
         }
+
         wx.request({
             url: getApp().globalData.httpsAddress + '/provider/collection',
             data: data,
