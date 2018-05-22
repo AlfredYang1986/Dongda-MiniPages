@@ -3,7 +3,16 @@
 page {
     height: 100%;
 }
-
+.content_has_padding {
+    min-height: 100%;
+    padding: 0 40rpx;
+    background-image:none;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.didi_logo {
+    margin: 40rpx 0;
+}
 .qr_code {
     margin: 40rpx 0;
     text-align: center;

@@ -1,0 +1,226 @@
+/* pages/questions/questions.wxss */
+
+.content_no_padding {
+    background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png);
+}
+
+.ready_start {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.ready_start .start_text {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    padding-left: 80rpx;
+    font-size: 36rpx;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #34384a;
+}
+
+.ready_start .start_text view {
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.ready_start .start_btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.ready_start .start_btn image {
+    margin: 0 auto;
+    width: 670rpx;
+    height: 128rpx;
+}
+
+.question_index {
+    margin-top: 106rpx;
+    display: flex;
+    padding: 0 160rpx;
+}
+
+.question_index .spot {
+    flex: 1;
+    text-align: center;
+}
+
+.question_index .spot .spot_circle {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 50%;
+    background-color: rgba(127, 174, 221, 0.8);
+}
+
+.active {
+    border: 3px solid #fff;
+    background-color: #7faedd !important;
+}
+
+.question_text {
+    margin-top: 40px;
+    padding: 0 80rpx;
+    line-height: 50rpx;
+    font-size: 36rpx;
+    letter-spacing: 1.13px;
+    color: #34384a;
+}
+
+.choices_area {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    padding: 0 80rpx;
+}
+
+.choices_area .choice {
+    margin: 10px 0;
+    height: 128rpx;
+    line-height: 128rpx;
+    box-shadow: 0 2px 4px 0 #aec3e2;
+    border-radius: 12px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #5f6270;
+}
+
+.choices_area .choose {
+    background-color: #bfdbf7;
+}
+
+.right_answer {
+    background-color: #b1e995;
+}
+
+.error_answer {
+    background-color: #ff8c8c;
+}
+
+.invisible {
+    display: none;
+}
+
+.sign image{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.sign {
+    display: inline-block;
+    height: 100%;
+    font-weight: bold;
+    font-size: 50rpx;
+    position: absolute;
+    /* margin-top: 5px; */
+    left: 5%;
+}
+
+/**
+ * hint_area error_hint
+ */
+
+.hint_area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background-color: rgba(20, 34, 57, 0.7);
+}
+
+.error_hint .error_hint_content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 40rpx;
+    right: 40rpx;
+    height: 280rpx;
+    padding: 32rpx;
+    border-radius: 12px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.error_hint .error_hint_content .title {
+    margin-top: 28rpx;
+    line-height: 44rpx;
+    font-size: 32rpx;
+    letter-spacing: 1px;
+    color: #34384a;
+}
+
+.error_hint .error_hint_content .content {
+    margin-top: 28rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #34384a;
+    letter-spacing: 0.88px;
+}
+
+.hint_area image.close_btn {
+    position: absolute;
+    bottom: 40rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 72rpx;
+    height: 72rpx;
+}
+/**
+ * hint_area right_hint
+ */
+
+.right_hint .right_hint_content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 80rpx;
+    right: 80rpx;
+    height: 526rpx;
+    padding: 32rpx;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #ffdc6c;
+}
+
+.right_hint .right_hint_content .egg_light {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 286rpx;
+    height: 310rpx;
+    z-index: -1;
+}
+
+.right_hint .right_hint_content .title {
+    margin: 10rpx 0;
+    line-height: 84rpx;
+    font-size: 60rpx;
+    color: #fff;
+}
+
+.right_hint .right_hint_content .content image {
+    width: 158rpx;
+    height: 200rpx;
+}
+
+.right_hint .right_hint_content .content text {
+    line-height: 50rpx;
+    font-size: 36rpx;
+    color: #fff;
+}

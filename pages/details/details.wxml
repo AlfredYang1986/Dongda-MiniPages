@@ -1,5 +1,6 @@
 <!--pages/details/details.wxml-->
-<view class='content_has_padding'>
+<view class='content_has_padding' wx:if="{{!noEgg}}">
+
     <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
         <view class='backArea'>
             <image src='../../utils/images/icon_back@2x.png'></image>
@@ -10,16 +11,24 @@
         </view>
     </view>
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+
     <view class='got_egg'>
-        <image class='light' src='../../utils/images/congratulation@2x.png'></image>
+        <image class='light light_one' src='../../utils/images/congratulation@2x.png'></image>
+        <image class='light light_two' src='../../utils/images/congratulation@2x.png'></image>
+        
         <view class='title'>恭喜获得!</view>
         <view class='egg_type'>
-            <image class='egg_pic' src='../../utils/images/egg_classic@2x.png'></image>
-            <image class='egg_coin' src='../../utils/images/egg_coins@2x.png'></image>
+        <view class='egg_coin_area'>
+            <view class='egg_coin_flex'><image class='egg_pic' src='../../utils/images/egg_classic@2x.png'></image></view>
+            <view class='egg_coin_flex'><image class='egg_coin' src='../../utils/images/egg_coins@2x.png'></image></view>            
+        </view>
+            <!-- <image class='egg_pic' src='../../utils/images/egg_classic@2x.png'></image> -->
+            <!-- <image class='egg_coin' src='../../utils/images/egg_coins@2x.png'></image> -->
             <view class='egg_text'><text>经典彩蛋</text></view>
         </view>
         <view class='egg_explain'><text>同一商家多次扫码仅可获得一枚彩蛋</text></view>
     </view>
+
     <!-- <view class='brand_address brand_info'>
         <image class='icon_location' src='../../utils/images/icon_location@2x.png'></image>
         <view class='address_text'>
@@ -64,7 +73,9 @@
             </view>
         </view>
     </view> -->
+
     <view class='brand_detail brand_info'>
+
         <view class="logo_area {{businessInfo.is_top?'king':''}} {{businessInfo.isPaid?'paid':'normal'}}">
             <image src='https://dongdakid.com/assets/images/{{businessInfo.logo}}' mode='widthFix'></image>
             <!-- <image src='http://192.168.100.115:9000/assets/images/{{businessInfo.logo}}' mode='widthFix'></image> -->
@@ -72,24 +83,49 @@
             <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
             <image wx:elif="{{businessInfo.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
             <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image>
-            
         </view>
+
         <view class='brand_name'>{{businessInfo.brand_name}}</view>
+
         <view class='one_punch_line'>"{{businessInfo.onepunchline}}"</view>
-        <view class='leaf_type'>
-            <text>{{businessInfo.service_leaf}}·{{businessInfo.service_type}}</text>
-        </view>
+
+        <view class='leaf_type'><text>{{businessInfo.service_leaf}}·{{businessInfo.service_type}}</text></view>
+
         <view class='hight_light' wx:if="{{businessInfo.difference.length > 0}}">
             <view class='hight_light_item' wx:for="{{businessInfo.difference}}">
                 <image src='../../utils/images/icon_diff@2x.png'></image>
                 <view class='diff'>{{item}}</view>
             </view>
         </view>
+
         <view class='story'>{{businessInfo.story}}</view>
-    </view>
-
-    <view class='bottom_blank'>
 
     </view>
+
+    <view class='bottom_blank'></view>
 
 </view>
+
+ <view class='content_has_padding' wx:else>
+
+    <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+        <view class='backArea'>
+            <image src='../../utils/images/icon_back@2x.png'></image>
+            <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+        </view>
+        <view class='navigationTitle'>
+            <text></text>
+        </view>
+    </view>
+    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+
+    <view class='no_egg'>
+        <image src='../../utils/images/egg_broken@2x.png' mode='widthFix'></image>
+        <view><text>扫码失败</text></view>
+        <view><text>请确认头号玩家二维码</text></view>
+        
+    </view>
+
+    <view class='bottom_blank'></view>
+
+</view> 

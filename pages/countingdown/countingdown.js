@@ -24,7 +24,7 @@ Page({
             url: '../activity/activity'
         })
     },
-    testBtn: ()=> {
+    testBtn: () => {
         wx.navigateTo({
             url: '../activity/activity',
         })
@@ -86,6 +86,11 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        return {
+            title: '咚哒头号玩家',
+            path: '/pages/index/index',
+            imageUrl: 'https://dongdakid.com/assets/images/activity.png'
+        }
     }
+
 })

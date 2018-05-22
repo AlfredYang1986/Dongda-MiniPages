@@ -1,18 +1,21 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/replace/replace",
+        "pages/mission/mission",
         "pages/lists/lists",
+        
+        "pages/questions/questions",
+        
+        
+        "pages/score/score",   
+        
         "pages/didi/didi",
         "pages/details/details",
         
-        "pages/score/score",
-        
-        
         "pages/activity/activity",
-        "pages/replace/replace",
         
         
-        "pages/mission/mission",
         "pages/countingdown/countingdown",
         "pages/bizsuccess/bizsuccess",
         "pages/business/business",

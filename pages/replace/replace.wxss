@@ -18,6 +18,7 @@ page {
 
 .brand_detail {
     position: relative;
+    margin-top: 102rpx;
 }
 
 .brand_address {
@@ -28,16 +29,17 @@ page {
 
 .brand_address image.icon_location {
     display: inline-block;
-    margin-bottom: 10rpx;
+    margin-bottom: 32rpx;
     width: 40rpx;
     height: 46rpx;
 }
 
 .brand_address .address_text {
-    line-height: 42rpx;
+    margin-bottom: 32rpx;
+    line-height: 40rpx;
     text-align: center;
-    font-size: 32rpx;
-    font-weight: 700;
+    font-size: 28rpx;
+    /* font-weight: 700; */
     color: #34384a;
 }
 
@@ -53,8 +55,8 @@ page {
 }
 
 .brand_address .place .place_item image {
-    width: 50rpx;
-    height: 50rpx;
+    width: 116rpx;
+    max-height: 118rpx;
 }
 
 .brand_address .place .place_item .place_name {
@@ -66,7 +68,7 @@ page {
     color: #112A51;
 }
 .descript {
-    margin-bottom: 120rpx;
+    /* margin-bottom: 120rpx; */
 }
 
 .descript .title {
@@ -81,7 +83,7 @@ page {
 
 .descript .descript_items {
     display: flex;
-    /* margin: 20rpx 0; */
+     margin: 20rpx 0; 
 }
 
 
@@ -107,7 +109,7 @@ page {
 
 .descript .content_right {
     flex: 1;
-    padding-left: 10rpx;
+    padding-left: 20rpx;
     line-height: 40rpx;
     text-align: left;
     font-size: 28rpx;
@@ -123,6 +125,7 @@ page {
     height: 140rpx;
     width: 140rpx;
     border-radius: 24rpx;
+    box-shadow: 0 4px 10px 0 rgba(59,105,181,0.16);
     background-color: #fff;
 }
 
@@ -145,7 +148,8 @@ page {
 }
 
 .brand_detail .brand_name {
-    padding-top: 100rpx;
+    margin-bottom: 10px;
+    padding-top: 87rpx;
     height: 44rpx;
     line-height: 44rpx;
     text-align: center;
@@ -165,7 +169,7 @@ page {
 }
 
 .brand_detail .leaf_type {
-    margin-bottom: 10rpx;
+    /* margin-bottom: 10rpx; */
     height: 40rpx;
     line-height: 40rpx;
     text-align: center;
@@ -176,8 +180,8 @@ page {
 
 .brand_detail .hight_light {
     display: flex;
-    margin-bottom: 10rpx;
-    padding: 20rpx 0;
+    /* margin-bottom: 10rpx; */
+    padding: 24px 0;
     font-size: 32rpx;
 }
 
@@ -202,13 +206,25 @@ page {
 }
 
 .brand_detail .story {
+    height: 108rpx;
+    line-height: 36rpx;
+    font-size: 26rpx;
+    opacity: 0.5;
+    color: #112a51;
+    letter-spacing: 1px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.brand_detail .story_all {
     line-height: 36rpx;
     font-size: 26rpx;
     opacity: 0.5;
     color: #112a51;
     letter-spacing: 1px;
 }
-
 .brand_descript {
     margin-bottom: 20rpx;
     position: relative;

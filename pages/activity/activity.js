@@ -1,4 +1,5 @@
 // pages/activity/activity.js
+const util = require('../../utils/util.js');
 Page({
 
     /**
@@ -10,9 +11,10 @@ Page({
         iosX: false,
         disabled: true,
         animationData: {},
-        userAvatar:'',
+        userAvatar: '',
+        hasClick: false,
     },
-    list: () => {
+    list: util.throttle(function (e) {
         wx.showLoading({
             title: '正在加载中',
             mask: true,
@@ -20,8 +22,22 @@ Page({
         wx.navigateTo({
             url: '../lists/lists',
         })
-    },
-    scanQr: function () {
+    }, 1000),
+    /*
+        list: () => {
+            if(!this.data.hasClick) {
+                wx.showLoading({
+                    title: '正在加载中',
+                    mask: true,
+                })
+                wx.navigateTo({
+                    url: '../lists/lists',
+                })
+            }
+            
+        },
+    */
+    scanQr: util.throttle(function (e) {
         wx.scanCode({
             success: (res) => {
                 console.log(res.path);
@@ -33,15 +49,36 @@ Page({
                 console.log(error)
             }
         })
-    },
-    colorEggs: () => {
-    // console.log('color eggs');
+    }, 1000),
+    /*
+        scanQr: function () {
+            wx.scanCode({
+                success: (res) => {
+                    console.log(res.path);
+                    wx.navigateTo({
+                        url: "../../" + res.path,
+                    })
+                },
+                fail: (error) => {
+                    console.log(error)
+                }
+            })
+        },
+    */
+    colorEggs: util.throttle(function (e) {
         wx.navigateTo({
             url: '../score/score',
-
         })
-    },
-    mission: () => {
+    }, 1000),
+    /*
+        colorEggs: () => {
+            wx.navigateTo({
+                url: '../score/score',
+    
+            })
+        },
+    */
+    mission: util.throttle(function (e) {
         wx.showLoading({
             title: '正在加载中',
             mask: true,
@@ -81,14 +118,50 @@ Page({
                 })
             }
         })
-    },
-    question: () => {
-        wx.showModal({
-            title: '即将推出',
-            content: '敬请期待',
-            showCancel: false,
-        })
-    },
+    }, 1000),
+    /*
+        mission: () => {
+            wx.showLoading({
+                title: '正在加载中',
+                mask: true,
+            })
+            wx.getLocation({
+                success: function (res) {
+                    // console.log(res);
+                    wx.navigateTo({
+                        url: '../mission/mission?latitude=' + res.latitude + '&longitude=' + res.longitude,
+                    })
+                },
+                fail: (error) => {
+                    // console.log(error);
+                    wx.getSetting({
+                        success: (res) => {
+                            console.log(res.authSetting['scope.userLocation']);
+                            if (!res.authSetting['scope.userLocation']) {
+                                wx.showModal({
+                                    title: '需要获取位置',
+                                    content: '请允许获取地理位置，才能更好地向您推荐距离您近的任务',
+                                    success: (res) => {
+                                        if (res.confirm) {
+                                            wx.openSetting({
+                                                success: (res) => {
+                                                    // console.log(res);
+                                                }
+                                            })
+                                        } else {
+                                            wx.navigateTo({
+                                                url: "../mission/mission?latitude=39.9219&longitude=116.44355",
+                                            })
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    })
+                }
+            })
+        },
+    */
     // 返回
     backBeforePage: function () {
         wx.reLaunch({
@@ -179,6 +252,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        return {
+            title: '咚哒头号玩家',
+            path: '/pages/index/index',
+            imageUrl: 'https://dongdakid.com/assets/images/activity.png'
+        }
     }
 })

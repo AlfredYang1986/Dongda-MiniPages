@@ -9,6 +9,7 @@ Page({
         android: false,
         iosX: false,
         hasScroll: false,
+        noEgg: true,
         businessId: "",
         businessInfo: {
             logo: "avatar_default@2x.png",
@@ -16,15 +17,9 @@ Page({
     },
     // 返回
     backBeforePage: function () {
-        // wx.navigateBack({
-        //     delta: 1
-        // })
         wx.reLaunch({
             url: '../activity/activity'
         })
-        // wx.navigateTo({
-        //     url: '../activity/activity',
-        // })
     },
     // 监听页面滚动
     onPageScroll: function (res) {
@@ -38,58 +33,6 @@ Page({
                 hasScroll: false
             })
         }
-        // console.log(res);
-    },
-    // 下拉刷新
-    onPullDownRefresh: function () {
-        // 显示顶部刷新图标  
-        wx.showNavigationBarLoading();
-        var that = this;
-        wx.request({
-            url: getApp().globalData.httpsAddress+'/checkin',
-            data: data,
-            method: 'POST',
-            success: (res) => {
-                wx.hideLoading();
-                // 隐藏导航栏加载框  
-                wx.hideNavigationBarLoading();
-                // 停止下拉动作  
-                wx.stopPullDownRefresh();
-                console.log(res.data)
-                if (res.data.result.check_in === "already checked") {
-
-                } else {
-                    wx.showModal({
-                        title: '打卡成功',
-                        content: '打卡成功',
-                        showCancel: false,
-                    })
-                }
-                that.setData({
-                    businessInfo: res.data.result.provider
-                });
-                that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
-                that.setData({
-                    businessInfo: that.data.businessInfo
-                });
-                // console.log(res.data);
-                // console.log(that.data.businessInfo)
-            },
-            fail: (error) => {
-                wx.hideLoading();
-                wx.showModal({
-                    title: '网络繁忙',
-                    content: '获取信息失败,请稍后重试',
-                    // confirmText: '重新获取',
-                    showCancel: true,
-                    success: (res) => {
-                        if (res.confirm) {
-                            // that.onLoad();
-                        }
-                    }
-                })
-            }
-        })
     },
     // 获取商家详情
     getBusinessDetail: function(data) {
@@ -99,33 +42,44 @@ Page({
             data: data,
             method: 'POST',
             success: (res) => {
-                wx.hideLoading();
-                if (res.data.result.check_in === "already checked") {
-
-                } else {
-                    wx.showModal({
-                        title: '打卡成功',
-                        content: '打卡成功',
-                        showCancel: false,
-                    })
-                }
-                that.setData({
-                    businessInfo: res.data.result.provider
-                });
-                that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
-                that.setData({
-                    businessInfo: that.data.businessInfo
-                });
                 console.log(res.data);
-                console.log(that.data.businessInfo)
+                wx.hideLoading();
+                if (res.data.status === "error") {
+                    that.setData({
+                        noEgg: true,
+                    })
+                } else {
+                    if (res.data.result.check_in === "already checked") {
+                        // wx.showModal({
+                        //     title: '已打卡',
+                        //     content: '请勿多次打卡',
+                        //     showCancel: false,
+                        // })
+                    } else {
+                        wx.showModal({
+                            title: '打卡成功',
+                            content: '打卡成功',
+                            showCancel: false,
+                        })
+                    }
+                    that.setData({
+                        noEgg: false,
+                        businessInfo: res.data.result.provider
+                    });
+                }
+                console.log(res.data);
+                console.log(that.data.businessInfo);
             },
             fail: (error) => {
                 wx.hideLoading();
+                that.setData({
+                    noEgg: true,
+                })
                 wx.showModal({
                     title: '网络繁忙',
-                    content: '获取信息失败,请稍后重试',
+                    content: '获取信息失败，请稍后重试',
                     // confirmText: '重新获取',
-                    showCancel: true,
+                    // showCancel: true,
                     success: (res) => {
                         if (res.confirm) {
                             // that.onLoad();
@@ -139,6 +93,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        const that = this;
         this.setData({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX
@@ -147,9 +102,9 @@ Page({
         wx.showLoading({
             title: '获取数据中...',
         })
-        var userId = wx.getStorageSync('userId') || '';
+        // var userId = wx.getStorageSync('userId') || '';
         // console.log(userId);
-        var that = this;
+        
         // console.log(!options);
         if (!options) {
             var data = {
@@ -169,39 +124,51 @@ Page({
                 }
             };
         };
-
+        that.getBusinessDetail(data);
+/*
         wx.request({
             url: getApp().globalData.httpsAddress+'/checkin',
             data: data,
             method: 'POST',
             success: (res) => {
-                console.log(res.data)
+                console.log(res.data);
                 wx.hideLoading();
-                if (res.data.result.check_in === "already checked") {
-                    // wx.showModal({
-                    //     title: '已打卡',
-                    //     content: '请勿多次打卡',
-                    //     showCancel: false,
-                    // })
-                } else {
-                    wx.showModal({
-                        title: '打卡成功',
-                        content: '打卡成功',
-                        showCancel: false,
+                if (res.data.status === "error") {
+                    that.setData({
+                        noEgg: true,
                     })
+                } else {
+                    if (res.data.result.check_in === "already checked") {
+                        // wx.showModal({
+                        //     title: '已打卡',
+                        //     content: '请勿多次打卡',
+                        //     showCancel: false,
+                        // })
+                    } else {
+                        wx.showModal({
+                            title: '打卡成功',
+                            content: '打卡成功',
+                            showCancel: false,
+                        })
+                    }
+                    that.setData({
+                        noEgg: false,
+                        businessInfo: res.data.result.provider
+                    });
                 }
-                that.setData({
-                    businessInfo: res.data.result.provider
-                });
+                
                 // that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
                 // that.setData({
                 //     businessInfo: that.data.businessInfo
                 // });
-                console.log(res.data);
+                // console.log(res.data);
                 // console.log(that.data.businessInfo)
             },
             fail: (error) => {
                 wx.hideLoading();
+                that.setData({
+                    noEgg: true,
+                })
                 wx.showModal({
                     title: '网络繁忙',
                     content: '获取信息失败，请稍后重试',
@@ -215,7 +182,7 @@ Page({
                 })
             }
         })
-
+*/
     },
 
     /**
@@ -264,6 +231,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        return {
+            title: '咚哒头号玩家',
+            path: '/pages/index/index',
+            imageUrl: 'https://dongdakid.com/assets/images/activity.png'
+        }
     }
 })

@@ -12,8 +12,8 @@
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}">
         <view class='eggs_total'>
             <view class='total'>
-                <image src='../../utils/images/coins@2x.png' mode='widthFix'></image>
-                <text class='total_num'>{{scores.scores_B}}</text>
+                <image src='../../utils/images/coins@2x.png' mode='widthFix' bindtap='score'></image>
+                <text bindtap='score' class='total_num'>{{scores.scores_B}}</text>
             </view>
         </view>
     </view>
@@ -34,7 +34,7 @@
                 <image class='egg_bottom' wx:if="{{scores.scores_A}}" src='../../utils/images/egg_light@2x.png'></image>
                 <image class='egg_bottom' wx:else src='../../utils/images/light_empty@2x.png'></image>
                 <text class='egg_count'>{{scores.scores_A}}</text>
-                <button class='show_hint' bindtap='showHint'></button>
+                <button id='classic' class='show_hint' bindtap='showHint'></button>
             </view>
             <view class='egg'>
                 <image class='egg_bg' src='../../utils/images/egg_king_bg@2x.png' mode='widthFix'></image>
@@ -43,7 +43,7 @@
                 <image class='egg_bottom' wx:if="{{scores.scores_C}}" src='../../utils/images/egg_light@2x.png'></image>
                 <image class='egg_bottom' wx:else src='../../utils/images/light_empty@2x.png'></image>
                 <text class='egg_count'>{{scores.scores_C}}</text>
-                <button class='show_hint' bindtap='showHint'></button>
+                <button id='king' class='show_hint' bindtap='showHint'></button>
             </view>
         </view>
         <view class='eggs_line'>
@@ -54,7 +54,7 @@
                 <image class='egg_bottom' wx:if="{{scores.scores_D}}" src='../../utils/images/egg_light@2x.png'></image>
                 <image class='egg_bottom' wx:else src='../../utils/images/light_empty@2x.png'></image>
                 <text class='egg_count'>{{scores.scores_D}}</text>
-                <button class='show_hint' bindtap='showHint'></button>
+                <button id='surprise' class='show_hint' bindtap='showHint'></button>
             </view>
 
         </view>
@@ -66,19 +66,28 @@
                 <view class='title'>
                     <text>经典彩蛋</text>
                 </view>
-                <text>经典彩蛋一共四种类型，分别是科学蛋、艺术蛋、运动蛋和体验蛋。
-活动期间，集齐不同类型的三枚经典彩蛋，即可获得由咚哒提供给孩子的“6.1经典礼物”。（一个帐号最多兑换两次）。
+                <text>活动期间，集齐不同类型的三枚经典彩蛋，即可获得由咚哒提供给孩子的“6.1经典礼物”。（一个帐号最多兑换两次）
 每个微信帐号在每个场地扫码只能获得一个经典彩蛋。</text>
+                <view class='title'>
+                    <text>惊喜彩蛋</text>
+                </view>
+                <text>每个“惊喜彩蛋”可以兑换一次当日答题机会。
+答题全对，即可获得由咚哒提供给年轻的一家人的Surprise礼物。
+每个微信帐号在每个星耀挑战场地扫码只能获得一个惊喜彩蛋。</text>
+                <view class='title'>
+                    <text>王者彩蛋</text>
+                </view>
+                <text>活动期间，集齐不同类型的四枚“王者彩蛋”，将获得一份由咚哒为孩子专属定制的王者大礼。</text>
             </view>
         </view>
     </view>
     <view class='hint' wx:if="{{hint}}">
-        <view class='hint_content'>
+        <view class='hint_content' wx:for="{{hintContent}}" wx:key="unique" wx:if="{{item.unique === eggtype}}" >
             <view class='egg_title'>
-                <text>惊喜彩蛋</text>
+                <text>{{item.title}}</text>
             </view>
             <view class='egg_content'>
-                <text>6月2日-10日，到达任意一家品牌机构签到扫码，均可获得一个经典彩蛋</text>
+                <text>{{item.content}}</text>
             </view>
             <view class='egg_close'>
                 <image src='../../utils/images/icon_close@2x.png'></image>

@@ -9,6 +9,7 @@ Page({
         android: false,
         iosX: false,
         hasScroll: false,
+        allStory: false,
         businessInfo: {
             address: "请重试...",
             brand_name: "请重试...",
@@ -29,6 +30,7 @@ Page({
             is_checked: 0,
         }
     },
+
     // 返回
     backBeforePage: function () {
         wx.navigateBack({
@@ -49,54 +51,10 @@ Page({
         }
         // console.log(res);
     },
-    // 下拉刷新
-    onPullDownRefresh: function () {
-        // 显示顶部刷新图标  
-        wx.showNavigationBarLoading();
-        var that = this;
-        wx.request({
-            url: getApp().globalData.httpsAddress +'/provider/query',
-            data: data,
-            method: 'POST',
-            success: (res) => {
-                wx.hideLoading();
-                // 隐藏导航栏加载框  
-                wx.hideNavigationBarLoading();
-                // 停止下拉动作  
-                wx.stopPullDownRefresh();
-                if (res.data.result.check_in === "already checked") {
-
-                } else {
-                    wx.showModal({
-                        title: '打卡成功',
-                        content: '打卡成功',
-                        showCancel: false,
-                    })
-                }
-                that.setData({
-                    businessInfo: res.data.result.provider
-                });
-                // that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
-                // that.setData({
-                //     businessInfo: that.data.businessInfo
-                // });
-                // console.log(res.data);
-                // console.log(that.data.businessInfo)
-            },
-            fail: (error) => {
-                wx.hideLoading();
-                wx.showModal({
-                    title: '网络繁忙',
-                    content: '获取信息失败,请稍后重试',
-                    // confirmText: '重新获取',
-                    showCancel: true,
-                    success: (res) => {
-                        if (res.confirm) {
-                            // that.onLoad();
-                        }
-                    }
-                })
-            }
+    // 显示所有故事
+    showAllStory: function(){
+        this.setData({
+            allStory: !this.data.allStory
         })
     },
     // 获取商家详情
@@ -247,6 +205,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        return {
+            title: '咚哒头号玩家',
+            path: '/pages/index/index',
+            imageUrl: 'https://dongdakid.com/assets/images/activity.png'
+        }
     }
 })

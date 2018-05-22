@@ -17,23 +17,24 @@
     </view>
 
     <view class='items' wx:for="{{businessList}}" data-brandid='{{item.provider_id}}' bindtap='checkDetail'>
+        <image wx:if="{{item.is_top}}" class='star' src='../../utils/images/flag_king@2x.png' mode='widthFix'></image>
+        <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/flag_star@2x.png' mode='widthFix'></image>
+        <image wx:else class='star' src='../../utils/images/flag_bojin@2x.png' mode='widthFix'></image>
         <image class='checked' src='../../utils/images/mark@2x.png' wx:if="{{item.is_checked}}"></image>
         <view class='brand_address'>
-            <image src='../../utils/images/icon_location_s@2x.png'></image>
+        <view class='address_icon'><image src='../../utils/images/icon_location_s@2x.png'></image></view>
+            
             <text>{{item.address}}</text>
         </view>
         <view class='brand_logo_area'>
-            <view class="brand_avatar {{item.is_top?'king':''}} {{item.isPaid?'paid':'normal'}}">
+            <view class="brand_avatar">
                 <image src='https://dongdakid.com/assets/images/{{item.logo}}' mode='widthFix'></image>
                 <!-- <image src='http://192.168.100.115:9000/assets/images/{{item.logo}}' mode='widthFix'></image> -->
                 <!-- <image class='star' src='../../utils/images/star@2x.png' wx:if="{{item.isPaid}}"></image> -->
-                <image wx:if="{{item.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
-                <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
-                <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image>
             </view>
             <view class='brand_name_area'>
                 <view class='brand_name'>{{item.brand_name}}</view>
-                <view class='brand_type'>{{item.service_type}}·{{item.service_leaf}}</view>
+                <view class='brand_type'>{{item.service_leaf}}·{{item.service_type}}</view>
             </view>
         </view>
         <!-- <view class="{{item.isPaid?'brand_logo_star':'brand_logo'}}">

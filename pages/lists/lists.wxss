@@ -19,37 +19,45 @@ page {
 
 .items {
     position: relative;
-    padding-bottom: 32rpx;
+    /* padding-bottom: 32rpx; */
+    padding: 32rpx;
     margin: 60rpx 0;
     border-radius: 24rpx;
     background-color: #fff;
 }
 
 .items .brand_address {
-    padding: 32rpx 32rpx 10rpx;
+    display: flex;
+    /* padding: 32rpx 32rpx 10rpx; */
+    padding-right: 148rpx;
     margin: 0 0 10rpx;
-    border-bottom: 2rpx solid rgba(0, 0, 0, 0.05);
+    /* border-bottom: 2rpx solid rgb(242, 242, 242); */
     font-size: 0;
 }
-
+.items .brand_address .address_icon {
+    flex: 0 0 22rpx;
+}
 .items .brand_address image {
+    
     width: 22rpx;
     height: 26rpx;
+    margin-top: 10rpx;
 }
 
 .items .brand_address text {
+    flex: 1;
     padding-left: 10rpx;
     line-height: 44rpx;
     font-size: 32rpx;
-    font-weight: 700;
     letter-spacing: 1px;
     color: #112a51;
 }
 
 .items .brand_logo_area {
     display: flex;
-    padding: 0 32rpx;
-    margin: 20rpx 0;
+    /* padding: 0 32rpx; */
+    margin-top: 40rpx;
+    margin-bottom: 20rpx;
 }
 
 .items .brand_logo_area .brand_avatar {
@@ -59,6 +67,8 @@ page {
     height: 110rpx;
     border-radius: 24rpx;
     background-color: #fff;
+    box-shadow: 0 4px 10px 0 rgba(59,105,181,0.16);
+    /* box-shadow: 0 2px 4px 0 #aec3e2; */
 }
 
 
@@ -71,13 +81,12 @@ page {
     max-height: 110rpx;
 }
 
-.items .brand_logo_area .brand_avatar image.star {
+.items image.star {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -25rpx;
-    width: 50rpx;
-    height: 50rpx;
+    top: 0;
+    right: 32rpx;
+    width: 116rpx;
+    max-height: 118rpx; 
 }
 
 .items .brand_logo_area .brand_name_area {
@@ -119,7 +128,7 @@ page {
 }
 
 .items .brand_difference {
-    padding: 20rpx 32rpx 0rpx;
+    padding: 20rpx 0rpx 0rpx;
 }
 
 .items .brand_difference .brand_differenct_item {

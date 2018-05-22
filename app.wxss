@@ -1,5 +1,7 @@
 /**app.wxss**/
-
+page {
+    height: 100%;
+}
 button::after {
     border: none;
 }
@@ -12,16 +14,16 @@ button::after {
 .content_has_padding {
     min-height: 100%;
     padding: 0 40rpx;
-     background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);  
+    background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);
     /* background-image: url(http://192.168.100.115:9000/assets/images/countingdown_bg@2x.png);  */
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
 .content_no_padding {
-    height: 100%;
-     background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);  
-     /* background-color: url(http://192.168.100.115:9000/assets/images/countingdown_bg@2x.png);  */
+    min-height: 100%;
+    background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);
+    /* background-color: url(http://192.168.100.115:9000/assets/images/countingdown_bg@2x.png);  */
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -39,7 +41,7 @@ button::after {
 
 .cover {
     /* background-image: url(https://i.loli.net/2018/05/15/5afaaf0e96569.png); */
-    background-image: url(https://dongdakid.com/assets/images/cover@2x.png);  
+    background-image: url(https://dongdakid.com/assets/images/cover@2x.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -127,15 +129,16 @@ button::after {
 }
 
 .normal {
-    border: 3px solid #EAEFF5;
-}
-.paid {
-    border: 3px solid #FEE594;
-}
-.king {
-    border: 3px solid #BBD5F6;
+    border: 3px solid #eaeff5;
 }
 
+.paid {
+    border: 3px solid #bbd5f6;
+}
+
+.king {
+    border: 3px solid #fee594;
+}
 
 .bottom_blank {
     height: 40rpx;

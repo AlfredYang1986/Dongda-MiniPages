@@ -12,7 +12,7 @@
 
     <view class="avatar_area {{android?'user_avatar_android':'user_avatar'}} {{iosX?'user_avatar_iosx':''}}" wx:if="{{canIuseAvatar}}">
         <view class='avatar_content'>
-            <image class='myeggs' src='../../utils/images/icon_myeggs@2x.png'></image>
+            <image class='myeggs' src='../../utils/images/btn_myeggs@2x.png'></image>
             <open-data type="userAvatarUrl" class='avatar'></open-data>
             <button class='avatar_btn' bindtap='colorEggs'></button>
         </view>
@@ -20,7 +20,7 @@
     </view>
     <view class="avatar_area {{android?'user_avatar_android':'user_avatar'}} {{iosX?'user_avatar_iosx':''}}" wx:else>
         <view class='avatar_content'>
-            <image class='myeggs' src='../../utils/images/icon_myeggs@2x.png'></image>
+            <image class='myeggs' src='../../utils/images/btn_myeggs@2x.png'></image>
             <open-data type="userAvatarUrl" class='avatar'></open-data>
             <button class='avatar_btn' bindtap='colorEggs'></button>
         </view>
@@ -47,13 +47,13 @@
     <view class='game_cloud'>
         <!-- <view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view> -->
         <image animation="{{animationData}}" src='../../utils/images/game_cloud@2x.png' mode='widthFilled'></image>
-        <!-- <image animation="{{animationData}}" src='../../utils/images/checkin@2x.png' mode='widthFilled'></image>
+        <!-- <image animation="{{animationData}}" src='../../utils/images/btn_checkin@2x.png' mode='widthFilled'></image>
         <image animation="{{animationData}}" src='../../utils/images/btn_list@2x .png' mode='widthFilled'></image> -->
 
     </view>
     <view class='activity_wrapper'>
         <view class='list'>
-            <image src='../../utils/images/btn_list@2x.png'></image>
+            <image src='../../utils/images/btn_list@2x.png' mode='widthFix'></image>
             <button bindtap='list'></button>
         </view>
 
@@ -74,7 +74,7 @@
 
     </view>
     <view class='scan_qr'>
-        <image src='../../utils/images/checkin@2x.png' mode='widthFilled'></image>
+        <image src='../../utils/images/btn_checkin@2x.png' mode='widthFilled'></image>
         <button class="scan" bindtap='scanQr'></button>
     </view>
 </view>
