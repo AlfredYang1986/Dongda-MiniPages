@@ -20,7 +20,7 @@ Page({
             scores_D: 0,
             scores_id: "",
         },
-        hintContent: [{ unique: "classic", title: "经典彩蛋", content: "经典彩蛋一共四种类型，分别是科学蛋、艺术蛋、运动蛋和体验蛋。6月2日-10日，到达任意一家品牌机构签到扫码，均可获得一个经典彩蛋" }, { unique: "surprise", title: "惊喜彩蛋", content: "6月4日-6月8日五天中，用户在星耀挑战场地进行打卡，将获得一个“惊喜彩蛋”。" }, { unique: "king", title: "王者彩蛋", content: "王者彩蛋一共四种类型，分别是科学王者、艺术王者、运动王者和体验王者。四天周末（6月2日、6月3日、6月9日、6月10日），用户在最强王者服务方场地打卡，并完成场地挑战，即可获得一个“王者彩蛋”。" }]
+        hintContent: [{ unique: "classic", title: "经典彩蛋", content: "经典彩蛋一共四种类型，分别是科学蛋、艺术蛋、运动蛋和体验蛋。6月2日-10日，到达任意一家品牌机构签到扫码，均可获得一个经典彩蛋。" }, { unique: "surprise", title: "惊喜彩蛋", content: "6月4日-6月8日五天中，用户在星耀挑战场地进行打卡，将获得一个“惊喜彩蛋”。" }, { unique: "king", title: "王者彩蛋", content: "王者彩蛋一共四种类型，分别是科学王者、艺术王者、运动王者和体验王者。四天周末（6月2日、6月3日、6月9日、6月10日），用户在最强王者服务方场地打卡，并完成场地挑战，即可获得一个“王者彩蛋”。" }]
     },
     // 返回
     backBeforePage: function () {
@@ -68,7 +68,7 @@ Page({
         })
     },
     // 获取score data
-    getScores: function(data){
+    getScores: function (data) {
         const that = this;
         wx.request({
             url: getApp().globalData.httpsAddress + '/scores/query',
@@ -76,7 +76,7 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                // console.log(res.data.result);
+                console.log(res.data.result);
                 // console.log(res.data.result.scores);
                 if (res.data.result.scores === "not exist") {
                     // that.setData({
@@ -120,82 +120,78 @@ Page({
             title: '获取数据中...',
         })
         // var open_id = getApp().globalData.userOpenId;
-        
+
         // let data = {
         //     condition: {
         //         wechat_id: getApp().globalData.userOpenId
         //     }
         // };
         // that.getScores(data);
-/*
-        wx.request({
-            url: getApp().globalData.httpsAddress + '/scores/query',
-            data: data,
-            method: 'POST',
-            success: (res) => {
-                wx.hideLoading();
-                // console.log(res.data.result);
-                // console.log(res.data.result.scores);
-                if (res.data.result.scores === "not exist") {
-                    that.setData({
-                        hasScores: false
-                    });
-                } else {
-                    that.setData({
-                        hasScores: true,
-                        scores: res.data.result.scores
-                    });
-                }
-
-            },
-            fail: (error) => {
-                wx.hideLoading();
-                wx.showModal({
-                    title: '网络繁忙',
-                    content: '获取信息失败,请稍后重试',
-                    // confirmText: '重新获取',
-                    // showCancel: false,
+        /*
+                wx.request({
+                    url: getApp().globalData.httpsAddress + '/scores/query',
+                    data: data,
+                    method: 'POST',
                     success: (res) => {
-                        if (res.confirm) {
-                            // that.onLoad();
+                        wx.hideLoading();
+                        // console.log(res.data.result);
+                        // console.log(res.data.result.scores);
+                        if (res.data.result.scores === "not exist") {
+                            that.setData({
+                                hasScores: false
+                            });
+                        } else {
+                            that.setData({
+                                hasScores: true,
+                                scores: res.data.result.scores
+                            });
                         }
+        
+                    },
+                    fail: (error) => {
+                        wx.hideLoading();
+                        wx.showModal({
+                            title: '网络繁忙',
+                            content: '获取信息失败,请稍后重试',
+                            // confirmText: '重新获取',
+                            // showCancel: false,
+                            success: (res) => {
+                                if (res.confirm) {
+                                    // that.onLoad();
+                                }
+                            }
+                        })
                     }
                 })
-            }
-        })
-*/
+        */
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        console.log("onready")
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+         console.log("Onshow")
         const that = this;
-        console.log("onshow");
         let data = {
             condition: {
                 wechat_id: getApp().globalData.userOpenId
             }
         };
         that.getScores(data);
-
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-        console.log("onhide");
 
     },
-
     /**
      * 生命周期函数--监听页面卸载
      */

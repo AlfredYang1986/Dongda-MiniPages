@@ -1,19 +1,19 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/mission/mission",
-        
-        "pages/replace/replace",
-        
-        "pages/lists/lists",
-        
-        "pages/questions/questions",
+        "pages/details/details",
         
         
         "pages/score/score",   
         
         "pages/didi/didi",
-        "pages/details/details",
+        
+        "pages/questions/questions",
+        
+        "pages/mission/mission",  
+        "pages/replace/replace",
+        
+        "pages/lists/lists",
         
         "pages/activity/activity",
          

@@ -6,7 +6,7 @@ page {
 
 .eggs_total {
     position: relative;
-    margin: 20rpx 0;
+    margin: 60rpx 0 20rpx;
 }
 
 .eggs_total .total image:first-child {
@@ -82,12 +82,14 @@ page {
 .eggs_line .egg .egg_count, .eggs_line .egg_big .egg_count {
     position: absolute;
     bottom: 24rpx;
-    right: 14rpx;
+    right: 12rpx;
     display: inline-block;
     height: 62rpx;
-    font-weight: 700;
-    font-size: 52rpx;
+     font-weight: 700; 
+    /* font-family: fantasy;  */
+    font-size: 44rpx;
     line-height: 62rpx;
+    letter-spacing: 0;
     color: rgb(255, 220, 108);
 }
 
@@ -121,6 +123,8 @@ page {
     line-height: 98rpx;
     border-radius: 24rpx;
     font-size: 48rpx;
+    font-family: SFProText-Heavy;
+    font-weight: 700;
     text-align: center;
     color: #fff;
     background-color: #ffdc6c;
@@ -131,6 +135,7 @@ page {
     padding: 59rpx 32rpx 60rpx;
     line-height: 40rpx;
     font-size: 28rpx;
+    font-family: PingFangSC-Regular;
     color: #5f6270;
 }
 
@@ -185,7 +190,7 @@ page {
 
 .hint .hint_content .egg_content {
     margin-bottom: 20rpx;
-    padding: 59rpx 32rpx 40rpx;
+    padding: 80rpx 32rpx 40rpx;
     line-height: 40rpx;
     font-size: 28rpx;
     letter-spacing: 1px;

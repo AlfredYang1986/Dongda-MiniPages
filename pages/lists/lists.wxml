@@ -28,7 +28,7 @@
         </view>
         <view class='brand_logo_area'>
             <view class="brand_avatar">
-                <image src='https://dongdakid.com/assets/images/{{item.logo}}' mode='widthFix'></image>
+                <image  src="https://dongdakid.com/assets/images/{{item.logo === ''?'avatar_default@2x.png':item.logo}}" mode='widthFix'></image>
                 <!-- <image src='http://192.168.100.115:9000/assets/images/{{item.logo}}' mode='widthFix'></image> -->
                 <!-- <image class='star' src='../../utils/images/star@2x.png' wx:if="{{item.isPaid}}"></image> -->
             </view>

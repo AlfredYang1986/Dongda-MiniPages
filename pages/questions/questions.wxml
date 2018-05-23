@@ -31,7 +31,7 @@
                     <view class='spot_circle {{item?"active":""}}'></view>
                 </view>
             </view>
-            <view class='question_content' wx:for="{{questions.answer}}" wx:if="{{index === currentQuestion}}">
+            <view class='question_content' wx:for="{{questions.answers}}" wx:if="{{index === currentQuestion}}">
                 <view class='question_text'>
                     <text>{{item.description}}</text>
                 </view>
@@ -60,7 +60,7 @@
             <view class='content'>
                 <text>继续努力吧</text>
             </view>
-            <image data-btn='errorbtn' src='../../utils/images/icon_close@2x.png' bindtap='backBeforePage'></image>
+            <image class='close_btn' data-btn='errorbtn' src='../../utils/images/icon_close@2x.png' bindtap='backBeforePage'></image>
         </view>
     </view>
     <view class='right_hint hint_area' wx:if="{{rightHint}}">

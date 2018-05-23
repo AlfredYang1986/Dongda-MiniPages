@@ -63,7 +63,7 @@
     </view>
     <view class='bottom_blank'></view>
 
-    <view class='hint' wx:if="{{businessList.length === 0}}">
+    <view class='hint' wx:if="{{hint}}">
         <view class='hint_content'>
             <view class='egg_content'>
                 <text>今天还没有星耀挑战呦

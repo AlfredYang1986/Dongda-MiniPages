@@ -12,7 +12,7 @@
 
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
     <view class='didi_logo'>
-        <!-- <image src='../../utils/images/qr@2x.png'></image> -->
+         <image src='../../utils/images/logo_didi@2x.png' mode='widthFix'></image> 
     </view>
      <view class='qr_code'> 
         <image src='../../utils/images/didi_qrcode.png' mode='widthFix' bindlongpress='saveImage'></image>

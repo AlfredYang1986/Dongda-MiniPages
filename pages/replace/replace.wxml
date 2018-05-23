@@ -69,7 +69,7 @@
     </view> -->
     <view class='brand_detail brand_info'>
         <view class="logo_area">
-            <image src='https://dongdakid.com/assets/images/{{businessInfo.logo}}' mode='widthFix'></image>
+            <image src="https://dongdakid.com/assets/images/{{businessInfo.logo === ''?'avatar_default@2x.png':businessInfo.logo}}" mode='widthFix'></image>
 
             <!-- <image src='http://192.168.100.115:9000/assets/images/{{businessInfo.logo}}' mode='widthFix'></image> -->
             <!-- <image wx:if="{{businessInfo.isPaid}}" class='star' src='../../utils/images/star@2x.png'></image> -->

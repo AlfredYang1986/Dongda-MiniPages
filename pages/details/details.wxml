@@ -12,84 +12,51 @@
     </view>
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
 
-    <view class='got_egg'>
-        <image class='light light_one' src='../../utils/images/congratulation@2x.png'></image>
-        <image class='light light_two' src='../../utils/images/congratulation@2x.png'></image>
-        
+    <view class='got_egg' wx:if="{{!noEgg}}">
+        <image class="light {{eggTypeAndCoin[1]?'light_one':'light_one_center'}}" src='../../utils/images/congratulation@2x.png'></image>
+        <image class='light light_two' wx:if="{{eggTypeAndCoin[1]}}" src='../../utils/images/congratulation@2x.png'></image>
+
         <view class='title'>恭喜获得!</view>
         <view class='egg_type'>
-        <view class='egg_coin_area'>
-            <view class='egg_coin_flex'><image class='egg_pic' src='../../utils/images/egg_classic@2x.png'></image></view>
-            <view class='egg_coin_flex'><image class='egg_coin' src='../../utils/images/egg_coins@2x.png'></image></view>            
-        </view>
+            <view class='egg_coin_area'>
+                <view class='egg_coin_flex'>
+                    <image class='egg_pic' src='../../utils/images/egg_classic@2x.png'></image>
+                </view>
+                <view class='egg_coin_flex' wx:if="{{eggTypeAndCoin[1]}}">
+                    <image class='egg_coin' src='../../utils/images/egg_coins@2x.png'></image>
+                </view>
+            </view>
             <!-- <image class='egg_pic' src='../../utils/images/egg_classic@2x.png'></image> -->
             <!-- <image class='egg_coin' src='../../utils/images/egg_coins@2x.png'></image> -->
-            <view class='egg_text'><text>经典彩蛋</text></view>
+            <view class='egg_text'>
+                <text>经典彩蛋</text>
+                <text>和一枚咚哒coin</text>
+            </view>
         </view>
-        <view class='egg_explain'><text>同一商家多次扫码仅可获得一枚彩蛋</text></view>
+        <view class='egg_check'><image src='../../utils/images/btn_checkeggs@2x.png' bindtap='checkEggs'></image></view>
+        <view class='egg_explain'>
+            <text>同一商家多次扫码仅可获得一枚彩蛋</text>
+        </view>
     </view>
-
-    <!-- <view class='brand_address brand_info'>
-        <image class='icon_location' src='../../utils/images/icon_location@2x.png'></image>
-        <view class='address_text'>
-            <text>{{businessInfo.address}}</text>
-        </view>
-
-        <view class='place'>
-            <view class='place_item'>
-                <image src='../../utils/images/star@2x.png'></image>
-                <view class='place_name'>
-                    <text>最强王者</text>
-                </view>
-            </view>
-            <view class='place_item'>
-                <image src='../../utils/images/star@2x.png'></image>
-                <view class='place_name'>
-                    <text>星耀场地</text>
-                </view>
-            </view>
-        </view>
-        <view class='descript'>
-            <view class='title'>活动描述</view>
-            <view class='descript_items'>
-                <view class='data_left descript_item'>
-                    <text class='point point_green'></text>
-                    <text>6月2日</text>
-                </view>
-                <view class='content_right descript_item'>
-                    <text>头号玩家专属活动</text>
-                    <view>哇Sakai的咖啡机贷款金额哦电视里的看法就饿哦爱的看见了看见</view>
-                </view>
-            </view>
-            <view class='descript_items'>
-                <view class='data_left descript_item'>
-                    <text class='point point_yellow'></text>
-                    <text>6月3日</text>
-                </view>
-                <view class='content_right descript_item'>
-                    <text>品牌体验课</text>
-                    <view>哇Sakai的咖啡机贷款金额哦电视里的看法就饿哦爱的看见了看见</view>
-                </view>
-            </view>
-        </view>
-    </view> -->
 
     <view class='brand_detail brand_info'>
 
-        <view class="logo_area {{businessInfo.is_top?'king':''}} {{businessInfo.isPaid?'paid':'normal'}}">
-            <image src='https://dongdakid.com/assets/images/{{businessInfo.logo}}' mode='widthFix'></image>
+        <view class="logo_area">
+            <image src="https://dongdakid.com/assets/images/{{!businessInfo.logo?'avatar_default@2x.png':businessInfo.logo}}" mode='widthFix'></image>
             <!-- <image src='http://192.168.100.115:9000/assets/images/{{businessInfo.logo}}' mode='widthFix'></image> -->
-            
+<!-- 
             <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
             <image wx:elif="{{businessInfo.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
-            <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image>
+            <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image> -->
         </view>
 
         <view class='brand_name'>{{businessInfo.brand_name}}</view>
 
         <view class='one_punch_line'>"{{businessInfo.onepunchline}}"</view>
 
-        <view class='leaf_type'><text>{{businessInfo.service_leaf}}·{{businessInfo.service_type}}</text></view>
+        <view class='leaf_type'>
+            <text>{{businessInfo.service_leaf}}·{{businessInfo.service_type}}</text>
+        </view>
 
         <view class='hight_light' wx:if="{{businessInfo.difference.length > 0}}">
             <view class='hight_light_item' wx:for="{{businessInfo.difference}}">
@@ -106,7 +73,7 @@
 
 </view>
 
- <view class='content_has_padding' wx:else>
+<view class='content_has_padding' wx:else>
 
     <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
         <view class='backArea'>
@@ -121,11 +88,15 @@
 
     <view class='no_egg'>
         <image src='../../utils/images/egg_broken@2x.png' mode='widthFix'></image>
-        <view><text>扫码失败</text></view>
-        <view><text>请确认头号玩家二维码</text></view>
-        
+        <view>
+            <text>扫码失败</text>
+        </view>
+        <view>
+            <text>请确认头号玩家二维码</text>
+        </view>
+
     </view>
 
     <view class='bottom_blank'></view>
 
-</view> 
+</view>

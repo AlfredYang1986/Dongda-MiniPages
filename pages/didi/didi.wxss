@@ -11,7 +11,12 @@ page {
     background-size: 100% 100%;
 }
 .didi_logo {
-    margin: 40rpx 0;
+    margin: 80rpx 0 60rpx;
+    text-align: center;
+}
+.didi_logo image {
+    width: 278rpx;
+    max-height: 56rpx;
 }
 .qr_code {
     margin: 40rpx 0;
@@ -19,28 +24,31 @@ page {
 }
 
 .qr_code image {
-    width: 280rpx;
+    width: 276rpx;
+    height: 276rpx;
 }
 
 .qr_text {
+    line-height: 38rpx;
+    font-size: 32rpx;
+    font-weight: 700;
     text-align: center;
-    line-height: 22px;
-    font-size: 16px;
     color: #34384a;
-    text-align: center;
+    
 }
 .user_rule {
-    margin-top: 40rpx;
+    margin-top: 120rpx;
 }
 .user_rule .rule_title {
     margin: 20rpx 0;
-    line-height: 19px;
-    font-size: 16px;
+    line-height: 38rpx;
+    font-size: 32rpx;
+    font-weight: 700;
     color: #5f6270;
 }
 
 .user_rule .rule_content {
-    line-height: 20px;
-    font-size: 14px;
+    line-height: 32rpx;
+    font-size: 28rpx;
     color: #5f6270;
 }

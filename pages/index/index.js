@@ -120,6 +120,8 @@ Page({
         },
     */
     onLoad: function () {
+        const that = this;
+        getApp().userlogin();
         this.calcDay();
         if (app.globalData.userInfo) {
             this.setData({

@@ -95,19 +95,19 @@ page {
 
 .challenge {
     position: relative;
-    padding: 0 40rpx;
+    /* padding: 0 40rpx; */
     text-align: center;
 }
 
 .challenge image {
-    width: 670rpx;
+    width: 732rpx;
 }
 
 .challenge button {
     position: absolute;
     top: 0;
-    width: 670rpx;
-    height: 154rpx;
+    width: 100%;
+    height: 176rpx;
     background-color: transparent;
 }
 

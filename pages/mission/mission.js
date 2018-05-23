@@ -67,11 +67,11 @@ Page({
     },
     // 显示提示
     showHint: function () {
+        const that = this;
         wx.hideLoading();
-        this.setData({
+        that.setData({
             hint: true
         })
-
     },
     // 关闭提示
     closeHint: function () {
@@ -81,11 +81,10 @@ Page({
         wx.navigateBack({
             delta: 1,
         })
-
     },
     // didi
     didiCoupon: function () {
-        // console.log("didi")
+        // console.log("didi");
         wx.navigateTo({
             url: '../../pages/didi/didi',
         })
@@ -126,11 +125,14 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                console.log(res.data.result)
-                that.setData({
-                    businessList: res.data.result.providers
-                });
-
+                console.log(res.data.result);
+                if(res.data.result.providers.length === 0) {
+                    that.showHint();
+                } else {
+                    that.setData({
+                        businessList: res.data.result.providers
+                    });
+                }
             },
             fail: (error) => {
                 wx.hideLoading();
