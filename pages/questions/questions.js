@@ -115,11 +115,31 @@ Page({
         let currentQuestion = that.data.currentQuestion + 1;
         console.log(currentQuestion);
         if (currentQuestion === 5) {
-            setTimeout(() => {
-                that.setData({
-                    rightHint: true
-                })
-            }, 600)
+            let data = {
+                condition: {
+                    wechat_id: getApp().globalData.userOpenId,
+                },
+                answers_check: 1,
+            }
+            wx.request({
+                method: 'POST',
+                url: getApp().globalData.httpsAddress +'/answer/success',
+                data: data,
+                success: (res)=> {
+                    console.log(res.data);
+                    that.setData({
+                        rightHint: true
+                    })
+                },
+                fail: (error)=> {
+                    console.log(error)
+                }
+            })
+            // setTimeout(() => {
+            //     that.setData({
+            //         rightHint: true
+            //     })
+            // }, 600)
         } else {
             setTimeout(function () {
                 that.setData({

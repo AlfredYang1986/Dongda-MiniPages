@@ -1,5 +1,6 @@
 <!--pages/score/score.wxml-->
 <view class='content_has_padding'>
+
     <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
         <view class='backArea'>
             <image src='../../utils/images/icon_back@2x.png'></image>
@@ -9,24 +10,23 @@
             <text></text>
         </view>
     </view>
+
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}">
         <view class='eggs_total'>
             <view class='total'>
-                <image src='../../utils/images/coins@2x.png' mode='widthFix' bindtap='score'></image>
-                <text bindtap='score' class='total_num'>{{scores.scores_B}}</text>
+                <image src='../../utils/images/coins@2x.png' mode='widthFix' bindtap='score' data-type='conis'></image>
+                <text bindtap='score' data-type='conis' class='total_num'>{{scores.scores_B}}</text>
+            </view>
+            <view wx:if="{{scores.scores_B !== 0}}" class='rainbow'>
+                <image src='../../utils/images/rainbow@2x.png'></image>
             </view>
         </view>
     </view>
-    <!-- <view class="userinfo" wx:if="{{canIuseAvatar}}">
-        <open-data type="userAvatarUrl" class='user_avatar'></open-data>
-        <open-data type="userNickName" class="user_nickname"></open-data>
-    </view>
-    <view class="userinfo" wx:else>
-        <image src='{{userAvatar}}' class='user_avatar'></image>
-          <text class="user_nickname">{{userNickname}}</text>  
-    </view> -->
+
     <view class='score_wrapper'>
+
         <view class='eggs_line'>
+
             <view class='egg'>
                 <image class='egg_bg' src='../../utils/images/egg_classicl_bg@2x.png' mode='widthFix'></image>
                 <image class='egg_item' wx:if="{{scores.scores_A}}" src='../../utils/images/egg_classic@2x.png'></image>
@@ -34,66 +34,94 @@
                 <image class='egg_bottom' wx:if="{{scores.scores_A}}" src='../../utils/images/egg_light@2x.png'></image>
                 <image class='egg_bottom' wx:else src='../../utils/images/light_empty@2x.png'></image>
                 <text class='egg_count'>{{scores.scores_A}}</text>
-                <button id='classic' class='show_hint' bindtap='showHint'></button>
+                <button id='classic' data-type='eggs' class='show_hint' bindtap='showHint'></button>
             </view>
+
             <view class='egg'>
                 <image class='egg_bg' src='../../utils/images/egg_king_bg@2x.png' mode='widthFix'></image>
-                <image class='egg_item' wx:if="{{scores.scores_C}}" src='../../utils/images/egg_king@2x.png'></image>
-                <image class='egg_item' wx:else src='../../utils/images/egg_empty@2x.png'></image>
-                <image class='egg_bottom' wx:if="{{scores.scores_C}}" src='../../utils/images/egg_light@2x.png'></image>
-                <image class='egg_bottom' wx:else src='../../utils/images/light_empty@2x.png'></image>
-                <text class='egg_count'>{{scores.scores_C}}</text>
-                <button id='king' class='show_hint' bindtap='showHint'></button>
-            </view>
-        </view>
-        <view class='eggs_line'>
-            <view class='egg_big'>
-                <image class='egg_bg' src='../../utils/images/egg_surprise_bg@2x.png' mode='widthFix'></image>
-                <image class='egg_item' wx:if="{{scores.scores_D}}" src='../../utils/images/egg_surprise@2x.png'></image>
+                <image class='egg_item' wx:if="{{scores.scores_D}}" src='../../utils/images/egg_king@2x.png'></image>
                 <image class='egg_item' wx:else src='../../utils/images/egg_empty@2x.png'></image>
                 <image class='egg_bottom' wx:if="{{scores.scores_D}}" src='../../utils/images/egg_light@2x.png'></image>
                 <image class='egg_bottom' wx:else src='../../utils/images/light_empty@2x.png'></image>
                 <text class='egg_count'>{{scores.scores_D}}</text>
-                <button id='surprise' class='show_hint' bindtap='showHint'></button>
+                <button id='king' data-type='eggs' class='show_hint' bindtap='showHint'></button>
             </view>
 
         </view>
+
+        <view class='eggs_line'>
+
+            <view class='egg_big'>
+
+                <image class='egg_bg' src='../../utils/images/egg_surprise_bg@2x.png' mode='widthFix'></image>
+                <image class='egg_item' wx:if="{{scores.scores_C}}" src='../../utils/images/egg_surprise@2x.png'></image>
+                <image class='egg_item' wx:else src='../../utils/images/egg_empty@2x.png'></image>
+                <image class='egg_bottom' wx:if="{{scores.scores_C}}" src='../../utils/images/egg_light@2x.png'></image>
+                <image class='egg_bottom' wx:else src='../../utils/images/light_empty@2x.png'></image>
+                <text class='egg_count'>{{scores.scores_C}}</text>
+                <button id='surprise' data-type='eggs' class='show_hint' bindtap='showHint'></button>
+
+            </view>
+
+        </view>
+
         <view class='eggs_explain'>
+
             <view class='egg_title'>
                 <text>彩蛋攻略</text>
             </view>
+
             <view class='egg_content'>
+
                 <view class='title'>
                     <text>经典彩蛋</text>
                 </view>
+
                 <text>活动期间，集齐不同类型的三枚经典彩蛋，即可获得由咚哒提供给孩子的“6.1经典礼物”。（一个帐号最多兑换两次）
 每个微信帐号在每个场地扫码只能获得一个经典彩蛋。</text>
+
                 <view class='title'>
                     <text>惊喜彩蛋</text>
                 </view>
+
                 <text>每个“惊喜彩蛋”可以兑换一次当日答题机会。
 答题全对，即可获得由咚哒提供给年轻的一家人的Surprise礼物。
 每个微信帐号在每个星耀挑战场地扫码只能获得一个惊喜彩蛋。</text>
+
                 <view class='title'>
                     <text>王者彩蛋</text>
                 </view>
+
                 <text>活动期间，集齐不同类型的四枚“王者彩蛋”，将获得一份由咚哒为孩子专属定制的王者大礼。</text>
+
             </view>
+
         </view>
+
     </view>
+
     <view class='hint' wx:if="{{hint}}">
-        <view class='hint_content' wx:for="{{hintContent}}" wx:key="unique" wx:if="{{item.unique === eggtype}}" >
+
+        <view class='hint_content' wx:for="{{hintContent}}" wx:key="unique" wx:if="{{item.sign === eggtype}}">
+
             <view class='egg_title'>
                 <text>{{item.title}}</text>
             </view>
-            <view class='egg_content'>
-                <text>{{item.content}}</text>
+
+            <view class='egg_content' wx:for="{{item.content}}" wx:for-item="content">
+                <view class='title'>{{content.title}}</view>
+                <text class='content'>{{content.content}}</text>
             </view>
+
             <view class='egg_close'>
                 <image src='../../utils/images/icon_close@2x.png'></image>
                 <button class='hint_close' bindtap='closeHint'></button>
             </view>
+
         </view>
+
     </view>
+
     <view class='bottom_blank'></view>
+
 </view>

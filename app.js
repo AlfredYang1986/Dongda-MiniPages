@@ -2,11 +2,10 @@
 App({
     userlogin: function () {
         const that = this;
-        return new Promise(
-            (resolve, reject) => {
-                console.log('app.js 登陆函数 开始运行')
+        return new Promise( (resolve, reject) => {
+                // console.log('app.js 登陆函数 开始运行');
                 wx.showLoading({
-                    title: '登陆中',
+                    title: '登录中...',
                 });
                 wx.login({
                     success: function (res) {
@@ -21,17 +20,19 @@ App({
                             },
                             success: function (res) {
                                 wx.hideLoading();
-                                console.log(res.data);
+                                // console.log(res.data);
                                 that.globalData.userOpenId = res.data.result.open_id;
                                 that.globalData.wechat_user.wechat_open_id = res.data.result.open_id;
                                 that.globalData.wechat_user.wechat_name = wx.getStorageSync('nickName');
                                 that.globalData.wechat_user.wechat_photo = wx.getStorageSync('avatarUrl');
                                 that.globalData.userId = res.data.result.user.user_id;
                                 wx.setStorageSync('userId', res.data.result.user.user_id);
-                                return resolve('app.js login success')
+                                return resolve('app.js login success');
                             },
                             fail: function (error) {
-                                console.log(error);
+                                // console.log(error);
+                                wx.hideLoading();
+                                reject({ error: error });
                                 wx.showModal({
                                     title: "网络繁忙",
                                     content: '网络繁忙,请稍后重试',
@@ -39,7 +40,104 @@ App({
                                 })
                             }
                         })
-    /*
+                        /*
+                                wx.login({
+                                    success: res => {
+                                        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+                                        let code = res.code;
+                                        wx.request({
+                                            url: getApp().globalData.httpsAddress + '/login',
+                                            method: "POST",
+                                            data: {
+                                                wx: {
+                                                    code: res.code
+                                                }
+                                            },
+                                            success: function (res) {
+                                                console.log(res.data);
+                                                that.globalData.userOpenId = res.data.result.open_id;
+                                                that.globalData.wechat_user.wechat_open_id = res.data.result.open_id;
+                                                // that.globalData.wechat_user.wechat_token = res.data.session_key;
+                                                that.globalData.wechat_user.wechat_name = wx.getStorageSync('nickName');
+                                                that.globalData.wechat_user.wechat_photo = wx.getStorageSync('avatarUrl');
+                                                that.globalData.userId = res.data.result.user.user_id;
+                                                wx.setStorageSync('userId', res.data.result.user.user_id);
+                                                // console.log(that.globalData.userOpenId);
+                                                // console.log(that.globalData.wechat_user.wechat_open_id);
+                                                // console.log(that.globalData.userId);
+                                            },
+                                            fail: function (error) {
+                                                console.log(error);
+                                                wx.showModal({
+                                                    title: "网络繁忙",
+                                                    content: '网络繁忙,请稍后重试',
+                                                    showCancel: false,
+                                                })
+                                            }
+                                        })
+                                    }
+                                });
+                        */
+                        /*
+                            wx.getUserInfo({
+                                success: function (res) {
+                                    that.globalData.userInfo = res.userInfo;
+                                    console.log(that.globalData.userInfo)
+                                    wx.request({
+                                        url: that.login_url,
+                                        header: {
+                                            'content-type': 'application/x-www-form-urlencoded'
+                                        },
+                                        data: {
+                                            code: code,
+                                            nickname: res.userInfo.nickName,
+                                            gender: res.userInfo.gender,
+                                            city: res.userInfo.city,
+                                            province: res.userInfo.province,
+                                            country: res.userInfo.country,
+                                            head: res.userInfo.avatarUrl,
+                                        },
+                                        method: 'POST',
+                                        success(res) {
+                                            that.thirdid = res.data.data
+                                            wx.setStorageSync('thirdid', res.data.data)
+                                            wx.setStorageSync('userInfo', that.globalData.userInfo)
+                                            return resolve('app.js login success')
+    
+                                        }
+                                    })
+                                },
+                                fail: function () {
+                                    wx.showToast({
+                                        title: '登陆异常',
+                                        image: '/image/erro.png'
+                                    })
+                                    reject('app.js login failed')
+                                }
+                            })
+                        */
+                    },
+                    fail: function () {
+                        wx.showToast({
+                            title: '登陆异常',
+                            // image: '/image/erro.png'
+                        })
+                        reject('app.js login failed')
+                    },
+                })
+            }
+        )
+    },
+
+    onLaunch: function (options) {
+        const that = this;
+        // console.log("onLaunch");
+        console.log(options);
+        if(options.scene === 1011) {
+            console.log("1011");
+        }
+        // 登录
+        /*
             wx.login({
                 success: res => {
                     // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -76,105 +174,11 @@ App({
                     })
                 }
             });
-    */
-
-                    /*
-                        wx.getUserInfo({
-                            success: function (res) {
-                                that.globalData.userInfo = res.userInfo;
-                                console.log(that.globalData.userInfo)
-                                wx.request({
-                                    url: that.login_url,
-                                    header: {
-                                        'content-type': 'application/x-www-form-urlencoded'
-                                    },
-                                    data: {
-                                        code: code,
-                                        nickname: res.userInfo.nickName,
-                                        gender: res.userInfo.gender,
-                                        city: res.userInfo.city,
-                                        province: res.userInfo.province,
-                                        country: res.userInfo.country,
-                                        head: res.userInfo.avatarUrl,
-                                    },
-                                    method: 'POST',
-                                    success(res) {
-                                        that.thirdid = res.data.data
-                                        wx.setStorageSync('thirdid', res.data.data)
-                                        wx.setStorageSync('userInfo', that.globalData.userInfo)
-                                        return resolve('app.js login success')
-
-                                    }
-                                })
-                            },
-                            fail: function () {
-                                wx.showToast({
-                                    title: '登陆异常',
-                                    image: '/image/erro.png'
-                                })
-                                reject('app.js login failed')
-                            }
-                        })
-                    */
-                    },
-                    fail: function () {
-                        wx.showToast({
-                            title: '登陆异常',
-                            // image: '/image/erro.png'
-                        })
-                        reject('app.js login failed')
-                    },
-                })
-            }
-        )
-    },
-
-    onLaunch: function () {
-        var that = this;
-        // 登录
-        /*
-        wx.login({
-            success: res => {
-                // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                let code = res.code;
-                wx.request({
-                    url: getApp().globalData.httpsAddress + '/login',
-                    method: "POST",
-                    data: {
-                        wx: {
-                            code: res.code
-                        }
-                    },
-                    success: function (res) {
-                        console.log(res.data);
-                        that.globalData.userOpenId = res.data.result.open_id;
-                        that.globalData.wechat_user.wechat_open_id = res.data.result.open_id;
-                        // that.globalData.wechat_user.wechat_token = res.data.session_key;
-                        that.globalData.wechat_user.wechat_name = wx.getStorageSync('nickName');
-                        that.globalData.wechat_user.wechat_photo = wx.getStorageSync('avatarUrl');
-                        that.globalData.userId = res.data.result.user.user_id;
-                        wx.setStorageSync('userId', res.data.result.user.user_id);
-                        // console.log(that.globalData.userOpenId);
-                        // console.log(that.globalData.wechat_user.wechat_open_id);
-                        // console.log(that.globalData.userId);
-                    },
-                    fail: function (error) {
-                        console.log(error);
-                        wx.showModal({
-                            title: "网络繁忙",
-                            content: '网络繁忙,请稍后重试',
-                            showCancel: false,
-                        })
-                    }
-                })
-            }
-        });
         */
         // that.userlogin();
         // 获取设备信息
         wx.getSystemInfo({
             success: function (res) {
-                // console.log(res)
                 if (res.platform === 'android') {
                     that.globalData.android = true;
                 } else {

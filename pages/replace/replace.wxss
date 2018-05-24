@@ -7,7 +7,6 @@ page {
 .content_has_padding {
      background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png); 
     /* background-image: url(http://192.168.100.115:9000/assets/images/bg_detail@2x.png);  */
-    
 }
 
 .brand_info {
@@ -39,13 +38,11 @@ page {
     line-height: 40rpx;
     text-align: center;
     font-size: 28rpx;
-    /* font-weight: 700; */
     color: #34384a;
 }
 
 .brand_address .place {
     display: flex;
-    /* margin: 20rpx; */
 }
 
 .brand_address .place .place_item {
@@ -67,9 +64,6 @@ page {
     opacity:0.5;
     color: #112A51;
 }
-.descript {
-    /* margin-bottom: 120rpx; */
-}
 
 .descript .title {
     margin: 20rpx 0;
@@ -83,9 +77,8 @@ page {
 
 .descript .descript_items {
     display: flex;
-     margin: 20rpx 0; 
+    margin: 20rpx 0; 
 }
-
 
 .descript .data_left {
     flex: 0 0 20rpx;
@@ -160,7 +153,6 @@ page {
 }
 
 .brand_detail .one_punch_line {
-    /* height: 44rpx; */
     line-height: 44rpx;
     text-align: center;
     font-size: 28rpx;
@@ -169,7 +161,6 @@ page {
 }
 
 .brand_detail .leaf_type {
-    /* margin-bottom: 10rpx; */
     height: 40rpx;
     line-height: 40rpx;
     text-align: center;
@@ -180,7 +171,6 @@ page {
 
 .brand_detail .hight_light {
     display: flex;
-    /* margin-bottom: 10rpx; */
     padding: 24px 0;
     font-size: 32rpx;
 }

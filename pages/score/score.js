@@ -5,22 +5,25 @@ Page({
      * 页面的初始数据
      */
     data: {
-        canIuseAvatar: wx.canIUse('open-data.type.userAvatarUrl'),
         android: false,
         iosX: false,
-        // hasScores: true,
         hasScroll: false,
         hint: false,
-        eggtype: "classic",
-        scores: {
-            scores_A: 0,    // 普通扫码分数
-            user_id: "",
-            scores_C: 0,    // 答题分数
-            scores_B: 0,    // 高级扫码分数
-            scores_D: 0,
-            scores_id: "",
-        },
-        hintContent: [{ unique: "classic", title: "经典彩蛋", content: "经典彩蛋一共四种类型，分别是科学蛋、艺术蛋、运动蛋和体验蛋。6月2日-10日，到达任意一家品牌机构签到扫码，均可获得一个经典彩蛋。" }, { unique: "surprise", title: "惊喜彩蛋", content: "6月4日-6月8日五天中，用户在星耀挑战场地进行打卡，将获得一个“惊喜彩蛋”。" }, { unique: "king", title: "王者彩蛋", content: "王者彩蛋一共四种类型，分别是科学王者、艺术王者、运动王者和体验王者。四天周末（6月2日、6月3日、6月9日、6月10日），用户在最强王者服务方场地打卡，并完成场地挑战，即可获得一个“王者彩蛋”。" }]
+        eggtype: "eggs",
+        scores:{},
+        // scores: {
+        //     scores_A: 0,    // 普通扫码分数
+        //     user_id: "",
+        //     scores_C: 0,    // 答题分数
+        //     scores_B: 0,    // 高级扫码分数
+        //     scores_D: 0,
+        //     scores_id: "",
+        // },
+        hintContent: [
+            { sign: "conis", title: "如何获得", content: [
+                { title: "咚哒coins", content: "活动期间，在场地打开即可获得经典彩蛋活动期间，在场地打开即可获得经典彩蛋" }
+                ]}, 
+            { sign: "eggs", title: "如何获得", content: [{ unique: "classic", title: "经典彩蛋", content: "经典彩蛋一共四种类型，分别是科学蛋、艺术蛋、运动蛋和体验蛋。6月2日-10日，到达任意一家品牌机构签到扫码，均可获得一个经典彩蛋。" }, { unique: "surprise", title: "惊喜彩蛋", content: "6月4日-6月8日五天中，用户在星耀挑战场地进行打卡，将获得一个“惊喜彩蛋”。" }, { unique: "king", title: "王者彩蛋", content: "王者彩蛋一共四种类型，分别是科学王者、艺术王者、运动王者和体验王者。四天周末（6月2日、6月3日、6月9日、6月10日），用户在最强王者服务方场地打卡，并完成场地挑战，即可获得一个“王者彩蛋”。" }] }]
     },
     // 返回
     backBeforePage: function () {
@@ -40,14 +43,13 @@ Page({
                 hasScroll: false
             })
         }
-        // console.log(res);
     },
     // 显示提示
     showHint: function (e) {
-        // console.log(e)
-        // console.log(e.currentTarget.id)
+        console.log(e);
+        console.log(e.currentTarget.dataset.type)
         this.setData({
-            eggtype: e.currentTarget.id,
+            eggtype: e.currentTarget.dataset.type,
             hint: true
         })
     },
@@ -58,14 +60,24 @@ Page({
         })
     },
     // 答题界面
-    score: function () {
-        // wx.showLoading({
-        //     title: '加载资源中...',
-        //     mask: true,
-        // });
-        wx.navigateTo({
-            url: '../questions/questions',
-        })
+    score: function (e) {
+        // console.log(e);
+        const that = this;
+        let coins = that.data.scores.scores_B;
+        if (coins === 0) {
+            this.setData({
+                eggtype: e.currentTarget.dataset.type,
+                hint: true
+            })
+        } else {
+            wx.showLoading({
+                title: '加载资源中...',
+                mask: true,
+            });
+            wx.navigateTo({
+                url: '../questions/questions',
+            })
+        }
     },
     // 获取score data
     getScores: function (data) {
@@ -77,7 +89,6 @@ Page({
             success: (res) => {
                 wx.hideLoading();
                 console.log(res.data.result);
-                // console.log(res.data.result.scores);
                 if (res.data.result.scores === "not exist") {
                     // that.setData({
                     //     hasScores: false
@@ -88,7 +99,6 @@ Page({
                         scores: res.data.result.scores
                     });
                 }
-
             },
             fail: (error) => {
                 wx.hideLoading();
@@ -118,52 +128,8 @@ Page({
         });
         wx.showLoading({
             title: '获取数据中...',
-        })
-        // var open_id = getApp().globalData.userOpenId;
+        });
 
-        // let data = {
-        //     condition: {
-        //         wechat_id: getApp().globalData.userOpenId
-        //     }
-        // };
-        // that.getScores(data);
-        /*
-                wx.request({
-                    url: getApp().globalData.httpsAddress + '/scores/query',
-                    data: data,
-                    method: 'POST',
-                    success: (res) => {
-                        wx.hideLoading();
-                        // console.log(res.data.result);
-                        // console.log(res.data.result.scores);
-                        if (res.data.result.scores === "not exist") {
-                            that.setData({
-                                hasScores: false
-                            });
-                        } else {
-                            that.setData({
-                                hasScores: true,
-                                scores: res.data.result.scores
-                            });
-                        }
-        
-                    },
-                    fail: (error) => {
-                        wx.hideLoading();
-                        wx.showModal({
-                            title: '网络繁忙',
-                            content: '获取信息失败,请稍后重试',
-                            // confirmText: '重新获取',
-                            // showCancel: false,
-                            success: (res) => {
-                                if (res.confirm) {
-                                    // that.onLoad();
-                                }
-                            }
-                        })
-                    }
-                })
-        */
     },
 
     /**
@@ -176,27 +142,28 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-         console.log("Onshow")
         const that = this;
+
         let data = {
             condition: {
                 wechat_id: getApp().globalData.userOpenId
             }
         };
         that.getScores(data);
+
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-
+        const that = this;
+        wx.hideLoading();
     },
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-        console.log("onunload");
 
     },
 

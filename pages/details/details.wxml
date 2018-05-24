@@ -12,39 +12,45 @@
     </view>
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
 
-    <view class='got_egg' wx:if="{{!noEgg}}">
-        <image class="light {{eggTypeAndCoin[1]?'light_one':'light_one_center'}}" src='../../utils/images/congratulation@2x.png'></image>
-        <image class='light light_two' wx:if="{{eggTypeAndCoin[1]}}" src='../../utils/images/congratulation@2x.png'></image>
-
+    <view class='got_egg' wx:if="{{firstScan}}">
+        <image class="light {{eggTypeAndCoin?'light_one':'light_one_center'}}" src='../../utils/images/congratulation@2x.png'></image>
+        <image class='light light_two' wx:if="{{eggTypeAndCoin}}" src='../../utils/images/congratulation@2x.png'></image>
         <view class='title'>恭喜获得!</view>
         <view class='egg_type'>
             <view class='egg_coin_area'>
                 <view class='egg_coin_flex'>
-                    <image class='egg_pic' src='../../utils/images/egg_classic@2x.png'></image>
+                    <image wx:if="{{eggType === 'scores_A'}}" class='egg_pic' src='../../utils/images/egg_classic@2x.png'></image>
+                    <image wx:else class='egg_pic' src='../../utils/images/egg_king@2x.png'></image>
                 </view>
-                <view class='egg_coin_flex' wx:if="{{eggTypeAndCoin[1]}}">
+                <view class='egg_coin_flex' wx:if="{{eggTypeAndCoin}}">
                     <image class='egg_coin' src='../../utils/images/egg_coins@2x.png'></image>
                 </view>
             </view>
-            <!-- <image class='egg_pic' src='../../utils/images/egg_classic@2x.png'></image> -->
-            <!-- <image class='egg_coin' src='../../utils/images/egg_coins@2x.png'></image> -->
             <view class='egg_text'>
-                <text>经典彩蛋</text>
-                <text>和一枚咚哒coin</text>
+                <text wx:if="{{eggType === 'scores_A'}}">经典彩蛋</text>
+                <text wx:else>王者彩蛋</text>
+                <text wx:if="{{eggTypeAndCoin}}">和一枚咚哒coin</text>
             </view>
         </view>
-        <view class='egg_check'><image src='../../utils/images/btn_checkeggs@2x.png' bindtap='checkEggs'></image></view>
+        <view class='egg_check'>
+            <image src='../../utils/images/btn_checkeggs@2x.png' bindtap='checkEggs'></image>
+        </view>
+        <view class='egg_explain'>
+            <text>同一商家多次扫码仅可获得一枚彩蛋</text>
+        </view>
+    </view>
+    <view class='got_egg' wx:else>
+        <view class='egg_checked'>已经打过卡了呦！</view>
         <view class='egg_explain'>
             <text>同一商家多次扫码仅可获得一枚彩蛋</text>
         </view>
     </view>
 
-    <view class='brand_detail brand_info'>
-
+    <view class="brand_detail {{firstScan?'brand_info':'brand_info_checked'}}">
         <view class="logo_area">
             <image src="https://dongdakid.com/assets/images/{{!businessInfo.logo?'avatar_default@2x.png':businessInfo.logo}}" mode='widthFix'></image>
             <!-- <image src='http://192.168.100.115:9000/assets/images/{{businessInfo.logo}}' mode='widthFix'></image> -->
-<!-- 
+            <!-- 
             <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
             <image wx:elif="{{businessInfo.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
             <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image> -->
@@ -65,8 +71,8 @@
             </view>
         </view>
 
-        <view class='story'>{{businessInfo.story}}</view>
-
+        <!-- <view class='story'>{{businessInfo.story}}</view> -->
+        <view class='{{allStory?"story_all":"story"}}' bindtap='showAllStory'>{{businessInfo.story}}</view>
     </view>
 
     <view class='bottom_blank'></view>

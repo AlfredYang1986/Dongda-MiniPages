@@ -46,7 +46,7 @@
             <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/flag_star_l@2x.png' mode='widthFix'></image>
         </view>
         <view class="brand_avatar {{item.is_top?'king':'paid'}}">
-            <image src='https://dongdakid.com/assets/images/{{item.logo}}' mode='widthFix'></image>
+            <image src="https://dongdakid.com/assets/images/{{item.logo === ''?'avatar_default@2x.png':item.logo}}" mode='widthFix'></image>
         </view>
         <view class='brand_address'>
             <image src='../../utils/images/icon_location_s_gray@2x.png'></image>

@@ -11,7 +11,10 @@ Page({
         hasScroll: false,
         noEgg: false,
         businessId: "",
-        eggTypeAndCoin: [1, 1, 0],
+        eggTypeAndCoin: 0,
+        firstScan: true,
+        eggType: "",
+        allStory: false,
         businessInfo: {},
     },
     // 返回
@@ -32,6 +35,14 @@ Page({
                 hasScroll: false
             })
         }
+    },
+    /**
+     * 显示所有故事
+     */ 
+    showAllStory: function () {
+        this.setData({
+            allStory: !this.data.allStory
+        })
     },
     /**
      * checkEggs
@@ -55,7 +66,7 @@ Page({
             data: data,
             method: 'POST',
             success: (res) => {
-                console.log(data)
+                // console.log(data);
                 console.log(res.data);
                 wx.hideLoading();
                 if (res.data.status === "error") {
@@ -64,6 +75,9 @@ Page({
                     })
                 } else {
                     if (res.data.result.check_in === "already checked") {
+                        that.setData({
+                            firstScan: false,
+                        });
                         // wx.showModal({
                         //     title: '已打卡',
                         //     content: '请勿多次打卡',
@@ -78,8 +92,9 @@ Page({
                     }
                     that.setData({
                         noEgg: false,
+                        eggType: res.data.result.level,
                         businessInfo: res.data.result.provider,
-                        // eggTypeAndCoin: res.data.result.scores
+                        eggTypeAndCoin: res.data.result.has_coins
                     });
                 }
                 console.log(that.data.businessInfo);
@@ -111,7 +126,7 @@ Page({
         this.setData({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX,
-            businessId: options.id
+            businessId: options.id,
             // businessId: '太空翼足球教育'
             
         });

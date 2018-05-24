@@ -71,8 +71,6 @@
         <view class="logo_area">
             <image src="https://dongdakid.com/assets/images/{{businessInfo.logo === ''?'avatar_default@2x.png':businessInfo.logo}}" mode='widthFix'></image>
 
-            <!-- <image src='http://192.168.100.115:9000/assets/images/{{businessInfo.logo}}' mode='widthFix'></image> -->
-            <!-- <image wx:if="{{businessInfo.isPaid}}" class='star' src='../../utils/images/star@2x.png'></image> -->
             <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
             <image wx:elif="{{businessInfo.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
             <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image>

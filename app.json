@@ -1,10 +1,9 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/details/details",
+        "pages/score/score",
         
-        
-        "pages/score/score",   
+        "pages/details/details", 
         
         "pages/didi/didi",
         
