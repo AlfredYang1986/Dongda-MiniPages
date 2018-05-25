@@ -5,8 +5,7 @@ page {
 }
 
 .content_has_padding {
-     background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png); 
-    /* background-image: url(http://192.168.100.115:9000/assets/images/bg_detail@2x.png);  */
+    background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png);
 }
 
 .brand_info {
@@ -21,7 +20,7 @@ page {
 }
 
 .brand_address {
-    margin: 0 0 40rpx;
+    margin: 32rpx 0 40rpx;
     font-size: 0;
     text-align: center;
 }
@@ -61,23 +60,73 @@ page {
     height: 32rpx;
     line-height: 32rpx;
     font-size: 22rpx;
-    opacity:0.5;
-    color: #112A51;
+    opacity: 0.5;
+    color: #112a51;
 }
 
-.descript .title {
-    margin: 20rpx 0;
-    height: 40rpx;
-    text-align: left;
-    font-size: 28rpx;
+.descript .ages_times {
+    margin: 10rpx 0 40rpx;
+    display: flex;
+}
+
+.descript .ages_times .line_title {
+    flex: 0 0 150rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 32rpx;
     font-weight: 700;
+    color: #34384a;
+}
+
+.descript .ages_times .line_content {
+    flex: 1;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
     letter-spacing: 2rpx;
     color: #5f6270;
 }
 
+.times .line_content .month_day {
+    display: flex;
+}
+
+.times .line_content .month_day  .month {
+    flex: 0 0 80rpx;
+    font-size: 32rpx;
+    color: #00002e;
+    line-height: 44rpx;
+}
+
+.times .line_content .month_day  .day {
+    flex: 1;
+}
+
+.descript .times .line_content .day  text {
+    display: inline-block;
+    margin: 0 10rpx 10rpx;
+    width: 44rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    border-radius: 50%;
+    font-size: 26rpx;
+    text-align: center;
+    color: #fff;
+    background-color: #7faedd;
+}
+
+.descript .title {
+    margin: 20rpx 0;
+    height: 44rpx;
+    line-height: 44rpx;
+    text-align: left;
+    font-size: 32rpx;
+    font-weight: 700;
+    letter-spacing: 2rpx;
+    color: #34384a;
+}
+
 .descript .descript_items {
     display: flex;
-    margin: 20rpx 0; 
+    margin: 20rpx 0;
 }
 
 .descript .data_left {
@@ -106,8 +155,12 @@ page {
     line-height: 40rpx;
     text-align: left;
     font-size: 28rpx;
-    letter-spacing: 0.93px;
+    letter-spacing: 1px;
     color: #5f6270;
+}
+
+.descript .content_right text {
+    font-weight: 700;
 }
 
 .brand_detail .logo_area {
@@ -118,7 +171,7 @@ page {
     height: 140rpx;
     width: 140rpx;
     border-radius: 24rpx;
-    box-shadow: 0 4px 10px 0 rgba(59,105,181,0.16);
+    box-shadow: 0 4px 10px 0 rgba(59, 105, 181, 0.16);
     background-color: #fff;
 }
 
@@ -202,12 +255,13 @@ page {
     opacity: 0.5;
     color: #112a51;
     letter-spacing: 1px;
-    overflow:hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+
 .brand_detail .story_all {
     line-height: 36rpx;
     font-size: 26rpx;
@@ -215,6 +269,7 @@ page {
     color: #112a51;
     letter-spacing: 1px;
 }
+
 .brand_descript {
     margin-bottom: 20rpx;
     position: relative;

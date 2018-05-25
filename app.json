@@ -1,6 +1,10 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/mission/mission",
+        "pages/privacy/privacy",
+        "pages/replace/replace",
+        
         "pages/score/score",
         
         "pages/details/details", 
@@ -8,9 +12,6 @@
         "pages/didi/didi",
         
         "pages/questions/questions",
-        
-        "pages/mission/mission",  
-        "pages/replace/replace",
         
         "pages/lists/lists",
         

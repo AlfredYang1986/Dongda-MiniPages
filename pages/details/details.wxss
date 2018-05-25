@@ -6,21 +6,22 @@ page {
 
 .content_has_padding {
     background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png);
-    /* background-image: url(http://192.168.100.115:9000/assets/images/bg_detail@2x.png);  */
 }
 
 .brand_info {
-    margin-top: 700rpx;
+    margin-top: 720rpx;
     padding: 40rpx;
     border-radius: 24rpx;
     background-color: #fff;
 }
+
 .brand_info_checked {
     margin-top: 550rpx;
     padding: 40rpx;
     border-radius: 24rpx;
     background-color: #fff;
 }
+
 .brand_detail {
     position: relative;
 }
@@ -113,6 +114,7 @@ page {
     text-align: center;
     font-size: 36rpx;
 }
+
 .got_egg .egg_explain {
     margin: 20rpx 0;
     line-height: 32rpx;
@@ -214,12 +216,13 @@ page {
     opacity: 0.5;
     color: #112a51;
     letter-spacing: 2.16rpx;
-    overflow:hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+
 .brand_detail .story_all {
     line-height: 40rpx;
     font-size: 28rpx;

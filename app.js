@@ -122,7 +122,7 @@ App({
                             title: '登陆异常',
                             // image: '/image/erro.png'
                         })
-                        reject('app.js login failed')
+                        reject('app.js login failed');
                     },
                 })
             }
@@ -231,6 +231,6 @@ App({
         userOpenId: '',
         userToken: '',
         // httpsAddress: 'https://dongdakid.com'
-        httpsAddress: 'http://192.168.100.115:9999'
+        httpsAddress: 'http://192.168.100.115:9000'
     }
 })

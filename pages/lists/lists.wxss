@@ -19,7 +19,6 @@ page {
 
 .items {
     position: relative;
-    /* padding-bottom: 32rpx; */
     padding: 32rpx;
     margin: 60rpx 0;
     border-radius: 24rpx;
@@ -28,17 +27,16 @@ page {
 
 .items .brand_address {
     display: flex;
-    /* padding: 32rpx 32rpx 10rpx; */
     padding-right: 148rpx;
     margin: 0 0 10rpx;
-    /* border-bottom: 2rpx solid rgb(242, 242, 242); */
     font-size: 0;
 }
+
 .items .brand_address .address_icon {
     flex: 0 0 22rpx;
 }
+
 .items .brand_address image {
-    
     width: 22rpx;
     height: 26rpx;
     margin-top: 10rpx;
@@ -55,7 +53,6 @@ page {
 
 .items .brand_logo_area {
     display: flex;
-    /* padding: 0 32rpx; */
     margin-top: 40rpx;
     margin-bottom: 20rpx;
 }
@@ -67,10 +64,8 @@ page {
     height: 110rpx;
     border-radius: 24rpx;
     background-color: #fff;
-    box-shadow: 0 4px 10px 0 rgba(59,105,181,0.16);
-    /* box-shadow: 0 2px 4px 0 #aec3e2; */
+    box-shadow: 0 4px 10px 0 rgba(59, 105, 181, 0.16);
 }
-
 
 .items .brand_logo_area .brand_avatar image:first-child {
     position: absolute;
@@ -86,7 +81,7 @@ page {
     top: 0;
     right: 32rpx;
     width: 116rpx;
-    max-height: 118rpx; 
+    max-height: 118rpx;
 }
 
 .items .brand_logo_area .brand_name_area {
@@ -148,7 +143,3 @@ page {
 .items .brand_difference .brand_differenct_item:first-child {
     margin: 0 10rpx 0 0;
 }
-
-/* .bottom_blank {
-    height: 20rpx;
-} */

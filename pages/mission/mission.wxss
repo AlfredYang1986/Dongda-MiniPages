@@ -5,7 +5,7 @@ page {
 }
 
 .content_has_padding {
-     background-image: url(https://dongdakid.com/assets/images/bg_star@2x.png); 
+    background-image: url(https://dongdakid.com/assets/images/bg_star@2x.png);
 }
 
 .top_blank {
@@ -25,127 +25,11 @@ page {
 .item {
     position: relative;
     margin: 60rpx 0 95rpx;
-     padding: 32rpx; 
+    padding: 32rpx;
     border-radius: 24rpx;
     box-shadow: 0 4px 10px 0 rgba(96, 104, 138, 0.2);
     background-color: #fff;
 }
-
-/*
-.items .brand_address {
-    padding: 32rpx;
-    margin: 0 0 10rpx;
-    border-bottom: 2rpx solid rgba(0, 0, 0, 0.05);
-    font-size: 0;
-    text-align: center;
-}
-
-.items .brand_address image {
-    width: 22rpx;
-    height: 26rpx;
-}
-
-.items .brand_address text {
-    padding-left: 10rpx;
-    line-height: 44rpx;
-    font-size: 32rpx;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #112a51;
-}
-
-.items .brand_logo_area {
-    padding: 10rpx 0;
-    height: 120rpx;
-}
-
-.items .brand_logo_area .brand_logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 110rpx;
-    height: 110rpx;
-    border-radius: 24rpx;
-    background-color: #fff;
-}
-
-.items .brand_logo_area .brand_logo image:first-child {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 110rpx;
-    max-height: 110rpx;
-}
-
-.items .brand_logo_area .brand_logo image.star {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -25rpx;
-    width: 50rpx;
-    height: 50rpx;
-}
-
-.items:last-child {
-    margin-bottom: 0;
-}
-
-.items .checked {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 102rpx;
-    height: 102rpx;
-}
-
-.items .brand_name {
-    margin: 20rpx 0 10rpx;
-    line-height: 44rpx;
-    text-align: center;
-    font-size: 32rpx;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #112a51;
-}
-
-.items .brand_type {
-    margin: 10rpx;
-    line-height: 36rpx;
-    text-align: center;
-    font-size: 26rpx;
-    color: #8a8c96;
-}
-
-.items .brand_difference {
-    display: flex;
-}
-
-.items .brand_difference .brand_differenct_item {
-    flex: 1;
-    text-align: center;
-}
-
-.items .brand_difference .brand_differenct_item .diff {
-    display: inline-block;
-    margin: 0 auto;
-    width: 144rpx;
-    height: 48rpx;
-    line-height: 48rpx;
-    text-align: center;
-    border-radius: 48rpx;
-    font-size: 22rpx;
-    color: #fff;
-    background-color: #ffc859;
-}
-
- .items .brand_difference .brand_differenct_item:first-child {
-    text-align: right;
-}
-
-.items .brand_difference .brand_differenct_item:last-child  {
-    text-align: left;
-} 
-*/
 
 .item .checked {
     position: absolute;
@@ -186,6 +70,7 @@ page {
     max-height: 110rpx;
     border-radius: 24rpx;
 }
+
 .item .brand_address {
     padding-top: 196rpx;
     margin: 0 0 10rpx;
@@ -212,7 +97,7 @@ page {
     text-align: center;
     font-size: 32rpx;
     font-weight: 700;
-    color: #112A51;
+    color: #112a51;
 }
 
 .item .brand_type {
@@ -221,6 +106,15 @@ page {
     text-align: center;
     font-size: 26rpx;
     color: #8a8c96;
+}
+
+.item .brand_age {
+    margin: 16px 0;
+    line-height: 32rpx;
+    text-align: center;
+    font-size: 28rpx;
+    font-weight: 700;
+    color: #fcae4d;
 }
 
 .item .brand_difference {
@@ -233,6 +127,16 @@ page {
     text-align: center;
 }
 
+.item .brand_difference .brand_differenct_item:first-child {
+    text-align: right;
+    margin-right: 16rpx;
+}
+
+.item .brand_difference .brand_differenct_item:last-child {
+    margin-left: 16rpx;
+    text-align: left;
+}
+
 .item .brand_difference .brand_differenct_item .diff {
     display: inline-block;
     margin: 0 auto;
@@ -242,10 +146,9 @@ page {
     text-align: center;
     border-radius: 48rpx;
     font-size: 22rpx;
-    color: #8A8C96;
-    background-color: #F2F2F2;
+    color: #8a8c96;
+    background-color: #f2f2f2;
 }
-
 
 /* .item .brand_difference .brand_differenct_item:first-child {
     text-align: right;
@@ -254,7 +157,6 @@ page {
 .item .brand_difference .brand_differenct_item:last-child  {
     text-align: left;
 }  */
-
 
 .bottom_blank {
     height: 20rpx;

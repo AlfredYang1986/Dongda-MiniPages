@@ -1,22 +1,26 @@
 <!--pages/countingdown/countingdown.wxml-->
 <view class='content_no_padding'>
+
     <view class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}">
-        <view class='backArea'>
-        <image src='../../utils/images/icon_back@2x.png'></image>
-        <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
-        </view>
-        <view class='navigationTitle'><text></text></view>
-    </view>
-     <image class='time' src='https://dongdakid.com/assets/images/countingdowncloud@2x.png'  mode='widthFix'></image> 
-    <!-- <image class='time' src='http://192.168.100.115:9000/assets/images/countingdowncloud@2x.png'  mode='widthFix'></image> -->
     
-    <view class='restday'><text>{{restDay}}</text></view>
+        <view class='backArea'>
+            <image src='../../utils/images/icon_back@2x.png'></image>
+            <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+        </view>
+
+        <view class='navigationTitle'>
+            <text></text>
+        </view>
+    </view>
+
+    <image class='time' src='https://dongdakid.com/assets/images/countingdowncloud@2x.png' mode='widthFix'></image>
+
+    <view class='restday'>
+        <text>{{restDay}}</text>
+    </view>
+
     <view class='early'>
         <image src='../../utils/images/btn_pr@2x.png' mode='widthFix' bindtap='testBtn'></image>
-        <!-- <button class='taste' bindtap='testBtn'>提前体验</button> -->
     </view>
-    
+
 </view>
-
-<!-- <image src='../../utils/images/countingdown@2x.png' mode='widthFix'></image> -->
-

@@ -9,15 +9,13 @@ page {
     position: relative;
     height: 100%;
     background-image: url(https://dongdakid.com/assets/images/activity_bg@2x.png);
-    /* background-image: url(http://192.168.100.115:9000/assets/images/activity_bg@2x.png);  */
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .goldegg {
     height: 100%;
-     background-image: url(https://dongdakid.com/assets/images/activity.png); 
-    /* background-image: url(http://192.168.100.115:9000/assets/images/activity.png);  */
+    background-image: url(https://dongdakid.com/assets/images/activity.png);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position-y: bottom;
@@ -31,7 +29,7 @@ page {
 .button-area {
     position: absolute;
     width: 100%;
-    bottom: 40rpx;
+    bottom: 40px;
 }
 
 .weui-flex {

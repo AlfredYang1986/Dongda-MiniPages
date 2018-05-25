@@ -1,9 +1,14 @@
-// pages/player/players.js
+// pages/privacy/privacy.js
 Page({
 
+    /**
+     * 页面的初始数据
+     */
     data: {
         android: false,
         iosX: false,
+        hasScroll: false,
+        test: [{6:[1,2,3,4]},{7:[1,23,3,5]}]
     },
 
     /**
@@ -11,10 +16,25 @@ Page({
      */
     backBeforePage: function () {
         wx.navigateBack({
-            delta: 2
+            delta: 1
         })
     },
 
+    /**
+     * 监听页面滚动
+     */
+    onPageScroll: function (res) {
+        var that = this;
+        if (res.scrollTop > 0) {
+            that.setData({
+                hasScroll: true
+            })
+        } else {
+            that.setData({
+                hasScroll: false
+            })
+        }
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -71,10 +91,6 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        return {
-            title: '咚哒头号玩家',
-            path: '/pages/index/index',
-            imageUrl: 'https://dongdakid.com/assets/images/activity.png'
-        }
+
     }
 })

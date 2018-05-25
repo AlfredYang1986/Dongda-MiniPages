@@ -1,5 +1,6 @@
 <!--pages/replace/replace.wxml-->
 <view class='content_has_padding'>
+
     <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
         <view class='backArea'>
             <image src='../../utils/images/icon_back@2x.png'></image>
@@ -22,21 +23,18 @@
         <view class='place'>
             <view class='place_item' wx:if="{{businessInfo.is_top}}">
                 <image src='../../utils/images/flag_king@2x.png' mode='widthFix'></image>
-                <!-- <view class='place_name'><text>最强王者</text></view> -->
             </view>
             <view class='place_item' wx:if="{{businessInfo.isPaid}}">
                 <image src='../../utils/images/flag_star@2x.png' mode='widthFix'></image>
-                <!-- <view class='place_name'><text>星耀场地</text></view> -->
             </view>
         </view>
-        <view class='descript'>
+        <!-- <view class='descript'>
             <view class='title'>活动时间 6月</view>
             <view class='time'> </view>
             <view class='title'>活动描述</view>
             <view class='descript_items'>
                 <view class='data_left descript_item'>
                     <text class='point point_green'></text>
-                    <!-- <text>6月2日</text>  -->
                 </view>
                 <view class='content_right descript_item'>
                     <text>头号玩家专属活动</text>
@@ -46,17 +44,43 @@
             <view class='descript_items'>
                 <view class='data_left descript_item'>
                     <text class='point point_yellow'></text>
-                    <!-- <text>6月3日</text> -->
                 </view>
                 <view class='content_right descript_item'>
                     <text>品牌体验课</text>
                     <view>哇Sakai的咖啡机贷款金额哦电视里的看法就饿哦爱的看见了看见</view>
                 </view>
             </view>
-        </view>
+        </view> -->
     </view>
-    <!-- <view class='brand_info descript'>
+    <view class='brand_info descript'>
+
+        <view class='ages_times ages'>
+            <view class='line_title'>适应年龄</view>
+            <view class='line_content' wx:if="{{businessInfo.age.length > 0}}">
+                <text wx:for="{{businessInfo.age}}"> {{item}}岁 </text>
+            </view>
+            <view class='line_content' wx:else>
+                <text>任意年龄段</text>
+            </view>
+        </view>
+
+        <view class='ages_times times'>
+            <view class='line_title'>活动时间</view>
+            <view class='line_content' wx:if="{{businessInfo.server_time.length > 0}}">
+                <view class='month_day' wx:for="{{businessInfo.server_time}}">
+                    <view class='month'>{{item.month}}月</view>
+                    <view class='day'>
+                        <text wx:for="{{item.days}}" wx:for-item="day">{{day}}</text>
+                    </view>
+                </view>
+            </view>
+            <view wx:else class='line_content'>
+                <text>任意时间</text>
+            </view>
+        </view>
+
         <view class='title'>活动描述</view>
+
         <view class='descript_items'>
             <view class='data_left descript_item'>
                 <text class='point point_green'></text>
@@ -66,8 +90,11 @@
                 <view>{{businessInfo.description}}</view>
             </view>
         </view>
-    </view> -->
+
+    </view>
+
     <view class='brand_detail brand_info'>
+
         <view class="logo_area">
             <image src="https://dongdakid.com/assets/images/{{businessInfo.logo === ''?'avatar_default@2x.png':businessInfo.logo}}" mode='widthFix'></image>
 
@@ -75,18 +102,24 @@
             <image wx:elif="{{businessInfo.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
             <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image>
         </view>
+
         <view class='brand_name'>{{businessInfo.brand_name}}</view>
+
         <view class='one_punch_line'>"{{businessInfo.onepunchline}}"</view>
+
         <view class='leaf_type'>
             <text>{{businessInfo.service_leaf}}·{{businessInfo.service_type}}</text>
         </view>
+
         <view class='hight_light'>
             <view class='hight_light_item' wx:for="{{businessInfo.difference}}">
                 <image src='../../utils/images/icon_diff@2x.png'></image>
                 <view class='diff'>{{item}}</view>
             </view>
         </view>
+
         <view class='{{allStory?"story_all":"story"}}' bindtap='showAllStory'>{{businessInfo.story}}</view>
+
     </view>
 
     <view class='bottom_blank'>

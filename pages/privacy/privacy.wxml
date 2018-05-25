@@ -1,0 +1,16 @@
+<!--pages/privacy/privacy.wxml-->
+<view class='content_has_padding'>
+    <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+        <view class='backArea'>
+            <image src='../../utils/images/icon_back@2x.png'></image>
+            <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+        </view>
+        <view class='navigationTitle'>
+            <text></text>
+        </view>
+    </view>
+    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+    <view class='title'>隐私条款</view>
+    <view class='content'>我们对隐私条款进行了详细的修订，从该日期（2018年5月25日）开始，这一隐私政策能够提供有关我们如何使用您在本小程序中的个人信息的隐私详情。<br />请花一些时间熟悉我们的隐私权惯例，如果您有任何问题，请告诉我们。
+    </view>
+</view>

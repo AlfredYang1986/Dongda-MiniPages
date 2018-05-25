@@ -1,8 +1,8 @@
 //index.js
-//获取应用实例
 const app = getApp()
 
 Page({
+
     data: {
         activityPage: false,
         targetId: '',
@@ -10,17 +10,28 @@ Page({
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo')
     },
-    // 计算时间
+
+    /**
+     * 隐私条款
+     */
+    privacy: function () {
+        wx.navigateTo({
+            url: '../privacy/privacy',
+        })
+    },
+
+    /**
+     * 计算时间
+     */
     calcDay: function () {
-        // console.log(new Date().getMonth() + 1)
         var currentMonth = new Date().getMonth() + 1;
         if (currentMonth === 6) {
             this.setData({
                 activityPage: true,
             })
         }
-
     },
+
     // canIgetUserInfo
     /*
         canIgetUserInfo: function() {
@@ -35,93 +46,14 @@ Page({
             }
         },
     */
-    /*
-        // 请求用户存在
-        hasUserExist: function (e) {
-            // console.log(e.target.id);
-            var that = this;
-            var openId = app.globalData.userOpenId;
-            var data = {
-                condition: {
-                    wechat_open_id: openId,
-                }
-            };
-            wx.request({
-                url: 'http://192.168.100.115:9000/provider/apply/search',
-                method: 'POST',
-                data: data,
-                success: function (res) {
-                    wx.hideLoading();
-                    let applies = res.data.result.applies;
-                    if (applies.length > 0) {
-                        app.globalData.userExist = true;
-                        if (e.target.id === "activity") {
-                            wx.navigateTo({
-                                url: '../activity/activity'
-                            })
-                        } else if (e.target.id === "business") {
-                            if (app.globalData.userExist) {
-                                wx.navigateTo({
-                                    url: '../bizsuccess/bizsuccess'
-                                })
-                            } else {
-                                wx.navigateTo({
-                                    url: '../business/business'
-                                })
-                            }
-                        } else if (e.target.id === "player") {
-                            if (app.globalData.userExist) {
-                                wx.navigateTo({
-                                    url: '../bizsuccess/bizsuccess'
-                                })
-                            } else {
-                                wx.navigateTo({
-                                    url: '../player/players'
-                                })
-                            }
-                        }
-                    } else {
-                        app.globalData.userExist = false;
-                        if (e.target.id === "activity") {
-                            wx.navigateTo({
-                                url: '../activity/activity'
-                            })
-                        } else if (e.target.id === "business") {
-                            wx.navigateTo({
-                                url: '../business/business'
-                            })
-    
-                        } else if (e.target.id === "player") {
-                            wx.navigateTo({
-                                url: '../player/players'
-                            })
-    
-                        }
-                    }
-                },
-                fail: function (error) {
-                    console.log(error);
-                    wx.hideLoading();
-                    wx.showModal({
-                        title: "网络繁忙",
-                        content: '网络繁忙，请稍后再试',
-                        showCancel: false,
-                        success: function (res) {
-                            if (res.confirm) {
-                                // wx.navigateBack({
-                                //     delta: 1
-                                // })
-                            }
-                        }
-                    })
-    
-                }
-            })
-        },
-    */
+
     onLoad: function () {
         const that = this;
-        getApp().userlogin();
+        // console.log(getApp().globalData.userOpenId)
+        if (getApp().globalData.userOpenId === "") {
+            app.userlogin();
+        }
+        // app.userlogin();
         this.calcDay();
         if (app.globalData.userInfo) {
             this.setData({
@@ -150,11 +82,13 @@ Page({
             })
         }
     },
+
     getUserInfo: function (e) {
         wx.showLoading({
             title: '加载资源中...',
         })
         if (e.detail.errMsg == 'getUserInfo:ok') {
+            wx.hideLoading();
             app.globalData.userInfo = e.detail.userInfo;
             app.globalData.wechat_user.wechat_name = e.detail.userInfo.nickName;
             app.globalData.wechat_user.wechat_photo = e.detail.userInfo.avatarUrl;
@@ -164,7 +98,7 @@ Page({
                 userInfo: e.detail.userInfo,
                 hasUserInfo: true
             });
-            wx.hideLoading();
+
             if (this.data.activityPage) {
                 wx.navigateTo({
                     url: '../activity/activity',
@@ -185,12 +119,8 @@ Page({
             }) // 提示用户，需要授权才能登录
             // callback('fail to modify scope', null)
         }
-        // app.globalData.userInfo = e.detail.userInfo
-        // this.setData({
-        //     userInfo: e.detail.userInfo,
-        //     hasUserInfo: true
-        // });
     },
+
     /**
     * 用户点击右上角分享
     */

@@ -1,28 +1,23 @@
 <view class="container">
-    <view class='goldegg'>
-         <!-- <image src='../../utils/images/pic@2x.png'  mode='widthFix'></image> -->
-    </view>
+
+    <view class='goldegg'></view>
+
     <view class='button-area'>
-<!--
-        <view class="weui-flex choose_role">
-            <view class="weui-flex__item">
-                <image class='btn btn_biz' src='../../utils/images/btn_B@2x.png'></image>
-                <button id='business' class='role' open-type='getUserInfo' bindgetuserinfo="getUserInfo" lang='zh_CN' bindtap='canIgetUserInfo'></button>
-            </view>
-            <view class="weui-flex__item">
-                <image class='btn btn_custom' src='../../utils/images/btn_C@2x.png'></image>
-                <button id='player' class='role' open-type='getUserInfo' bindgetuserinfo="getUserInfo" lang='zh_CN' bindtap='canIgetUserInfo'></button>
-            </view>
-        </view>
--->
+
         <view class="weui-flex">
+
             <view class="weui-flex__item">
                 <image class='btn img_active' src='../../utils/images/btn_enter@2x.png'></image>
-                <button id='activity' class='btn_active' open-type='getUserInfo' bindgetuserinfo="getUserInfo" lang='zh_CN' size='default'></button>
-                <!-- <button id='activity' class='btn_active' open-type='getUserInfo' bindgetuserinfo="getUserInfo" lang='zh_CN' size='default' bindtap='canIgetUserInfo'></button> -->
+                <button class='btn_active' open-type='getUserInfo' bindgetuserinfo="getUserInfo" lang='zh_CN' size='default'></button>
+
             </view>
-            
+
         </view>
-        <view class='privacy'><text>隐私条款</text></view>
+
+        <view class='privacy'>
+            <text bindtap='privacy'>隐私条款</text>
+        </view>
+
     </view>
+
 </view>

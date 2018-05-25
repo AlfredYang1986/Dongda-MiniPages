@@ -1,0 +1,26 @@
+/* pages/privacy/privacy.wxss */
+
+page {
+    height: 100%;
+}
+
+.content_has_padding {
+    background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png);
+}
+
+.title {
+    text-align: center;
+    line-height: 38rpx;
+    font-family: SFProText-Medium;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #5f6270;
+}
+
+.content {
+    margin-top: 40rpx;
+    font-family: PingFangSC-Regular;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #5f6270;
+}

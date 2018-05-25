@@ -1,34 +1,35 @@
 // pages/countingdown/countingdown.js
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
         restDay: 0,
         android: false,
         iosX: false,
     },
-    // 计算时间
+
+    /**
+     * 计算时间
+     */
     calcDay: function () {
         this.setData({
             restDay: (31 - new Date().getDate())
         })
     },
-    // 返回
+
+    /**
+     * 返回
+     */
     backBeforePage: function () {
-        // wx.navigateBack({
-        //     delta: 1
-        // })
         wx.reLaunch({
             url: '../activity/activity'
         })
     },
+
     testBtn: () => {
         wx.navigateTo({
             url: '../activity/activity',
         })
     },
+    
     /**
      * 生命周期函数--监听页面加载
      */

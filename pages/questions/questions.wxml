@@ -1,6 +1,6 @@
 <!--pages/questions/questions.wxml-->
-<!-- <text>pages/questions/questions.wxml</text> -->
 <view class='content_no_padding'>
+
     <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
         <view class='backArea'>
             <image src='../../utils/images/icon_back@2x.png'></image>
@@ -10,7 +10,9 @@
             <text></text>
         </view>
     </view>
+
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+
     <view class='ready_start' wx:if="{{!readyStart}}">
         <view class='start_text'>
             <view>
@@ -24,17 +26,23 @@
             <image src='../../utils/images/btn_start@2x.png' mode='widthFix' bindtap='start'></image>
         </view>
     </view>
+
     <view class='question_wrapper' wx:else>
+
         <view class='question'>
+
             <view class='question_index'>
                 <view class='spot' wx:for="{{questionsShow}}">
                     <view class='spot_circle {{item?"active":""}}'></view>
                 </view>
             </view>
+
             <view class='question_content' wx:for="{{questions.answers}}" wx:if="{{index === currentQuestion}}">
+
                 <view class='question_text'>
                     <text>{{item.description}}</text>
                 </view>
+
                 <view class='choices_area'>
                     <view class='choices' wx:for="{{item.choice}}">
                         <button data-index='{{index}}' class="choice {{index==clickIndex&&clickIndex!=='' ? answerColor : ''}}" hover-class='choose' bindtap='checkAnswer'>
@@ -50,20 +58,30 @@
                 </view>
 
             </view>
+
         </view>
+
     </view>
+
     <view class='error_hint hint_area' wx:if="{{errorHint}}">
+
         <view class='error_hint_content'>
+
             <view class='title'>
                 <text>答题失败</text>
             </view>
+
             <view class='content'>
                 <text>继续努力吧</text>
             </view>
+
             <image class='close_btn' data-btn='errorbtn' src='../../utils/images/icon_close@2x.png' bindtap='backBeforePage'></image>
         </view>
+
     </view>
+
     <view class='right_hint hint_area' wx:if="{{rightHint}}">
+
         <view class='right_hint_content'>
             <image class='egg_light' src='../../utils/images/congratulation@2x.png'></image>
             <view class='title'>
@@ -71,9 +89,13 @@
             </view>
             <view class='content'>
                 <image src='../../utils/images/egg_surprise@2x.png'></image>
-                <view><text>惊喜彩蛋</text></view>
+                <view>
+                    <text>惊喜彩蛋</text>
+                </view>
             </view>
             <image class='close_btn' data-btn='rightbtn' src='../../utils/images/icon_close@2x.png' bindtap='backBeforePage'></image>
         </view>
+
     </view>
+
 </view>

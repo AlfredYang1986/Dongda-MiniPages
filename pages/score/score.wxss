@@ -36,7 +36,7 @@ page {
 }
 
 .rainbow image {
-    animation: rainbow 1.8s linear  0s infinite;
+    animation: rainbow 1.8s linear 0s infinite;
     width: 140rpx;
     height: 140rpx;
 }
@@ -175,7 +175,6 @@ page {
     position: absolute;
     margin: 0 40rpx;
     padding: 60rpx 32rpx 30rpx;
-    /* padding-bottom: 20rpx; */
     top: 50%;
     width: 606rpx;
     transform: translateY(-50%);
@@ -203,7 +202,6 @@ page {
 
 .hint .hint_content .egg_content {
     margin-bottom: 20rpx;
-    /* padding: 80rpx 32rpx 40rpx; */
     line-height: 40rpx;
     font-size: 28rpx;
     letter-spacing: 1px;
@@ -246,71 +244,22 @@ page {
 
 @-webkit-keyframes rainbow {
     0% {
-        /* -webkit-transform: rotate(0deg); */
         transform: rotate(0deg);
     }
-/* 
-    10% {
-        transform: rotate(36deg);
-    }
-
-    20% {
-        transform: rotate(36deg);
-    }
-
-    30% {
-        transform: rotate(36deg);
-    }
-
-    40% {
-        transform: rotate(36deg);
-    }
-
-    50% {
-        transform: rotate(36deg);
-    }
-
-    60% {
-        transform: rotate(36deg);
-    }
-
-    70% {
-        transform: rotate(36deg);
-    }
-
-    80% {
-        transform: rotate(36deg);
-    }
-
-    90% {
-        transform: rotate(36deg);
-    }
-
-    100% {
-        transform: rotate(36deg);
-    } */
 
     25% {
-        /* -webkit-transform:  rotate(-90deg); */
         transform: rotate(90deg);
     }
 
     50% {
-        /* -webkit-transform: rotate(-179deg); */
         transform: rotate(180deg);
     }
 
-    /* 50.1% {
-        transform: rotate(-180deg);
-    } */
-
     75% {
-        /* -webkit-transform: rotate(-270deg); */
         transform: rotate(270deg);
     }
 
     100% {
-        /* -webkit-transform: rotate(-360deg); */
         transform: rotate(360deg);
     }
 }

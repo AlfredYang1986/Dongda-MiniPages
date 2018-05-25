@@ -1,9 +1,6 @@
 // pages/score/score.js
 Page({
 
-    /**
-     * 页面的初始数据
-     */
     data: {
         android: false,
         iosX: false,
@@ -11,32 +8,30 @@ Page({
         hint: false,
         eggtype: "eggs",
         scores:{},
-        // scores: {
-        //     scores_A: 0,    // 普通扫码分数
-        //     user_id: "",
-        //     scores_C: 0,    // 答题分数
-        //     scores_B: 0,    // 高级扫码分数
-        //     scores_D: 0,
-        //     scores_id: "",
-        // },
         hintContent: [
             { sign: "conis", title: "如何获得", content: [
                 { title: "咚哒coins", content: "活动期间，在场地打开即可获得经典彩蛋活动期间，在场地打开即可获得经典彩蛋" }
                 ]}, 
             { sign: "eggs", title: "如何获得", content: [{ unique: "classic", title: "经典彩蛋", content: "经典彩蛋一共四种类型，分别是科学蛋、艺术蛋、运动蛋和体验蛋。6月2日-10日，到达任意一家品牌机构签到扫码，均可获得一个经典彩蛋。" }, { unique: "surprise", title: "惊喜彩蛋", content: "6月4日-6月8日五天中，用户在星耀挑战场地进行打卡，将获得一个“惊喜彩蛋”。" }, { unique: "king", title: "王者彩蛋", content: "王者彩蛋一共四种类型，分别是科学王者、艺术王者、运动王者和体验王者。四天周末（6月2日、6月3日、6月9日、6月10日），用户在最强王者服务方场地打卡，并完成场地挑战，即可获得一个“王者彩蛋”。" }] }]
     },
-    // 返回
+    
+    /**
+     * 返回
+     */
     backBeforePage: function () {
         wx.navigateBack({
             delta: 1
         })
     },
-    // 检测页面滚动
+
+    /**
+     * 检测页面滚动
+     */
     onPageScroll: function (res) {
         var that = this;
         if (res.scrollTop > 0) {
             that.setData({
-                hasScroll: true
+                hasScroll: true,
             })
         } else {
             that.setData({
@@ -44,24 +39,31 @@ Page({
             })
         }
     },
-    // 显示提示
+
+    /**
+     * 显示提示
+     */
     showHint: function (e) {
-        console.log(e);
-        console.log(e.currentTarget.dataset.type)
+        const that = this;
         this.setData({
             eggtype: e.currentTarget.dataset.type,
             hint: true
         })
     },
-    // 关闭提示
+
+    /**
+     * 关闭提示
+     */
     closeHint: function () {
         this.setData({
             hint: false
         })
     },
-    // 答题界面
+
+    /**
+     * 答题界面
+     */
     score: function (e) {
-        // console.log(e);
         const that = this;
         let coins = that.data.scores.scores_B;
         if (coins === 0) {
@@ -79,7 +81,10 @@ Page({
             })
         }
     },
-    // 获取score data
+
+    /**
+     * 获取score data
+     */
     getScores: function (data) {
         const that = this;
         wx.request({
@@ -90,12 +95,9 @@ Page({
                 wx.hideLoading();
                 console.log(res.data.result);
                 if (res.data.result.scores === "not exist") {
-                    // that.setData({
-                    //     hasScores: false
-                    // });
+
                 } else {
                     that.setData({
-                        // hasScores: true,
                         scores: res.data.result.scores
                     });
                 }
@@ -116,6 +118,7 @@ Page({
             }
         })
     },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -143,21 +146,18 @@ Page({
      */
     onShow: function () {
         const that = this;
-
         let data = {
             condition: {
                 wechat_id: getApp().globalData.userOpenId
             }
         };
         that.getScores(data);
-
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-        const that = this;
         wx.hideLoading();
     },
     /**

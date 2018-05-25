@@ -1,25 +1,28 @@
 /* pages/countingdown/countingdown.wxss */
+
 page {
     height: 100%;
 }
+
 .content_no_padding {
     height: 100%;
-    background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png); 
-    /* background-image: url(http://192.168.100.115:9000/assets/images/countingdown_bg@2x.png);  */
+    background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
+
 image.time {
     position: absolute;
     width: 100%;
     top: 50%;
     transform: translateY(-50%);
 }
-.restday  {
+
+.restday {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     display: inline-block;
     width: 120rpx;
     height: 100rpx;
@@ -28,8 +31,8 @@ image.time {
     font-weight: 700;
     text-align: center;
     color: lightcoral;
-    
 }
+
 .early {
     position: absolute;
     left: 50%;
@@ -37,6 +40,7 @@ image.time {
     bottom: 20px;
     text-align: center;
 }
+
 .early image {
     width: 670rpx;
     height: 112rpx;

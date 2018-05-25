@@ -1,9 +1,6 @@
 // pages/questions/questions.js
 Page({
 
-    /**
-     * 页面的初始数据
-     */
     data: {
         canIuseAvatar: wx.canIUse('open-data.type.userAvatarUrl'),
         android: false,
@@ -20,6 +17,7 @@ Page({
         rightHint: false,
         questions: {},
     },
+
     /**
      * 返回按钮
      */
@@ -61,10 +59,8 @@ Page({
                 complete: function (res) { },
             })
         }
-        // wx.navigateBack({
-        //     delta: 1
-        // })
     },
+
     /**
      * 监测页面滚动
      */
@@ -79,8 +75,8 @@ Page({
                 hasScroll: false
             })
         }
-        // console.log(res);
     },
+
     /**
      * 点击开始答题
      */
@@ -89,15 +85,7 @@ Page({
             readyStart: true,
         })
     },
-    /**
-     * 获取当前题目
-     */
-    // getQuestionIndex: function () {
-    //     const that = this;
-    //     that.setData({
-    //         index: that.getData.questionsShow.lastIndexOf(true)
-    //     })
-    // },
+
     /**
      * 答案正确之后需要做的
      */
@@ -110,10 +98,7 @@ Page({
             answerColor: 'right_answer',
             rightAnswerCount: ++that.data.rightAnswerCount
         })
-        console.log(that.data.currentQuestion);
-        // console.log(that.data.questionsShow);
         let currentQuestion = that.data.currentQuestion + 1;
-        console.log(currentQuestion);
         if (currentQuestion === 5) {
             let data = {
                 condition: {
@@ -123,23 +108,18 @@ Page({
             }
             wx.request({
                 method: 'POST',
-                url: getApp().globalData.httpsAddress +'/answer/success',
+                url: getApp().globalData.httpsAddress + '/answer/success',
                 data: data,
-                success: (res)=> {
-                    console.log(res.data);
+                success: (res) => {
+                    // console.log(res.data);
                     that.setData({
                         rightHint: true
                     })
                 },
-                fail: (error)=> {
-                    console.log(error)
+                fail: (error) => {
+                    // console.log(error);
                 }
             })
-            // setTimeout(() => {
-            //     that.setData({
-            //         rightHint: true
-            //     })
-            // }, 600)
         } else {
             setTimeout(function () {
                 that.setData({
@@ -155,8 +135,8 @@ Page({
                 // console.log(that.data.questionsShow)
             }, 1200)
         }
-
     },
+
     /**
      * 答案错误之后需要做的
      */
@@ -166,15 +146,14 @@ Page({
         that.setData({
             clickIndex: e.currentTarget.dataset.index,
             answerColor: 'error_answer',
-
         })
         setTimeout(function () {
             that.setData({
                 errorHint: true,
             })
         }, 600)
-
     },
+
     /**
      * 检查答案正确与否
      */
@@ -209,16 +188,6 @@ Page({
                     }
                 ]
             };
-            console.log(data);
-
-            /*
-                setTimeout(function () {
-                    // 测试 正确逻辑
-                    that.rightAnswer(event);
-                    // 测试 错误逻辑
-                    that.errorAnswer(event);
-                }, 600);
-            */
 
             wx.request({
                 method: 'POST',
@@ -236,8 +205,6 @@ Page({
                     wx.showModal({
                         title: '网络繁忙',
                         content: '获取信息失败,请稍后重试',
-                        // confirmText: '重新获取',
-                        // showCancel: false,
                         success: (res) => {
                             if (res.confirm) {
                                 // that.onLoad();
@@ -248,6 +215,7 @@ Page({
             })
         }
     },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -260,7 +228,6 @@ Page({
         wx.showLoading({
             title: '获取数据中...',
         });
-        // var open_id = getApp().globalData.userOpenId;
         let data = {
             condition: {
                 wechat_id: getApp().globalData.userOpenId
@@ -273,7 +240,7 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                console.log(res.data);
+                // console.log(res.data);
                 that.setData({
                     questions: res.data.result,
                 })

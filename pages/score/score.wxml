@@ -17,7 +17,7 @@
                 <image src='../../utils/images/coins@2x.png' mode='widthFix' bindtap='score' data-type='conis'></image>
                 <text bindtap='score' data-type='conis' class='total_num'>{{scores.scores_B}}</text>
             </view>
-            <view wx:if="{{scores.scores_B !== 0}}" class='rainbow'>
+             <view wx:if="{{scores.scores_B > 0}}" class='rainbow'> 
                 <image src='../../utils/images/rainbow@2x.png'></image>
             </view>
         </view>
@@ -100,7 +100,7 @@
 
     </view>
 
-    <view class='hint' wx:if="{{hint}}">
+    <view class='hint' wx:if="{{hint}}" catchtouchmove="move">
 
         <view class='hint_content' wx:for="{{hintContent}}" wx:key="unique" wx:if="{{item.sign === eggtype}}">
 

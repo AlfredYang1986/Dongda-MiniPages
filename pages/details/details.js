@@ -1,9 +1,6 @@
 // pages/details/details.js
 Page({
 
-    /**
-     * 页面的初始数据
-     */
     data: {
         canIuseAvatar: wx.canIUse('open-data.type.userAvatarUrl'),
         android: false,
@@ -17,13 +14,19 @@ Page({
         allStory: false,
         businessInfo: {},
     },
-    // 返回
+
+    /**
+     * 返回
+     */
     backBeforePage: function () {
         wx.reLaunch({
             url: '../activity/activity'
         })
     },
-    // 监听页面滚动
+
+    /**
+     * 监听页面滚动
+     */
     onPageScroll: function (res) {
         var that = this;
         if (res.scrollTop > 0) {
@@ -36,23 +39,28 @@ Page({
             })
         }
     },
+
     /**
      * 显示所有故事
-     */ 
+     */
     showAllStory: function () {
         this.setData({
             allStory: !this.data.allStory
         })
     },
+
     /**
      * checkEggs
      */
-    checkEggs: function() {
+    checkEggs: function () {
         wx.redirectTo({
             url: '../score/score',
         })
     },
-    // 获取商家详情
+    
+    /**
+     * 获取商家详情
+     */
     getBusinessDetail: function () {
         const that = this;
         let data = {
@@ -66,8 +74,7 @@ Page({
             data: data,
             method: 'POST',
             success: (res) => {
-                // console.log(data);
-                console.log(res.data);
+                // console.log(res.data);
                 wx.hideLoading();
                 if (res.data.status === "error") {
                     that.setData({
@@ -78,11 +85,6 @@ Page({
                         that.setData({
                             firstScan: false,
                         });
-                        // wx.showModal({
-                        //     title: '已打卡',
-                        //     content: '请勿多次打卡',
-                        //     showCancel: false,
-                        // })
                     } else {
                         wx.showModal({
                             title: '打卡成功',
@@ -107,8 +109,6 @@ Page({
                 wx.showModal({
                     title: '网络繁忙',
                     content: '获取信息失败，请稍后重试',
-                    // confirmText: '重新获取',
-                    // showCancel: true,
                     success: (res) => {
                         if (res.confirm) {
                             // that.onLoad();
@@ -128,7 +128,7 @@ Page({
             iosX: getApp().globalData.iosX,
             businessId: options.id,
             // businessId: '太空翼足球教育'
-            
+
         });
         // var open_id = getApp().globalData.userOpenId;
         wx.showLoading({

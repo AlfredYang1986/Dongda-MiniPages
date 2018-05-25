@@ -7,8 +7,7 @@ page {
 
 .content_no_padding {
     height: 100%;
-    background-image: url(https://dongdakid.com/assets/images/game_bg@2x.png); 
-    /* background-image: url(http://192.168.100.115:9000/assets/images/game_bg@2x.png);  */
+    background-image: url(https://dongdakid.com/assets/images/game_bg@2x.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -43,7 +42,7 @@ page {
 
 .avatar_area .avatar {
     position: absolute;
-    left: 20rpx;
+    left: 16rpx;
     top: 44%;
     transform: translateY(-50%);
     display: inline-block;
@@ -81,7 +80,6 @@ page {
 
 .list image {
     width: 100%;
-    /* height: 272rpx; */
 }
 
 .list button {
@@ -95,7 +93,6 @@ page {
 
 .challenge {
     position: relative;
-    /* padding: 0 40rpx; */
     text-align: center;
 }
 

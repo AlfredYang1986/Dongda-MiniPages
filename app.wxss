@@ -15,7 +15,6 @@ button::after {
     min-height: 100%;
     padding: 0 40rpx;
     background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);
-    /* background-image: url(http://192.168.100.115:9000/assets/images/countingdown_bg@2x.png);  */
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -23,7 +22,6 @@ button::after {
 .content_no_padding {
     min-height: 100%;
     background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);
-    /* background-color: url(http://192.168.100.115:9000/assets/images/countingdown_bg@2x.png);  */
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -40,7 +38,6 @@ button::after {
 }
 
 .cover {
-    /* background-image: url(https://i.loli.net/2018/05/15/5afaaf0e96569.png); */
     background-image: url(https://dongdakid.com/assets/images/cover@2x.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -49,7 +46,7 @@ button::after {
 .navigationBar .backArea {
     float: left;
     position: relative;
-    padding-left: 40rpx;
+    padding:0 40rpx;
     height: 88rpx;
     line-height: 88rpx;
 }
@@ -63,8 +60,8 @@ button::after {
 .btn_back {
     position: absolute;
     left: 0;
-    padding: 0;
-    width: 100rpx;
+    padding: 0 40rpx;
+    width: 160rpx;
     height: 88rpx;
     background: transparent;
 }

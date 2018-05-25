@@ -80,7 +80,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 20px;
+    bottom: 40px;
     padding: 0 80rpx;
 }
 
@@ -97,6 +97,7 @@
 
 .choices_area .choose {
     background-color: #bfdbf7;
+    color: #fff;
 }
 
 .right_answer {
@@ -111,7 +112,7 @@
     display: none;
 }
 
-.sign image{
+.sign image {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -125,7 +126,6 @@
     font-weight: bold;
     font-size: 50rpx;
     position: absolute;
-    /* margin-top: 5px; */
     left: 5%;
 }
 
@@ -180,6 +180,7 @@
     width: 72rpx;
     height: 72rpx;
 }
+
 /**
  * hint_area right_hint
  */
