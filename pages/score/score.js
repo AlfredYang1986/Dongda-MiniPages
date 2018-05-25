@@ -100,7 +100,7 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                console.log(res.data.result);
+                // console.log(res.data.result);
                 if (res.data.result.scores === "not exist") {
 
                 } else {
@@ -138,6 +138,7 @@ Page({
         });
         wx.showLoading({
             title: '获取数据中...',
+            mask: true,
         });
 
     },

@@ -6,6 +6,7 @@ App({
                 // console.log('app.js 登陆函数 开始运行');
                 wx.showLoading({
                     title: '登录中...',
+                    mask: true,
                 });
                 wx.login({
                     success: function (res) {
@@ -78,44 +79,6 @@ App({
                                     }
                                 });
                         */
-                        /*
-                            wx.getUserInfo({
-                                success: function (res) {
-                                    that.globalData.userInfo = res.userInfo;
-                                    console.log(that.globalData.userInfo)
-                                    wx.request({
-                                        url: that.login_url,
-                                        header: {
-                                            'content-type': 'application/x-www-form-urlencoded'
-                                        },
-                                        data: {
-                                            code: code,
-                                            nickname: res.userInfo.nickName,
-                                            gender: res.userInfo.gender,
-                                            city: res.userInfo.city,
-                                            province: res.userInfo.province,
-                                            country: res.userInfo.country,
-                                            head: res.userInfo.avatarUrl,
-                                        },
-                                        method: 'POST',
-                                        success(res) {
-                                            that.thirdid = res.data.data
-                                            wx.setStorageSync('thirdid', res.data.data)
-                                            wx.setStorageSync('userInfo', that.globalData.userInfo)
-                                            return resolve('app.js login success')
-    
-                                        }
-                                    })
-                                },
-                                fail: function () {
-                                    wx.showToast({
-                                        title: '登陆异常',
-                                        image: '/image/erro.png'
-                                    })
-                                    reject('app.js login failed')
-                                }
-                            })
-                        */
                     },
                     fail: function () {
                         wx.showToast({
@@ -131,8 +94,7 @@ App({
 
     onLaunch: function (options) {
         const that = this;
-        // console.log("onLaunch");
-        console.log(options);
+        // console.log(options);
         if(options.scene === 1011) {
             console.log("1011");
         }
@@ -187,9 +149,6 @@ App({
                     } else {
                         that.globalData.iosX = false;
                     }
-                    // if (res.model === "Nexus 5") {
-                    //     that.globalData.android = true;
-                    // }
                 }
             }
         })

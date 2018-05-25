@@ -90,6 +90,7 @@ Page({
         var open_id = getApp().globalData.userOpenId;
         wx.showLoading({
             title: '获取数据中...',
+            mask: true,
         })
         var userId = wx.getStorageSync('userId') || '';
         var data = {

@@ -194,7 +194,7 @@ Page({
                 url: getApp().globalData.httpsAddress + '/answer/check',
                 data: data,
                 success: (res) => {
-                    console.log(res);
+                    // console.log(res);
                     if (res.data.result.answers_check === 1) {
                         that.rightAnswer(event);
                     } else {
@@ -230,6 +230,7 @@ Page({
         });
         wx.showLoading({
             title: '获取数据中...',
+            mask: true,
         });
         let data = {
             condition: {

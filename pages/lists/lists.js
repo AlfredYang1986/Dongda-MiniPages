@@ -38,7 +38,6 @@ Page({
      */
     checkDetail: function (e) {
         var that = this;
-        console.log(e);
         var id = e.currentTarget.dataset.brandid
         wx.navigateTo({
             url: '../replace/replace?id=' + id,
@@ -61,6 +60,7 @@ Page({
         var that = this;
         wx.showLoading({
             title: '获取数据中...',
+            mask: true,
         });
         var open_id = getApp().globalData.userOpenId;
 

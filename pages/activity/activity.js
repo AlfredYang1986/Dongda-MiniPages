@@ -30,13 +30,13 @@ Page({
     scanQr: util.throttle(function (e) {
         wx.scanCode({
             success: (res) => {
-                console.log(res.path);
+                // console.log(res.path);
                 wx.navigateTo({
                     url: "../../" + res.path,
                 })
             },
             fail: (error) => {
-                console.log(error)
+                // console.log(error);
             }
         })
     }, 1000),

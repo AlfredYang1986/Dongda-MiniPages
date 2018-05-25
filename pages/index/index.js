@@ -84,41 +84,54 @@ Page({
     },
 
     getUserInfo: function (e) {
+        const that = this;
         wx.showLoading({
             title: '加载资源中...',
+            mask: true,
         })
-        if (e.detail.errMsg == 'getUserInfo:ok') {
-            wx.hideLoading();
-            app.globalData.userInfo = e.detail.userInfo;
-            app.globalData.wechat_user.wechat_name = e.detail.userInfo.nickName;
-            app.globalData.wechat_user.wechat_photo = e.detail.userInfo.avatarUrl;
-            wx.setStorageSync('nickName', e.detail.userInfo.nickName);
-            wx.setStorageSync('avatarUrl', e.detail.userInfo.avatarUrl);
-            this.setData({
-                userInfo: e.detail.userInfo,
-                hasUserInfo: true
-            });
+        if (getApp().globalData.userOpenId==="") {
+            getApp().userlogin()
+                .then(() => {
+                    that.getUserInfo(e);
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        } else {
+            if (e.detail.errMsg == 'getUserInfo:ok') {
+                wx.hideLoading();
+                app.globalData.userInfo = e.detail.userInfo;
+                app.globalData.wechat_user.wechat_name = e.detail.userInfo.nickName;
+                app.globalData.wechat_user.wechat_photo = e.detail.userInfo.avatarUrl;
+                wx.setStorageSync('nickName', e.detail.userInfo.nickName);
+                wx.setStorageSync('avatarUrl', e.detail.userInfo.avatarUrl);
+                this.setData({
+                    userInfo: e.detail.userInfo,
+                    hasUserInfo: true
+                });
 
-            if (this.data.activityPage) {
-                wx.navigateTo({
-                    url: '../activity/activity',
-                })
-            } else {
-                wx.navigateTo({
-                    url: '../countingdown/countingdown',
-                })
+                if (this.data.activityPage) {
+                    wx.navigateTo({
+                        url: '../activity/activity',
+                    })
+                } else {
+                    wx.navigateTo({
+                        url: '../countingdown/countingdown',
+                    })
+                }
+                // wx.request({}) // 将用户信息、匿名识别符发送给服务器，调用成功时执行 callback(null, res)
             }
-            // wx.request({}) // 将用户信息、匿名识别符发送给服务器，调用成功时执行 callback(null, res)
+            else if (e.detail.errMsg == 'getUserInfo:fail auth deny') { // 当用户点击拒绝时
+                wx.hideLoading();
+                wx.showModal({
+                    title: '需要您点击同意',
+                    content: '点击同意我们才能更好地为您服务',
+                    showCancel: false,
+                }) // 提示用户，需要授权才能登录
+                // callback('fail to modify scope', null)
+            }
         }
-        else if (e.detail.errMsg == 'getUserInfo:fail auth deny') { // 当用户点击拒绝时
-            wx.hideLoading();
-            wx.showModal({
-                title: '需要您点击同意',
-                content: '点击同意我们才能更好地为您服务',
-                showCancel: false,
-            }) // 提示用户，需要授权才能登录
-            // callback('fail to modify scope', null)
-        }
+        
     },
 
     /**
