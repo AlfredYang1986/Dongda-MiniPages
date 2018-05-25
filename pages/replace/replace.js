@@ -7,7 +7,7 @@ Page({
         iosX: false,
         hasScroll: false,
         allStory: false,
-        businessInfo: {}
+        businessInfo: { logo: 'avatar_default@2x.png' },
     },
 
     /**
@@ -77,7 +77,16 @@ Page({
                     showCancel: true,
                     success: (res) => {
                         if (res.confirm) {
-                            // that.onLoad();
+                            console.log("confirm")
+                            wx.navigateBack({
+                                delta: 1
+                            })
+                        } else if (res.cancel){
+                            console.log("cancel")
+                            
+                            wx.navigateBack({
+                                delta: 1
+                            })
                         }
                     }
                 })
@@ -98,7 +107,7 @@ Page({
             title: '获取数据中...',
         })
         var userId = wx.getStorageSync('userId') || '';
-        console.log(userId);
+        // console.log(userId);
         var that = this;
 
         var data = {
@@ -122,7 +131,7 @@ Page({
                 // that.setData({
                 //     businessInfo: that.data.businessInfo
                 // });
-                console.log(res.data);
+                // console.log(res.data);
                 // console.log(that.data.businessInfo)
             },
             fail: (error) => {
@@ -131,10 +140,16 @@ Page({
                     title: '网络繁忙',
                     content: '获取信息失败，请稍后重试',
                     // confirmText: '重新获取',
-                    // showCancel: true,
+                    showCancel: true,
                     success: (res) => {
                         if (res.confirm) {
-                            // that.onLoad();
+                            wx.navigateBack({
+                                delta: 1
+                            })
+                        } else if (res.cancel) {
+                            wx.navigateBack({
+                                delta: 1
+                            })
                         }
                     }
                 })

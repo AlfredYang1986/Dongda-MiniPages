@@ -2,15 +2,11 @@
 const util = require('../../utils/util.js');
 Page({
 
-    /**
-     * 页面的初始数据
-     */
     data: {
         canIuseAvatar: wx.canIUse('open-data.type.userAvatarUrl'),
         android: false,
         iosX: false,
         disabled: true,
-        // animationData: {},
         userAvatar: '',
         hasClick: false,
     },
@@ -72,11 +68,12 @@ Page({
             fail: (error) => {
                 wx.getSetting({
                     success: (res) => {
-                        console.log(res.authSetting['scope.userLocation']);
+                        // console.log(res.authSetting['scope.userLocation']);
                         if (!res.authSetting['scope.userLocation']) {
+                            wx.hideLoading();
                             wx.showModal({
                                 title: '需要获取位置',
-                                content: '请允许获取地理位置，才能更好地向您推荐距离您近的任务',
+                                content: '请允许获取地理位置,才能更好地向您推荐附近的商家,否则将随机显示。',
                                 success: (res) => {
                                     if (res.confirm) {
                                         wx.openSetting({

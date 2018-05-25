@@ -90,12 +90,22 @@
                 <view>{{businessInfo.description}}</view>
             </view>
         </view>
+        <view wx:if="{{businessInfo.other !== ''}}" class='descript_items'>
+            <view class='data_left descript_item'>
+                <text class='point point_none'></text>
+            </view>
+            <view class='content_right descript_item'>
+                <text>其他</text>
+                <view>{{businessInfo.other}}</view>
+            </view>
+        </view>
 
     </view>
 
     <view class='brand_detail brand_info'>
 
         <view class="logo_area">
+
             <image src="https://dongdakid.com/assets/images/{{businessInfo.logo === ''?'avatar_default@2x.png':businessInfo.logo}}" mode='widthFix'></image>
 
             <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>

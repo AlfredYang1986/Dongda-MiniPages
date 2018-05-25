@@ -18,7 +18,8 @@
     </view>
 
     <view class='qr_code'>
-        <image src='../../utils/images/didi_qrcode.png' mode='widthFix' bindlongpress='saveImage'></image>
+         <image src='https://dongdakid.com/assets/images/didi.png' mode='widthFix' bindlongpress='saveImage'></image>  
+               
     </view>
 
     <view class='qr_text'>

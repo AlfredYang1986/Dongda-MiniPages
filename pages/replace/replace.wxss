@@ -249,7 +249,7 @@ page {
 }
 
 .brand_detail .story {
-    height: 108rpx;
+    max-height: 108rpx;
     line-height: 36rpx;
     font-size: 26rpx;
     opacity: 0.5;
@@ -326,7 +326,9 @@ page {
 .point_yellow {
     background: #ffdc6c;
 }
-
+.point_none {
+    background: #fff;
+}
 .brand_descript .descript_content {
     line-height: 42rpx;
     font-size: 30rpx;

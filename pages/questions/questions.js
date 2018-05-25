@@ -205,9 +205,12 @@ Page({
                     wx.showModal({
                         title: '网络繁忙',
                         content: '获取信息失败,请稍后重试',
+                        showCancel: false,
                         success: (res) => {
                             if (res.confirm) {
-                                // that.onLoad();
+                                wx.navigateBack({
+                                    delta: 1,
+                                })
                             }
                         }
                     })

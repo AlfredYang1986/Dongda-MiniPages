@@ -109,9 +109,12 @@ Page({
                 wx.showModal({
                     title: '网络繁忙',
                     content: '获取信息失败，请稍后重试',
+                    showCancel: false,
                     success: (res) => {
                         if (res.confirm) {
-                            // that.onLoad();
+                            wx.reLaunch({
+                                url: '../activity/activity'
+                            })
                         }
                     }
                 })
@@ -127,36 +130,12 @@ Page({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX,
             businessId: options.id,
-            // businessId: '太空翼足球教育'
-
         });
         // var open_id = getApp().globalData.userOpenId;
         wx.showLoading({
             title: '获取数据中...',
         });
-        // console.log(open_id);
-        // var userId = wx.getStorageSync('userId') || '';
-        // console.log(userId);
 
-        // console.log(!options);
-        // if (!options) {
-        //     var data = {
-        //         condition: {
-        //             wechat_id: open_id,
-        //             brand_name: that.data.businessId
-        //         }
-        //     }
-        // } else {
-        //     that.setData({
-        //         businessId: options.id
-        //     });
-        //     var data = {
-        //         condition: {
-        //             wechat_id: open_id,
-        //             brand_name: options.id
-        //         }
-        //     };
-        // };
         if (getApp().globalData.userOpenId === "") {
             getApp().userlogin()
                 .then(() => {
