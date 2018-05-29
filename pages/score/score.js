@@ -6,6 +6,7 @@ Page({
         iosX: false,
         hasScroll: false,
         hint: false,
+        deviceHeight: getApp().globalData.deviceHeight,
         eggtype: "eggs",
         scores: {},
         hintContent: [
@@ -27,13 +28,13 @@ Page({
     },
 
     /**
-     * 检测页面滚动
+     * scroll-view 监听页面滚动
      */
-    onPageScroll: function (res) {
+    pageScroll: function (res) {
         var that = this;
-        if (res.scrollTop > 0) {
+        if (res.detail.scrollTop > 0) {
             that.setData({
-                hasScroll: true,
+                hasScroll: true
             })
         } else {
             that.setData({
@@ -59,6 +60,14 @@ Page({
     closeHint: function () {
         this.setData({
             hint: false
+        })
+    },
+    /**
+     * 番小茄页面
+     */
+    fxqPage: function() {
+        wx.navigateTo({
+            url: '../fxq/fxq',
         })
     },
 
@@ -100,9 +109,18 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                // console.log(res.data.result);
+                console.log(res.data.result);
                 if (res.data.result.scores === "not exist") {
-
+                    let scoresData = {
+                        scores_A: 0,
+                        scores_B: 0,
+                        scores_C: 0,
+                        scores_D: 0,
+                        scores_E: 0,
+                    }
+                    that.setData({
+                        scores: scoresData
+                    });
                 } else {
                     that.setData({
                         scores: res.data.result.scores

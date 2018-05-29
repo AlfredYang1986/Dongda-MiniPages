@@ -5,7 +5,8 @@ Page({
         android: false,
         iosX: false,
         hasScroll: false,
-        businessList: []
+        businessList: [],
+        deviceHeight: getApp().globalData.deviceHeight,
     },
 
     /**
@@ -18,11 +19,11 @@ Page({
     },
 
     /**
-     * 监听页面滚动
+     * scroll-view 监听页面滚动
      */
-    onPageScroll: function (res) {
+    pageScroll: function (res) {
         var that = this;
-        if (res.scrollTop > 0) {
+        if (res.detail.scrollTop > 0) {
             that.setData({
                 hasScroll: true
             })
@@ -57,22 +58,49 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        var that = this;
+        console.log(options);
+        // console.log(options.longitude);
+
+        const that = this;
         wx.showLoading({
             title: '获取数据中...',
             mask: true,
         });
-        var open_id = getApp().globalData.userOpenId;
+        let open_id = getApp().globalData.userOpenId;
 
         this.setData({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX
         });
-        let data = {
-            condition: {
-                wechat_id: open_id
-            }
-        };
+        let data = {};
+        if (options.longitude) {
+            // console.log("it is true");
+            data = {
+                condition: {
+                    wechat_id: open_id,
+                    pin: {
+                        longitude: options.longitude,
+                        latitude: options.latitude
+                    }
+                }
+            };
+        } else {
+            // console.log("don't hava longitude");
+            data = {
+                condition: {
+                    wechat_id: open_id,
+                }
+            };
+        }
+        // let data = {
+        //     condition: {
+        //         wechat_id: open_id,
+        //         pin : {
+        //             longitude: options.longitude,
+        //             latitude: options.latitude
+        //         }
+        //     }
+        // };
 
         wx.request({
             url: getApp().globalData.httpsAddress + '/provider/search',
@@ -80,7 +108,7 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                // console.log(res.data);
+                console.log(res.data);
                 var resultData = res.data.result.providers;
 
                 that.setData({

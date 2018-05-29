@@ -53,6 +53,10 @@ Page({
      * checkEggs
      */
     checkEggs: function () {
+        wx.showLoading({
+            title: '加载中...',
+            mask: true,
+        })
         wx.redirectTo({
             url: '../score/score',
         })
@@ -66,7 +70,8 @@ Page({
         let data = {
             condition: {
                 wechat_id: getApp().globalData.userOpenId,
-                brand_name: that.data.businessId
+                brand_name: that.data.businessId,
+                search_id : that.data.businessId
             }
         };
         wx.request({
@@ -170,7 +175,7 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-
+        wx.hideLoading();
     },
 
     /**

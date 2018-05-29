@@ -1,4 +1,5 @@
 <!--pages/score/score.wxml-->
+<scroll-view  scroll-y enable-back-to-top style='height:{{deviceHeight}}px' class='scroll-view' bindscroll="pageScroll">
 <view class='content_has_padding'>
 
     <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
@@ -16,6 +17,7 @@
             <view class='total'>
                 <image src='../../utils/images/coins@2x.png' mode='widthFix' bindtap='score' data-type='conis'></image>
                 <text bindtap='score' data-type='conis' class='total_num'>{{scores.scores_B}}</text>
+                <image class='fanxiaoqie' src='../../utils/images/logo_fanxiaoqie@2x.png' mode='widthFix' bindtap='fxqPage' ></image>
             </view>
              <view wx:if="{{scores.scores_B > 0}}" class='rainbow'> 
                 <image src='../../utils/images/rainbow@2x.png'></image>
@@ -125,3 +127,4 @@
     <view class='bottom_blank'></view>
 
 </view>
+</scroll-view>

@@ -132,6 +132,7 @@ page {
     width: 140rpx;
     border-radius: 24rpx;
     box-shadow: 0 4px 10px 0 rgba(59, 105, 181, 0.16);
+    overflow: hidden;
     background-color: #fff;
 }
 
@@ -149,7 +150,8 @@ page {
     top: 50%;
     transform: translateY(-50%);
     width: 140rpx;
-    border-radius: 24rpx;
+    max-height: 140rpx;
+    /* border-radius: 24rpx; */
 }
 
 .brand_detail .brand_name {

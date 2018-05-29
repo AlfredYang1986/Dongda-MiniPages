@@ -2,6 +2,7 @@
 page {
     height: 100%;
 }
+
 button::after {
     border: none;
 }
@@ -10,13 +11,17 @@ button::after {
     height: 100%;
     padding: 20rpx;
 }
-
+.scroll-view {
+    background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+}
 .content_has_padding {
     min-height: 100%;
     padding: 0 40rpx;
-    background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);
+    /* background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100% 100%; */
 }
 
 .content_no_padding {

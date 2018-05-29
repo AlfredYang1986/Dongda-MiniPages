@@ -1,0 +1,105 @@
+/* pages/fxq/fxq.wxss */
+
+.content_no_padding {
+    background-image: none;
+}
+
+.headbar image {
+    width: 100%;
+}
+
+.fxq_qrcode {
+    position: relative;
+    height: 108rpx;
+}
+
+.fxq_qrcode image {
+    position: absolute;
+    top: -152rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260rpx;
+    height: 260rpx;
+}
+
+.qr_explain {
+    padding: 24rpx 40rpx 90rpx;
+    text-align: center;
+    color: #65bf37;
+}
+
+.qr_explain view:first-child {
+    height: 34rpx;
+    font-size: 24rpx;
+    line-height: 28rpx;
+    letter-spacing: 2rpx;
+}
+
+.qr_explain view:nth-child(2) {
+    height: 56rpx;
+    line-height: 48rpx;
+    font-family: SFProText-Medium;
+    font-size: 40rpx;
+    letter-spacing: 1.11px;
+}
+
+.qr_explain view:last-child {
+    margin-top: 16rpx;
+    line-height: 32rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+}
+
+.brand_prod {
+    padding: 0 40rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #00002e;
+    letter-spacing: 2rpx;
+    line-height: 44rpx;
+}
+
+.brand_prod .brand {
+    font-family: PingFangSC-Medium;
+    font-size: 32rpx;
+    font-weight: 700;
+    letter-spacing: 1px;    
+    color: #34384a;
+}
+.exam_pic_container {
+    display: flex;
+}
+.exam_pic_container .exam_pic {
+    flex: 1;
+    margin-bottom: 20rpx;
+    padding-top: 40rpx;
+    height: 240rpx;
+    text-align: center;
+}
+.exam_pic_container .exam_pic image {
+    width: 200rpx;
+    height: 200rpx;
+}
+.nearby {
+    margin-top: 44rpx;
+    padding-bottom: 60rpx;
+    text-align: center;
+    color: #65BF37; 
+
+}
+.nearby view:first-child{
+    font-family: PingFangSC-Medium;
+    font-size: 28rpx;
+    font-weight: 700;
+    letter-spacing: 4rpx;
+}
+.nearby view:nth-child(2) {
+    margin: 12rpx 0;
+    font-family: PingFangSC-Medium;
+    font-size: 28rpx;
+    letter-spacing: 1.71px;
+}
+.nearby image {
+    width: 226rpx;
+    height: 226rpx;
+}

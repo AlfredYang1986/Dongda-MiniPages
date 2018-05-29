@@ -159,12 +159,12 @@ Page({
      */
     checkAnswer: function (e) {
         const that = this;
+        // console.log(e);
         if (!that.data.hasClick) {
             wx.showLoading({
                 title: '提交答案中...',
                 mask: true,
             });
-            // console.log("checkAnswer btn has click");
             let event = e;
             that.setData({
                 hasClick: true,
@@ -175,7 +175,6 @@ Page({
             let answer_id = that.data.questions.answers[currentQuestion].answer_id;
             let answers = [];
             answers.push(answer_id);
-            // console.log(answers);
             let data = {
                 condition: {
                     wechat_id: getApp().globalData.userOpenId,
@@ -188,7 +187,7 @@ Page({
                     }
                 ]
             };
-
+            // console.log(data);
             wx.request({
                 method: 'POST',
                 url: getApp().globalData.httpsAddress + '/answer/check',
@@ -244,9 +243,24 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
+                /**
+                 * 选项重新排列
+                 */
+                let result = res.data.result;
+                function shuffle(arr) {
+                    let i = arr.length;
+                    while (i) {
+                        let j = Math.floor(Math.random() * i--);
+                        [arr[j], arr[i]] = [arr[i], arr[j]];
+                    }
+                }
+                for (let i = 0; i < 5; i++) {
+                    shuffle(result.answers[i].choice);
+                }
+
                 // console.log(res.data);
                 that.setData({
-                    questions: res.data.result,
+                    questions: result,
                 })
             },
             fail: (error) => {

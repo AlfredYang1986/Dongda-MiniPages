@@ -66,6 +66,7 @@ page {
     border-radius: 24rpx;
     background-color: #fff;
     box-shadow: 0 4px 10px 0 rgba(59, 105, 181, 0.16);
+    overflow: hidden;
 }
 
 .items .brand_logo_area .brand_avatar image:first-child {

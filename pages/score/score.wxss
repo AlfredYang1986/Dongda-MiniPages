@@ -11,13 +11,15 @@ page {
 }
 
 .eggs_total .total image:first-child {
+    margin-top: 5px;
     width: 196rpx;
 }
 
 .eggs_total .total .total_num {
     position: absolute;
     display: inline-block;
-    top: 16rpx;
+    top: 50%;
+    transform: translateY(-50%);
     left: 116rpx;
     width: 100rpx;
     font-size: 32rpx;
@@ -25,11 +27,16 @@ page {
     letter-spacing: 1px;
     color: #fff;
 }
-
+.eggs_total .total .fanxiaoqie {
+    position: absolute;
+    right: -40rpx;
+    width: 202rpx;
+    height: 100rpx;
+}
 .rainbow {
     position: absolute;
     z-index: -1;
-    top: -60rpx;
+    top: -50rpx;
     left: 28rpx;
     height: 70rpx;
     overflow: hidden;
@@ -42,7 +49,7 @@ page {
 }
 
 .eggs_line {
-    margin-top: 30rpx;
+    margin-top: 50rpx;
 }
 
 .eggs_line .egg {

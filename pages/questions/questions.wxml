@@ -44,15 +44,15 @@
                 </view>
 
                 <view class='choices_area'>
-                    <view class='choices' wx:for="{{item.choice}}">
-                        <button data-index='{{index}}' class="choice {{index==clickIndex&&clickIndex!=='' ? answerColor : ''}}" hover-class='choose' bindtap='checkAnswer'>
-                            <view class="invisible {{index==clickIndex&&clickIndex!==''&&answerColor=='right_answer' ? 'sign' : ''}}">
+                    <view class='choices' wx:for="{{item.choice}}" wx:for-item="choiceitem">
+                        <button data-index='{{choiceitem.index}}' class="choice {{choiceitem.index==clickIndex&&clickIndex!=='' ? answerColor : ''}}" hover-class='choose' bindtap='checkAnswer'>
+                            <view class="invisible {{choiceitem.index==clickIndex&&clickIndex!==''&&answerColor=='right_answer' ? 'sign' : ''}}">
                                 <image src='../../utils/images/right@2x.png'></image>
                             </view>
-                            <view class="invisible {{index==clickIndex&&clickIndex!==''&&answerColor=='error_answer' ? 'sign' : ''}}">
+                            <view class="invisible {{choiceitem.index==clickIndex&&clickIndex!==''&&answerColor=='error_answer' ? 'sign' : ''}}">
                                 <image src='../../utils/images/error@2x.png'></image>
                             </view>
-                            {{item.title}}
+                            {{choiceitem.title}}
                         </button>
                     </view>
                 </view>

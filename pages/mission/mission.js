@@ -8,6 +8,7 @@ Page({
         hasScroll: false,
         hint: false,
         businessList: [],
+        deviceHeight: getApp().globalData.deviceHeight,
     },
 
     /**
@@ -20,13 +21,13 @@ Page({
     },
 
     /**
-     * 监听页面滚动
+     * scroll-view 监听页面滚动
      */
-    onPageScroll: function (res) {
-        const that = this;
-        if (res.scrollTop > 0) {
+    pageScroll: function (res) {
+        var that = this;
+        if (res.detail.scrollTop > 0) {
             that.setData({
-                hasScroll: true,
+                hasScroll: true
             })
         } else {
             that.setData({
@@ -71,8 +72,8 @@ Page({
      * 查看星耀商家
      */
     checkStarDetail: function (e) {
-        var that = this;
-        var id = e.currentTarget.dataset.brandid
+        const that = this;
+        let id = e.currentTarget.dataset.brandid
         wx.navigateTo({
             url: '../replace/replace?id=' + id,
         })
@@ -82,7 +83,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        var that = this;
+        const that = this;
         this.setData({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX

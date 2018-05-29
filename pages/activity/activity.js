@@ -19,8 +19,43 @@ Page({
             title: '正在加载中',
             mask: true,
         })
-        wx.navigateTo({
-            url: '../lists/lists',
+        wx.getLocation({
+            success: function (res) {
+                // console.log(res);
+                wx.navigateTo({
+                    url: '../lists/lists?latitude=' + res.latitude + '&longitude=' + res.longitude,
+                })
+            },
+            fail: (error) => {
+                wx.navigateTo({
+                    url: "../lists/lists",
+                })
+            /*
+                wx.getSetting({
+                    success: (res) => {
+                        if (!res.authSetting['scope.userLocation']) {
+                            wx.hideLoading();
+                            wx.showModal({
+                                title: '需要获取位置',
+                                content: '请允许获取地理位置,才能更好地向您推荐附近的商家,否则将随机显示。',
+                                success: (res) => {
+                                    if (res.confirm) {
+                                        wx.openSetting({
+                                            success: (res) => {
+                                            }
+                                        })
+                                    } else {
+                                        wx.navigateTo({
+                                            url: "../lists/lists",
+                                        })
+                                    }
+                                }
+                            })
+                        }
+                    }
+                })
+                */
+            }
         })
     }, 1000),
 
@@ -58,40 +93,8 @@ Page({
             title: '正在加载中',
             mask: true,
         })
-        wx.getLocation({
-            success: function (res) {
-                // console.log(res);
-                wx.navigateTo({
-                    url: '../mission/mission?latitude=' + res.latitude + '&longitude=' + res.longitude,
-                })
-            },
-            fail: (error) => {
-                wx.getSetting({
-                    success: (res) => {
-                        // console.log(res.authSetting['scope.userLocation']);
-                        if (!res.authSetting['scope.userLocation']) {
-                            wx.hideLoading();
-                            wx.showModal({
-                                title: '需要获取位置',
-                                content: '请允许获取地理位置,才能更好地向您推荐附近的商家,否则将随机显示。',
-                                success: (res) => {
-                                    if (res.confirm) {
-                                        wx.openSetting({
-                                            success: (res) => {
-                                                // console.log(res);
-                                            }
-                                        })
-                                    } else {
-                                        wx.navigateTo({
-                                            url: "../mission/mission?latitude=39.9219&longitude=116.44355",
-                                        })
-                                    }
-                                }
-                            })
-                        }
-                    }
-                })
-            }
+        wx.navigateTo({
+            url: '../mission/mission',
         })
     }, 1000),
 

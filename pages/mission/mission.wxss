@@ -4,7 +4,7 @@ page {
     height: 100%;
 }
 
-.content_has_padding {
+.scroll-view {
     background-image: url(https://dongdakid.com/assets/images/bg_star@2x.png);
 }
 
@@ -62,6 +62,7 @@ page {
     border-radius: 24rpx;
     background-color: #fff;
     line-height: 110rpx;
+    overflow: hidden;
     /* box-shadow: 0 4px 10px 0 rgba(59,105,181,0.16); */
 }
 

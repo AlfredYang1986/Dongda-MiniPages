@@ -1,16 +1,35 @@
 <!--pages/privacy/privacy.wxml-->
-<view class='content_has_padding'>
-    <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
-        <view class='backArea'>
-            <image src='../../utils/images/icon_back@2x.png'></image>
-            <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+<scroll-view scroll-y enable-back-to-top style='height:{{deviceHeight}}px' class='scroll-view' bindscroll="pageScroll">
+    <view class='content_has_padding'>
+        <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+            <view class='backArea'>
+                <image src='../../utils/images/icon_back@2x.png'></image>
+                <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+            </view>
+            <view class='navigationTitle'>
+                <text></text>
+            </view>
         </view>
-        <view class='navigationTitle'>
-            <text></text>
+        <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+        <view class='title'>隐私条款</view>
+
+        <view class='content'>
+            · 您的信任对我们非常重要，咚哒（我们）深知个人信息对您的重要性，我们将按照法律法规要求，采取安全保护措施，保护您的个人信息。
         </view>
+        <view class='content'>
+            · 为确保您对我们在处理个人资料上有充分信心, 您切要详细阅读及理解隐私政策的条文。 当活动报名成功后， 将被视为接受、同意、承诺和确认。
+        </view>
+        <view class='content'>· 您自愿连向我们披露所需的个人资料，以保证您参与活动的顺利进行; </view>
+        <view class='content'>· 您的信息只有在本次活动中作登记，不作为任何信息收集; </view>
+        <view class='content'>· 您的信息将不会向任何第三方透露;</view>
+        <view class='content'>· 您报名即意味着接受本条款，否则您将不能参与本次活动。您报名成功后，则视为您已经详细阅读了本条款内容，同意遵守本协议的规定。 </view>
+        <view class='content'>· 您会遵守本隐私政策的全部条款和限制;</view>
+        <view class='content'>活动注意事项 1）非由活动主办方故意或重大过失造成获奖者在领取和使用奖品过程中所发生的事故，活动主办方无须承担相应责任。 2）为保障玩家和服务商权益，针对不当手段参加活动者，活动主办方有权在不事先通知的前提下，取消活动参与者获得奖励或参与本活动的资格； 3）活动主办方不对因网络传输原因而导致参加者提交的信息错误或延误承担任何责任。 4）在法律允许的范围内，活动主办方对本次活动拥有最终解释权。如遇不可抗力因素，活动主办方拥有权利取消本次活动。 个人信息资料及不具名的资料的目的及用途如下:
+            让您更方便的参与活动；</view>
+        <view class='content'>当您使用活动涉及到的小程序时能辨认及确认您的身份； 当您获奖时需要辨认及确认您的身份便于通知与发放奖品； 让您使用我们的活动页面时得到为您而设的感受； 我们的服务人员有需要时可以与您联系； 为了您更好的参加活动，您同意授权我们以我们认为适当的方式收集并使用用户信息。未经用户同意，我们不得以营利为目的向第三方披露用户信息，除非： a. 您允许我们披露用户信息； b.有关法律法规或行政规章要求我们披露您的用户信息； c.司法机关或行政机关基于法定程序要求我们披露您的用户信息； d.为保护我们的知识产权和其他财产权益，需要披露您的用户信息；
+            e.在紧急情况下为保护其他用户和社会大众的人身安全，需要披露您的用户信息。 我们将采取商业上合理的方式以保护您的用户信息的安全。我们将使用通常可以获得的安全技术和程序来保护您的用户信息不被未经授权的访问、使用或泄漏。对于非因我们的疏忽而造成您用户信息的泄密，我们不承担任何责任。 “61咚哒 头号玩家”活动免责声明 一、本免责声明适用于参与“61咚哒 头号玩家”活动的所有成功报名后的参与者。 二、凡报名本次活动的参加者（包含未成年人、无民事行为能力人或限制民事行为能力人），则其监护人除保障本身安全外，需保障参与者的所有人身安全并承担在活动中发生的一切后果，本公司发起人、服务商、服务商及赞助商均不承担责任，由被损害人依据法律规定和本声明依法解决，凡报名者均视为接受本声明。
+            三、本次活动不可代他人报名，被代报名参加者如遭受人身损害，赔偿责任本公司发起人、服务商及赞助方同样均不承担。 四、因服务商、协助者、赞助商提供的体验设施、器材不完善或其他易造成人身损害的问题，由服务商、协助者、赞助商承担责任，本公司不承担任何责任。 五、报名成功后本声明将自动生效并表明参与者已接受，否则，请中止报名。六、由于服务方时间安排或其他问题导致您在活动参与中，抵达场地后没有得到参与机会，请您第一时间与我们沟通协调。但本公司不承担相关责任。</view>
+        <view class='content'>活动主办方：黑镜子科技（北京）有限公司</view>
+        <view class='content'>感谢您的信任 进入游戏即认为您已阅读《隐私及服务条款》并同意相关规则</view>
     </view>
-    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
-    <view class='title'>隐私条款</view>
-    <view class='content'>我们对隐私条款进行了详细的修订，从该日期（2018年5月25日）开始，这一隐私政策能够提供有关我们如何使用您在本小程序中的个人信息的隐私详情。<br />请花一些时间熟悉我们的隐私权惯例，如果您有任何问题，请告诉我们。
-    </view>
-</view>
+</scroll-view>

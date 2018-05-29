@@ -58,7 +58,7 @@
     <view class="brand_detail {{firstScan?'brand_info':'brand_info_checked'}}">
 
         <view class="logo_area">
-            <image src="https://dongdakid.com/assets/images/{{!businessInfo.logo?'avatar_default@2x.png':businessInfo.logo}}" mode='widthFix'></image>
+            <image src="https://dongdakid.com/assets/images/{{!businessInfo.logo?'avatar_default@2x.png':businessInfo.logo}}" mode='aspectFit'></image>
         </view>
 
         <view class='brand_name'>{{businessInfo.brand_name}}</view>

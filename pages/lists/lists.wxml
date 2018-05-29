@@ -1,59 +1,63 @@
 <!--pages/lists/lists.wxml-->
-<view class='content_has_padding'>
+<scroll-view scroll-y enable-back-to-top style='height:{{deviceHeight}}px' class='scroll-view' bindscroll="pageScroll">
+    <view class='content_has_padding'>
 
-    <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+        <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
 
-        <view class='backArea'>
-            <image src='../../utils/images/icon_back@2x.png'></image>
-            <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+            <view class='backArea'>
+                <image src='../../utils/images/icon_back@2x.png'></image>
+                <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+            </view>
+
+            <view class='navigationTitle'>
+                <text></text>
+            </view>
         </view>
 
-        <view class='navigationTitle'>
-            <text></text>
+        <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+
+        <view class='didi_area' bindtap='didiCoupon'>
+            <image src='../../utils/images/didi@2x.png' mode='widthFix'></image>
         </view>
+
+        <view class='items' wx:for="{{businessList}}" data-brandid='{{item.provider_id}}' bindtap='checkDetail'>
+
+            <image wx:if="{{item.is_top}}" class='star' src='../../utils/images/flag_king@2x.png' mode='widthFix'></image>
+            <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/flag_star@2x.png' mode='widthFix'></image>
+            <image wx:else class='star' src='../../utils/images/flag_bojin@2x.png' mode='widthFix'></image>
+            <image class='checked' src='../../utils/images/mark@2x.png' wx:if="{{item.is_checked}}"></image>
+
+            <view class='brand_address'>
+
+                <view class='address_icon'>
+                    <image src='../../utils/images/icon_location_s@2x.png'></image>
+                </view>
+
+                <text>{{item.address}}</text>
+
+            </view>
+
+            <view class='brand_logo_area'>
+                <view class="brand_avatar">
+                    <image src="https://dongdakid.com/assets/images/{{item.logo === ''?'avatar_default@2x.png':item.logo}}" mode='aspectFit'></image>
+                    <!-- <image src="http://192.168.100.115:9999/assets/images/{{item.logo === ''?'avatar_default@2x.png':item.logo}}" mode='widthFix'></image>  -->
+                </view>
+                <view class='brand_name_area'>
+                    <view class='brand_name'>{{item.brand_name}}</view>
+                    <view class='brand_type'>{{item.service_leaf}}
+                        <text wx:if="{{item.service_leaf!== ''}}">·</text>{{item.service_type}}</view>
+                </view>
+            </view>
+
+            <view class='brand_difference' wx:if='{{item.difference.length > 0}}'>
+                <view class='brand_differenct_item' wx:for="{{item.difference}}">
+                    <view>{{item}}</view>
+                </view>
+            </view>
+
+        </view>
+
+        <view class='bottom_blank'></view>
+
     </view>
-
-    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
-
-    <view class='didi_area' bindtap='didiCoupon'>
-        <image src='../../utils/images/didi@2x.png' mode='widthFix'></image>
-    </view>
-
-    <view class='items' wx:for="{{businessList}}" data-brandid='{{item.provider_id}}' bindtap='checkDetail'>
-
-        <image wx:if="{{item.is_top}}" class='star' src='../../utils/images/flag_king@2x.png' mode='widthFix'></image>
-        <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/flag_star@2x.png' mode='widthFix'></image>
-        <image wx:else class='star' src='../../utils/images/flag_bojin@2x.png' mode='widthFix'></image>
-        <image class='checked' src='../../utils/images/mark@2x.png' wx:if="{{item.is_checked}}"></image>
-
-        <view class='brand_address'>
-
-            <view class='address_icon'>
-                <image src='../../utils/images/icon_location_s@2x.png'></image>
-            </view>
-
-            <text>{{item.address}}</text>
-
-        </view>
-
-        <view class='brand_logo_area'>
-            <view class="brand_avatar">
-                <image src="https://dongdakid.com/assets/images/{{item.logo === ''?'avatar_default@2x.png':item.logo}}" mode='widthFix'></image>
-            </view>
-            <view class='brand_name_area'>
-                <view class='brand_name'>{{item.brand_name}}</view>
-                <view class='brand_type'>{{item.service_leaf}}·{{item.service_type}}</view>
-            </view>
-        </view>
-
-        <view class='brand_difference' wx:if='{{item.difference.length > 0}}'>
-            <view class='brand_differenct_item' wx:for="{{item.difference}}">
-                <view>{{item}}</view>
-            </view>
-        </view>
-
-    </view>
-
-    <view class='bottom_blank'></view>
-
-</view>
+</scroll-view>

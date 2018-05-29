@@ -1,0 +1,52 @@
+<!--pages/fxq/fxq.wxml-->
+<view class='content_no_padding'>
+
+    <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+        <view class='backArea'>
+            <image src='../../utils/images/icon_back@2x.png'></image>
+            <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+        </view>
+        <view class='navigationTitle'>
+            <text></text>
+        </view>
+    </view>
+    <view class='headbar'>
+        <image src='../../utils/images/fanxiaoqie@2x.png' mode='widthFix'></image>
+    </view>
+    <view class='fxq_qrcode'>
+        <image src='../../utils/images/fxq_qrcode@2x.png' bindlongpress='saveImage' data-whichimg='fxq_qrcode'></image>
+    </view>
+    <view class='qr_explain'>
+        <view class='save'>
+            <text>长按保存</text> </view>
+        <view class='get'>
+            <text>领取优惠活动二维码</text> </view>
+        <view class='explain'>
+            <text>优惠说明:原价258元/次的番小茄小儿推拿，首次仅需58元，京城42家店通用；仅限非番小茄会员首次使用.</text> </view>
+    </view>
+    <view class='brand_prod'>
+        <view>
+            <text class='brand'>番小茄</text>
+            <text>是以小儿推拿为核心的专业儿童健康管理机构。基于传统中医理论，面向0-12岁儿童提供专业的小儿推拿服务。</text>
+        </view>
+        <text>通过对小儿四肢、头部、腹部、背部的特定穴位进行手法按摩，帮助调理感冒、发烧、积食等常见问题。</text>
+    </view>
+
+    <view class='exam_pic_container'>
+        <view class='exam_pic'>
+            <image src='../../utils/images/exam_pic_1@2x.png'></image>
+        </view>
+        <view class='exam_pic'>
+            <image src='../../utils/images/exam_pic_2@2x.png'></image>
+        </view>
+    </view>
+
+    <view class='brand_prod'>
+        <text>番小茄目前在北京通过42家线下体验店，向0-12岁儿童提供以小儿推拿为核心的手法调理服务。让宝宝少打针少吃药，打造“低药生活”新时尚。</text>
+    </view>
+    <view class='nearby'>
+        <view>查看附近门店请扫描二维码</view>
+        <view>长按保存</view>
+        <image src='../../utils/images/nearbybiz@2x.png' bindlongpress='saveImage' data-whichimg='nearbybiz'></image>
+    </view>
+</view>

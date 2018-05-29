@@ -1,6 +1,9 @@
-// pages/didi/didi.js
+// pages/fxq/fxq.js
 Page({
 
+    /**
+     * 页面的初始数据
+     */
     data: {
         android: false,
         iosX: false,
@@ -17,13 +20,13 @@ Page({
     },
 
     /**
-     * 监听页面滚动
+     * 检测页面滚动
      */
     onPageScroll: function (res) {
         var that = this;
         if (res.scrollTop > 0) {
             that.setData({
-                hasScroll: true
+                hasScroll: true,
             })
         } else {
             that.setData({
@@ -35,15 +38,17 @@ Page({
     /**
      * 保存图片
      */
-    saveImage: function () {
+    saveImage: function (e) {
+        // console.log(e.currentTarget.dataset);
+        let img = e.currentTarget.dataset.whichimg;
         wx.showActionSheet({
             itemList: ['保存图片'],
             success: function (res) {
-                console.log(res.tapIndex)
+                // console.log(res.tapIndex);
                 if (res.tapIndex === 0) {
                     wx.getSetting({
                         success: (res) => {
-                            console.log(res)
+                            // console.log(res);
                             if (res.authSetting['scope.writePhotosAlbum'] === false) {
                                 wx.showModal({
                                     title: '没有权限',
@@ -67,7 +72,7 @@ Page({
                                 })
                             } else {
                                 wx.saveImageToPhotosAlbum({
-                                    filePath: '/utils/images/didi_qrcode.png',
+                                    filePath: '/utils/images/'+img+'@2x.png',
                                     success: (res) => {
                                         // console.log(res)
                                         wx.showToast({
@@ -92,14 +97,14 @@ Page({
             }
         });
     },
-
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.setData({
+        const that = this;
+        that.setData({
             android: getApp().globalData.android,
-            iosX: getApp().globalData.iosX
+            iosX: getApp().globalData.iosX,
         });
     },
 
@@ -149,10 +154,6 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        return {
-            title: '咚哒头号玩家',
-            path: '/pages/index/index',
-            imageUrl: 'https://dongdakid.com/assets/images/activity.png'
-        }
+
     }
 })

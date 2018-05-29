@@ -1,6 +1,8 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/fxq/fxq",
+        
         "pages/mission/mission",
         "pages/privacy/privacy",
         "pages/replace/replace",

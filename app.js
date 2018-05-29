@@ -141,6 +141,8 @@ App({
         // 获取设备信息
         wx.getSystemInfo({
             success: function (res) {
+                // console.log(res);
+                that.globalData.deviceHeight = res.screenHeight;
                 if (res.platform === 'android') {
                     that.globalData.android = true;
                 } else {
@@ -176,6 +178,7 @@ App({
         */
     },
     globalData: {
+        deviceHeight: 667,
         userExist: false,
         android: false,
         iosX: false,
@@ -189,7 +192,7 @@ App({
         },
         userOpenId: '',
         userToken: '',
-        // httpsAddress: 'https://dongdakid.com'
-        httpsAddress: 'http://192.168.100.115:9000'
+        httpsAddress: 'https://dongdakid.com'
+        // httpsAddress: 'http://192.168.100.115:9999'
     }
 })

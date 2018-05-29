@@ -18,8 +18,7 @@
     </view>
 
     <view class='qr_code'>
-         <image src='https://dongdakid.com/assets/images/didi.png' mode='widthFix' bindlongpress='saveImage'></image>  
-               
+         <image src='../../utils/images/didi_qrcode.png' mode='widthFix' bindlongpress='saveImage'></image>        
     </view>
 
     <view class='qr_text'>
@@ -36,7 +35,9 @@
             <text>使用规则</text>
         </view>
         <view class='rule_content'>
-            <text>详细规则即将推出。</text>
+            <text>同一用户限使用一份礼包。</text>
+            <text>若优惠券未到账，将自动在24小时补发。</text>
+            
         </view>
     </view>
 

@@ -8,7 +8,7 @@ Page({
         android: false,
         iosX: false,
         hasScroll: false,
-        test: [{6:[1,2,3,4]},{7:[1,23,3,5]}]
+        deviceHeight: getApp().globalData.deviceHeight,
     },
 
     /**
@@ -21,11 +21,11 @@ Page({
     },
 
     /**
-     * 监听页面滚动
-     */
-    onPageScroll: function (res) {
+    * scroll-view 监听页面滚动
+    */
+    pageScroll: function (res) {
         var that = this;
-        if (res.scrollTop > 0) {
+        if (res.detail.scrollTop > 0) {
             that.setData({
                 hasScroll: true
             })
@@ -35,6 +35,7 @@ Page({
             })
         }
     },
+
     /**
      * 生命周期函数--监听页面加载
      */

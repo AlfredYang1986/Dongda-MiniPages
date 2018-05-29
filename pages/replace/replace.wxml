@@ -106,7 +106,7 @@
 
         <view class="logo_area">
 
-            <image src="https://dongdakid.com/assets/images/{{businessInfo.logo === ''?'avatar_default@2x.png':businessInfo.logo}}" mode='widthFix'></image>
+            <image src="https://dongdakid.com/assets/images/{{businessInfo.logo === ''?'avatar_default@2x.png':businessInfo.logo}}" mode='aspectFit'></image>
 
             <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
             <image wx:elif="{{businessInfo.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
@@ -118,7 +118,7 @@
         <view class='one_punch_line'>"{{businessInfo.onepunchline}}"</view>
 
         <view class='leaf_type'>
-            <text>{{businessInfo.service_leaf}}·{{businessInfo.service_type}}</text>
+            <text>{{businessInfo.service_leaf}}<text wx:if="{{businessInfo.service_leaf !== ''}}">·</text>{{businessInfo.service_type}}</text>
         </view>
 
         <view class='hight_light'>
