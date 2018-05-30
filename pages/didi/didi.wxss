@@ -23,7 +23,7 @@ page {
 }
 
 .qr_code {
-    margin: 40rpx 0;
+    margin: 40rpx 0 6rpx;
     text-align: center;
 }
 
@@ -34,12 +34,18 @@ page {
 
 .qr_text {
     line-height: 38rpx;
-    font-size: 32rpx;
+    font-size: 26rpx;
     font-weight: 700;
     text-align: center;
     color: #34384a;
 }
-
+.qr_text view:first-child {
+    color:#5f6270;
+    margin-bottom: 32rpx;
+}
+.qr_text view:nth-child(2) {
+    font-size: 28rpx;
+}
 .user_rule {
     margin-top: 120rpx;
 }

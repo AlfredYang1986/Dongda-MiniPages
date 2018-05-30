@@ -58,8 +58,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(options);
-        // console.log(options.longitude);
+        // console.log(options);
 
         const that = this;
         wx.showLoading({
@@ -75,32 +74,25 @@ Page({
         let data = {};
         if (options.longitude) {
             // console.log("it is true");
+            let longitude = parseFloat(options.longitude);
+            let latitude = parseFloat(options.latitude);
+            
             data = {
                 condition: {
                     wechat_id: open_id,
                     pin: {
-                        longitude: options.longitude,
-                        latitude: options.latitude
+                        longitude: longitude,
+                        latitude: latitude
                     }
                 }
             };
         } else {
-            // console.log("don't hava longitude");
             data = {
                 condition: {
                     wechat_id: open_id,
                 }
             };
         }
-        // let data = {
-        //     condition: {
-        //         wechat_id: open_id,
-        //         pin : {
-        //             longitude: options.longitude,
-        //             latitude: options.latitude
-        //         }
-        //     }
-        // };
 
         wx.request({
             url: getApp().globalData.httpsAddress + '/provider/search',
@@ -108,7 +100,7 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                console.log(res.data);
+                // console.log(res.data);
                 var resultData = res.data.result.providers;
 
                 that.setData({
@@ -120,7 +112,6 @@ Page({
                 wx.showModal({
                     title: '网络繁忙',
                     content: '获取信息失败，请稍后重试',
-                    // confirmText: '重新获取',
                     showCancel: false,
                     success: (res) => {
                         if (res.confirm) {

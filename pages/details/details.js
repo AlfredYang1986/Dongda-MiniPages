@@ -56,10 +56,13 @@ Page({
         wx.showLoading({
             title: '加载中...',
             mask: true,
-        })
-        wx.redirectTo({
+        });
+        wx.navigateTo({
             url: '../score/score',
         })
+        // wx.redirectTo({
+        //     url: '../score/score',
+        // })
     },
     
     /**
@@ -93,7 +96,7 @@ Page({
                     } else {
                         wx.showModal({
                             title: '打卡成功',
-                            content: '打卡成功',
+                            // content: '打卡成功',
                             showCancel: false,
                         })
                     }

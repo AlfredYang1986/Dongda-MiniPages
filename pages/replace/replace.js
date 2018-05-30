@@ -1,13 +1,12 @@
 // pages/replace/replace.js
 Page({
-
     data: {
         canIuseAvatar: wx.canIUse('open-data.type.userAvatarUrl'),
         android: false,
         iosX: false,
         hasScroll: false,
         allStory: false,
-        businessInfo: { logo: 'avatar_default@2x.png' },
+        businessInfo: {},
     },
 
     /**

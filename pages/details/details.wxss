@@ -97,7 +97,11 @@ page {
     line-height: 50rpx;
     font-size: 36rpx;
 }
-
+.got_egg .egg_type .egg_text view:last-child {
+    padding: 0 32rpx;
+    line-height: 30rpx;
+    font-size: 26rpx;
+}
 .got_egg .egg_check {
     margin: 20rpx 0 40rpx;
     text-align: center;
@@ -116,7 +120,7 @@ page {
 }
 
 .got_egg .egg_explain {
-    margin: 20rpx 0;
+    margin: 16rpx 0;
     line-height: 32rpx;
     text-align: center;
     opacity: 0.8;

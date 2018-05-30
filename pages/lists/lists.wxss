@@ -46,10 +46,15 @@ page {
 .items .brand_address text {
     flex: 1;
     padding-left: 10rpx;
-    line-height: 44rpx;
+    max-height: 88rpx;
+    line-height: 40rpx;
     font-size: 32rpx;
-    letter-spacing: 1px;
-    color: #112a51;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: #112a51;    
 }
 
 .items .brand_logo_area {

@@ -12,10 +12,10 @@ Page({
         hintContent: [
             {
                 sign: "conis", title: "如何获得", content: [
-                    { title: "咚哒coins", content: "活动期间，在场地打开即可获得经典彩蛋活动期间，在场地打开即可获得经典彩蛋" }
+                    { title: "咚哒coins", content: "“活动期间，在场地成功打卡将随机出现咚哒币 （星耀场地与最强王者场地咚哒币出现的概率更高哦）”" }
                 ]
             },
-            { sign: "eggs", title: "如何获得", content: [{ unique: "classic", title: "经典彩蛋", content: "经典彩蛋一共四种类型，分别是科学蛋、艺术蛋、运动蛋和体验蛋。6月2日-10日，到达任意一家品牌机构签到扫码，均可获得一个经典彩蛋。" }, { unique: "surprise", title: "惊喜彩蛋", content: "6月4日-6月8日五天中，用户在星耀挑战场地进行打卡，将获得一个“惊喜彩蛋”。" }, { unique: "king", title: "王者彩蛋", content: "王者彩蛋一共四种类型，分别是科学王者、艺术王者、运动王者和体验王者。四天周末（6月2日、6月3日、6月9日、6月10日），用户在最强王者服务方场地打卡，并完成场地挑战，即可获得一个“王者彩蛋”。" }] }]
+            { sign: "eggs", title: "如何获得", content: [{ unique: "classic", title: "经典彩蛋", content: "6月1日-6月10日，到达任意一个活动场地，并完成场地活动挑战，扫码打卡成功即可获得一枚‘经典彩蛋’。同一场地多次扫码仅可获得一枚彩蛋。" }, { unique: "surprise", title: "惊喜彩蛋", content: "6月1日-6月10日，玩家在场地打卡随机获得一枚“咚哒币”。咚哒币用于小程序中参与答题。连续答对5题的玩家，即可获得一枚‘惊喜彩蛋’。" }, { unique: "king", title: "王者彩蛋", content: "特定时间内，玩家在最强王者服务方场地完成挑战，扫码打卡成功即可获得一枚‘王者彩蛋’。同一场地多次扫码仅可获得一枚彩蛋。" }] }]
     },
 
     /**
@@ -109,7 +109,7 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                console.log(res.data.result);
+                // console.log(res.data.result);
                 if (res.data.result.scores === "not exist") {
                     let scoresData = {
                         scores_A: 0,

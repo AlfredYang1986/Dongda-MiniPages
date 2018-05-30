@@ -6,6 +6,8 @@ page {
 
 .content_has_padding {
     background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
 }
 
 .brand_info {

@@ -16,10 +16,10 @@
     <view class='ready_start' wx:if="{{!readyStart}}">
         <view class='start_text'>
             <view>
-                <text>每轮答题消耗1枚咚哒币</text>
+                <text>每轮答题消耗一枚咚哒币</text>
             </view>
             <view>
-                <text>连续答对5题就可以获得惊喜彩蛋辣</text>
+                <text>连续答对5题就可以获得“惊喜彩蛋”啦</text>
             </view>
         </view>
         <view class='start_btn'>
@@ -72,7 +72,7 @@
             </view>
 
             <view class='content'>
-                <text>继续努力吧</text>
+                <text>选错啦，继续努力吧</text>
             </view>
 
             <image class='close_btn' data-btn='errorbtn' src='../../utils/images/icon_close@2x.png' bindtap='backBeforePage'></image>

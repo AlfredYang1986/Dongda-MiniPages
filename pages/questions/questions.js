@@ -40,7 +40,7 @@ Page({
         } else {
             wx.showModal({
                 title: '确认退出？',
-                content: '中途退出将重新答题',
+                content: '咚哒币已消耗，下次进入将耗费一枚新的咚哒币并重新开始答题。',
                 showCancel: true,
                 cancelText: '继续答题',
                 cancelColor: '#3CC51F',
@@ -81,9 +81,16 @@ Page({
      * 点击开始答题
      */
     start: function () {
-        this.setData({
-            readyStart: true,
-        })
+        const that = this;
+        // console.log(that.data.questions.answers)
+        if(that.data.questions.answers.length > 0) {
+            this.setData({
+                readyStart: true,
+            })
+        } else {
+
+        }
+        
     },
 
     /**
@@ -222,15 +229,16 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        wx.showLoading({
+            title: '获取数据中...',
+            mask: true,
+        });
         const that = this;
         this.setData({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX,
         });
-        wx.showLoading({
-            title: '获取数据中...',
-            mask: true,
-        });
+        
         let data = {
             condition: {
                 wechat_id: getApp().globalData.userOpenId
@@ -258,7 +266,7 @@ Page({
                     shuffle(result.answers[i].choice);
                 }
 
-                // console.log(res.data);
+                // console.log(result);
                 that.setData({
                     questions: result,
                 })
