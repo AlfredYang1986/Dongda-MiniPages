@@ -122,30 +122,18 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-
                 that.setData({
                     businessInfo: res.data.result.provider
                 });
-                // that.data.businessInfo.difference = res.data.result.provider.difference.split(',');
-                // that.setData({
-                //     businessInfo: that.data.businessInfo
-                // });
-                // console.log(res.data);
-                // console.log(that.data.businessInfo)
             },
             fail: (error) => {
                 wx.hideLoading();
                 wx.showModal({
                     title: '网络繁忙',
                     content: '获取信息失败，请稍后重试',
-                    // confirmText: '重新获取',
-                    showCancel: true,
+                    showCancel: false,
                     success: (res) => {
                         if (res.confirm) {
-                            wx.navigateBack({
-                                delta: 1
-                            })
-                        } else if (res.cancel) {
                             wx.navigateBack({
                                 delta: 1
                             })

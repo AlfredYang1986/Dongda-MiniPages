@@ -73,7 +73,6 @@ Page({
         });
         let data = {};
         if (options.longitude) {
-            // console.log("it is true");
             let longitude = parseFloat(options.longitude);
             let latitude = parseFloat(options.latitude);
             

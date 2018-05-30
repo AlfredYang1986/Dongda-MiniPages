@@ -161,7 +161,7 @@ page {
     color: #5f6270;
 }
 
-.descript .content_right text {
+.descript .content_right .subtitle {
     font-weight: 700;
 }
 

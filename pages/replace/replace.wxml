@@ -86,8 +86,8 @@
                 <text class='point point_green'></text>
             </view>
             <view class='content_right descript_item'>
-                <text>头号玩家专属活动</text>
-                <view>{{businessInfo.description}}</view>
+                <text class='subtitle'>头号玩家专属活动</text>
+                <view><text>{{businessInfo.description}}</text></view> 
             </view>
         </view>
         <view wx:if="{{businessInfo.other !== ''}}" class='descript_items'>
@@ -95,8 +95,8 @@
                 <text class='point point_none'></text>
             </view>
             <view class='content_right descript_item'>
-                <text>其他</text>
-                <view>{{businessInfo.other}}</view>
+                <text class='subtitle'>其他</text>
+                <view><text>{{businessInfo.other}}</text></view>
             </view>
         </view>
 
@@ -106,7 +106,7 @@
 
         <view class="logo_area">
 
-            <image src="https://dongdakid.com/assets/images/{{businessInfo.logo === ''?'avatar_default@2x.png':businessInfo.logo}}" mode='aspectFit'></image>
+            <image src="https://dongdakid.com/assets/images/{{!businessInfo.logo?'avatar_default@2x.png':businessInfo.logo}}" mode='aspectFit'></image>
 
             <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
             <image wx:elif="{{businessInfo.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
@@ -128,7 +128,7 @@
             </view>
         </view>
 
-        <view class='{{allStory?"story_all":"story"}}' bindtap='showAllStory'>{{businessInfo.story}}</view>
+        <view class='{{allStory?"story_all":"story"}}' bindtap='showAllStory'><text>{{businessInfo.story}}</text></view>
 
     </view>
 

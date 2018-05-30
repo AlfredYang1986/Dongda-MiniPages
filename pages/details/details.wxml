@@ -77,7 +77,7 @@
             </view>
         </view>
 
-        <view class='{{allStory?"story_all":"story"}}' bindtap='showAllStory'>{{businessInfo.story}}</view>
+        <view class='{{allStory?"story_all":"story"}}' bindtap='showAllStory'><text>{{businessInfo.story}}</text></view>
     </view>
 
     <view class='bottom_blank'></view>
