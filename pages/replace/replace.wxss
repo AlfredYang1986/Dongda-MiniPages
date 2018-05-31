@@ -7,7 +7,21 @@ page {
 .content_has_padding {
     background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%; 
+    background-size: 100% 100%;
+}
+
+.book_circle {
+    position: fixed;
+    bottom: 278rpx;
+    right: 20rpx;
+    width: 132rpx;
+    height: 132rpx;
+    z-index: 2;
+}
+
+.book_circle image {
+    width: 100%;
+    height: 100%;
 }
 
 .brand_info {
@@ -87,6 +101,78 @@ page {
     color: #5f6270;
 }
 
+.day-container {
+    white-space: nowrap;
+    width: 100%;
+    /* height: 200rpx; */
+}
+
+.day-container .day-content {
+    display: inline-block;
+    vertical-align: top;
+    width: 116rpx;
+    /* height: 200rpx; */
+}
+
+.day-container .day-content .day {
+    font-family: SFProText-Light;
+    font-size: 20rpx;
+    color: #b5b6bc;
+}
+
+.day-container .day-content .day text {
+    font-family: SFProText-Medium;
+    font-size: 32rpx;
+    color: #34384a;
+}
+
+.day-container .day-content .line {
+    width: 100%;
+    height: 22rpx;
+    line-height:12rpx;
+    margin: 10rpx auto;
+    text-align: left;
+}
+.day-container .day-content .line image {
+    width: 100%;
+    height: 6rpx;
+
+}
+.day-container .day-content:last-child .line {
+    background-color: transparent;
+}
+
+.day-container .day-content .open_time {
+    padding: 2rpx 0 2rpx;
+    width: 86rpx;
+    margin-left: 6rpx;
+    /* padding: 4rpx 8rpx; */
+    text-align: center;
+    border-radius: 8rpx;
+    background: #f7f9fa;
+}
+
+.day-container .day-content .open_time .time {
+    margin-top: 8rpx;
+    font-family: SFProText-Regular;
+    height: 30rpx;
+    line-height: 30rpx;
+    font-size: 26rpx;
+    font-weight: 700;
+    overflow: hidden;
+    color: #5f6270;
+}
+
+.day-container .day-content .open_time .age {
+    margin-bottom: 8rpx;
+    font-family: SFProText-Light;
+    height: 32rpx;
+    line-height: 32rpx;
+    font-size: 22rpx;
+    /* overflow: hidden; */
+    color: #5f6270;
+}
+
 .times .line_content .month_day {
     display: flex;
 }
@@ -116,7 +202,7 @@ page {
 }
 
 .descript .title {
-    margin: 20rpx 0;
+    margin: 14rpx 0;
     height: 44rpx;
     line-height: 44rpx;
     text-align: left;
@@ -124,6 +210,27 @@ page {
     font-weight: 700;
     letter-spacing: 2rpx;
     color: #34384a;
+}
+
+.descript .title .duration {
+    float: right;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    font-weight: normal;
+}
+
+.descript .title .month {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #5f6270;
+}
+
+.descript .booking {
+    font-family: PingFangSC-Regular;
+    margin-bottom: 32rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #5f6270;
 }
 
 .descript .descript_items {
@@ -328,9 +435,11 @@ page {
 .point_yellow {
     background: #ffdc6c;
 }
+
 .point_none {
     background: #fff;
 }
+
 .brand_descript .descript_content {
     line-height: 42rpx;
     font-size: 30rpx;

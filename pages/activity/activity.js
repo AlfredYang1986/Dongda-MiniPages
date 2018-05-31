@@ -102,8 +102,11 @@ Page({
      * 返回
      */
     backBeforePage: function () {
-        wx.reLaunch({
-            url: '../index/index'
+        // wx.reLaunch({
+        //     url: '../index/index'
+        // })
+        wx.navigateBack({
+            delta: 1,
         })
     },
 

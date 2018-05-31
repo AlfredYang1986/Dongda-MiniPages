@@ -109,16 +109,18 @@ Page({
                     userInfo: e.detail.userInfo,
                     hasUserInfo: true
                 });
-
-                if (this.data.activityPage) {
-                    wx.navigateTo({
-                        url: '../activity/activity',
-                    })
-                } else {
-                    wx.navigateTo({
-                        url: '../countingdown/countingdown',
-                    })
-                }
+                wx.navigateTo({
+                    url: '../activity/activity',
+                })
+                // if (this.data.activityPage) {
+                //     wx.navigateTo({
+                //         url: '../activity/activity',
+                //     })
+                // } else {
+                //     wx.navigateTo({
+                //         url: '../countingdown/countingdown',
+                //     })
+                // }
                 // wx.request({}) // 将用户信息、匿名识别符发送给服务器，调用成功时执行 callback(null, res)
             }
             else if (e.detail.errMsg == 'getUserInfo:fail auth deny') { // 当用户点击拒绝时

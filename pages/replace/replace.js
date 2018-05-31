@@ -35,6 +35,35 @@ Page({
     },
 
     /**
+     * 预约
+     */
+    booking: function () {
+        const that = this;
+        let phoneNo = that.data.businessInfo.book.phoneNo;
+        wx.showActionSheet({
+            itemList: ['呼叫', '复制号码'],
+            success: function (res) {
+                if (res.tapIndex === 0) {
+                    wx.makePhoneCall({
+                        phoneNumber: phoneNo,
+                    })
+                } else if (res.tapIndex === 1) {
+                    wx.setClipboardData({
+                        data: phoneNo,
+                        success: function (res) {
+
+                        },
+                        fail: function (res) { },
+                        complete: function (res) { },
+                    })
+                }
+            },
+            fail: function (res) { },
+            complete: function (res) { },
+        })
+    },
+
+    /**
      * 显示所有故事
      */
     showAllStory: function () {
@@ -80,9 +109,9 @@ Page({
                             wx.navigateBack({
                                 delta: 1
                             })
-                        } else if (res.cancel){
+                        } else if (res.cancel) {
                             console.log("cancel")
-                            
+
                             wx.navigateBack({
                                 delta: 1
                             })
@@ -106,8 +135,7 @@ Page({
             title: '获取数据中...',
         })
         var userId = wx.getStorageSync('userId') || '';
-        // console.log(userId);
-        var that = this;
+        const that = this;
 
         var data = {
             condition: {

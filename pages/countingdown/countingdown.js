@@ -11,7 +11,7 @@ Page({
      */
     calcDay: function () {
         this.setData({
-            restDay: (31 - new Date().getDate())
+            restDay: (24 - new Date().getHours())
         })
     },
 

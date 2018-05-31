@@ -63,13 +63,12 @@ page {
     background-color: #fff;
     line-height: 110rpx;
     overflow: hidden;
-    /* box-shadow: 0 4px 10px 0 rgba(59,105,181,0.16); */
 }
 
 .item .brand_avatar image {
     width: 110rpx;
     max-height: 110rpx;
-    border-radius: 24rpx;
+    border-radius: 20rpx;
 }
 
 .item .brand_address {

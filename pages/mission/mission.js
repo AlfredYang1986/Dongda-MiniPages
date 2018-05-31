@@ -106,7 +106,7 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                // console.log(res.data.result);
+                // console.log(res.data);
                 if (res.data.result.providers.length === 0) {
                     that.showHint();
                 } else {

@@ -2,69 +2,70 @@
 
 <scroll-view scroll-y enable-back-to-top scroll-top='30' style='height:{{deviceHeight}}px' class='scroll-view' bindscroll="pageScroll">
 
-<view class='content_has_padding'>
+    <view class='content_has_padding'>
 
-    <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
-        <view class='backArea'>
-            <image src='../../utils/images/icon_back@2x.png'></image>
-            <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
-        </view>
-        <view class='navigationTitle'>
-            <text></text>
-        </view>
-    </view>
-
-    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
-
-    <view class='didi_area' bindtap='didiCoupon' wx:if="{{businessList.length>0}}">
-        <image src='../../utils/images/didi@2x.png' mode='widthFix'></image>
-    </view>
-
-    <view class='item' data-brandid='{{item.provider_id}}' wx:for="{{businessList}}" bindtap='checkStarDetail'>
-
-        <image class='checked' src='../../utils/images/mark@2x.png' wx:if="{{item.is_checked}}"></image>
-
-        <view class='brand_place'>
-            <image wx:if="{{item.is_top}}" class='star' src='../../utils/images/flag_king_l@2x.png' mode='widthFix'></image>
-            <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/flag_star_l@2x.png' mode='widthFix'></image>
-        </view>
-
-        <view class="brand_avatar {{item.is_top?'king':'paid'}}">
-            <image src="https://dongdakid.com/assets/images/{{item.logo === ''?'avatar_default@2x.png':item.logo}}" mode='aspectFit'></image>
-        </view>
-
-        <view class='brand_address'>
-            <image src='../../utils/images/icon_location_s_gray@2x.png'></image>
-            <text>{{item.address}}</text>
-        </view>
-
-        <view class='brand_name'>{{item.brand_name}}</view>
-        <view class='brand_type'>{{item.service_leaf}}<text wx:if="{{item.service_leaf!== ''}}">·</text>{{item.service_type}}</view>
-        <view class='brand_age' wx:if="{{item.age !== ''}}">{{item.age}}岁</view>
-
-        <view class='brand_difference'>
-            <view class='brand_differenct_item' wx:for="{{item.difference}}" wx:for-item="diff">
-                <view class="diff">{{diff}}</view>
+        <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+            <view class='backArea'>
+                <image src='../../utils/images/icon_back@2x.png'></image>
+                <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+            </view>
+            <view class='navigationTitle'>
+                <text></text>
             </view>
         </view>
 
-    </view>
+        <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
 
-    <view class='bottom_blank'></view>
+        <view class='didi_area' bindtap='didiCoupon' wx:if="{{businessList.length>0}}">
+            <image src='../../utils/images/didi@2x.png' mode='widthFix'></image>
+        </view>
 
-    <view class='hint' wx:if="{{hint}}">
+        <view class='item' data-brandid='{{item.provider_id}}' wx:for="{{businessList}}" bindtap='checkStarDetail'>
 
-        <view class='hint_content'>
-            <view class='egg_content'>
-                <text>今天还没有星耀挑战呦,去收集其他彩蛋吧.</text>
+            <image class='checked' src='../../utils/images/mark@2x.png' wx:if="{{item.is_checked}}"></image>
+
+            <view class='brand_place'>
+                <image wx:if="{{item.is_top}}" class='star' src='../../utils/images/flag_king_l@2x.png' mode='widthFix'></image>
+                <image wx:elif="{{item.isPaid}}" class='star' src='../../utils/images/flag_star_l@2x.png' mode='widthFix'></image>
             </view>
-            <view class='egg_close'>
-                <image src='../../utils/images/icon_close@2x.png'></image>
-                <button class='hint_close' bindtap='closeHint'></button>
+
+            <view class="brand_avatar {{item.is_top?'king':'paid'}}">
+                <image src="https://dongdakid.com/assets/images/{{item.logo === ''?'avatar_default@2x.png':item.logo}}" mode='aspectFit'></image>
             </view>
+
+            <view class='brand_address'>
+                <image src='../../utils/images/icon_location_s_gray@2x.png'></image>
+                <text>{{item.address}}</text>
+            </view>
+
+            <view class='brand_name'>{{item.brand_name}}</view>
+            <view class='brand_type'>{{item.service_leaf}}
+                <text wx:if="{{item.service_leaf!== ''}}">·</text>{{item.service_type}}</view>
+            <view class='brand_age' wx:if="{{item.age !== ''}}">{{item.age}}岁</view>
+
+            <view class='brand_difference'>
+                <view class='brand_differenct_item' wx:for="{{item.difference}}" wx:for-item="diff">
+                    <view class="diff">{{diff}}</view>
+                </view>
+            </view>
+
+        </view>
+
+        <view class='bottom_blank'></view>
+
+        <view class='hint' wx:if="{{hint}}">
+
+            <view class='hint_content'>
+                <view class='egg_content'>
+                    <text>今天还没有星耀挑战呦,去收集其他彩蛋吧.</text>
+                </view>
+                <view class='egg_close'>
+                    <image src='../../utils/images/icon_close@2x.png'></image>
+                    <button class='hint_close' bindtap='closeHint'></button>
+                </view>
+            </view>
+
         </view>
 
     </view>
-
-</view>
 </scroll-view>

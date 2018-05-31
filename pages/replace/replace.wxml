@@ -1,4 +1,10 @@
 <!--pages/replace/replace.wxml-->
+<wxs module='days'>
+    var sub = function(val) {
+        return parseInt(val.substring(2))
+    }
+    module.exports.sub = sub;
+</wxs>
 <view class='content_has_padding'>
 
     <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
@@ -12,6 +18,10 @@
     </view>
 
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+
+    <view class='book_circle' bindtap='booking' wx:if="{{businessInfo.book.phoneNo.length > 0}}">
+        <image src='../../utils/images/icon_call@2x.png' ></image>
+    </view>
 
     <view class='brand_address brand_info'>
         <image class='icon_location' src='../../utils/images/icon_location@2x.png'></image>
@@ -64,22 +74,41 @@
             </view>
         </view>
 
+        <view class='title'>活动场次 <text class='month'>6月</text></view>
+        <scroll-view class='day-container' scroll-x >
+            <view class='day-content' wx:for="{{businessInfo.server_time}}" wx:for-item="day">
+                <view class='day'><text>{{days.sub(day.day)}}</text>日</view>
+                <view class='line'><image src='../../utils/images/timeline@2x.png' mode='widthFix'></image></view>
+                <view class='open_time'>
+                    <view  wx:for="{{day.detail}}" wx:for-item="opentime">
+                        <view class='time'>{{opentime.hourstart}}</view>
+                        <view class='age'>{{opentime.age}}岁</view>
+                    </view>
+                    
+                </view>
+            </view>
+        </scroll-view>
+
         <view class='ages_times times'>
-            <view class='line_title'>活动时间</view>
+
+            <!-- <view class='line_title'>活动时间</view>
             <view class='line_content' wx:if="{{businessInfo.server_time.length > 0}}">
-                <view class='month_day' wx:for="{{businessInfo.server_time}}">
-                    <view class='month'>{{item.month}}月</view>
+                <view class='month_day' >
+                    <view class='month'>6月</view>
                     <view class='day'>
-                        <text wx:for="{{item.days}}" wx:for-item="day">{{day}}</text>
+                        <text wx:for="{{businessInfo.server_time}}">{{days.sub(item.day)}}</text>
                     </view>
                 </view>
             </view>
             <view wx:else class='line_content'>
                 <text>任意时间</text>
-            </view>
+            </view> -->
         </view>
-
-        <view class='title'>活动描述</view>
+        <view class='title'>预约方式</view>
+        <view class='booking'>
+            {{businessInfo.book.method}}
+        </view>
+        <view class='title'>活动描述<text class='duration'>30-90分钟</text></view>
 
         <view class='descript_items'>
             <view class='data_left descript_item'>
@@ -87,7 +116,9 @@
             </view>
             <view class='content_right descript_item'>
                 <text class='subtitle'>头号玩家专属活动</text>
-                <view><text>{{businessInfo.description}}</text></view> 
+                <view>
+                    <text>{{businessInfo.description}}</text>
+                </view>
             </view>
         </view>
         <view wx:if="{{businessInfo.other !== ''}}" class='descript_items'>
@@ -96,7 +127,9 @@
             </view>
             <view class='content_right descript_item'>
                 <text class='subtitle'>其他</text>
-                <view><text>{{businessInfo.other}}</text></view>
+                <view>
+                    <text>{{businessInfo.other}}</text>
+                </view>
             </view>
         </view>
 
@@ -108,9 +141,10 @@
 
             <image src="https://dongdakid.com/assets/images/{{!businessInfo.logo?'avatar_default@2x.png':businessInfo.logo}}" mode='aspectFit'></image>
 
-            <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
+            <!-- <image wx:if="{{businessInfo.is_top}}" class='star' src='../../utils/images/icon_king@2x.png'></image>
             <image wx:elif="{{businessInfo.isPaid}}" class='star' src='../../utils/images/icon_star@2x.png'></image>
-            <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image>
+            <image wx:else class='star' src='../../utils/images/icon_bojin@2x.png'></image> -->
+            <image class='star' src='../../utils/images/icon_bojin@2x.png'></image> 
         </view>
 
         <view class='brand_name'>{{businessInfo.brand_name}}</view>
@@ -128,7 +162,9 @@
             </view>
         </view>
 
-        <view class='{{allStory?"story_all":"story"}}' bindtap='showAllStory'><text>{{businessInfo.story}}</text></view>
+        <view class='{{allStory?"story_all":"story"}}' bindtap='showAllStory'>
+            <text>{{businessInfo.story}}</text>
+        </view>
 
     </view>
 
