@@ -61,14 +61,15 @@ page {
     height: 110rpx;
     border-radius: 24rpx;
     background-color: #fff;
-    line-height: 110rpx;
     overflow: hidden;
+    z-index: 4;
+    line-height: 110rpx;
 }
 
-.item .brand_avatar image {
+.item .brand_avatar image:first-child {
     width: 110rpx;
     max-height: 110rpx;
-    border-radius: 20rpx;
+    border-radius: 16rpx;
 }
 
 .item .brand_address {

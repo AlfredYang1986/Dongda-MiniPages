@@ -1,0 +1,17 @@
+/* components/circle/circle.wxss */
+.circle_box,.circle_draw {
+    position: relative;
+    height: 120rpx;
+    z-index: 8;
+}
+.circle_box {
+    margin: 0 auto;
+    background-color: #7FAEDD;
+    border-radius: 50%;
+    padding: 2rpx;
+    z-index: 5;
+}
+.circle_bg {
+    position: absolute;
+    z-index: 8;
+}

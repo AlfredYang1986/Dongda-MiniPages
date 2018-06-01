@@ -18,9 +18,10 @@
                 <image src='../../utils/images/coins@2x.png' mode='widthFix' bindtap='score' data-type='conis'></image>
                 <text bindtap='score' data-type='conis' class='total_num'>{{scores.scores_B}}</text>
                 <image class='fanxiaoqie' src='../../utils/images/logo_fanxiaoqie@2x.png' mode='widthFix' bindtap='fxqPage' ></image>
+                <image class='vip' wx:if="{{first}}" src='../../utils/images/given@2x.png' ></image>
             </view>
              <view wx:if="{{scores.scores_B > 0}}" class='rainbow'> 
-                <image src='../../utils/images/rainbow@2x.png'></image>
+                <image src='../../utils/images/rainbow@2x.png' style='animation-play-state:{{animateState}};'></image>
             </view>
         </view>
     </view>

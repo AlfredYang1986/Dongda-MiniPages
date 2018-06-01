@@ -33,6 +33,13 @@ page {
     width: 202rpx;
     height: 100rpx;
 }
+.eggs_total .total .vip {
+    position: absolute;
+    left: 160rpx;
+    top: -16rpx;
+    width: 376rpx;
+    height: 174rpx;
+}
 .rainbow {
     position: absolute;
     z-index: -1;

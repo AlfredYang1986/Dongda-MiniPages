@@ -82,7 +82,7 @@ Page({
             data: data,
             method: 'POST',
             success: (res) => {
-                // console.log(res.data);
+                console.log(res.data);
                 wx.hideLoading();
                 if (res.data.status === "error") {
                     that.setData({

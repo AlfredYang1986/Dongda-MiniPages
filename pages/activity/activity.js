@@ -9,8 +9,16 @@ Page({
         disabled: true,
         userAvatar: '',
         hasClick: false,
+        firstLogin: false,
     },
-
+    // 
+    hideguide: function() {
+        const that = this;
+        that.setData({
+            firstLogin: false,
+        })
+        getApp().globalData.firstLogin = false
+    },
     /**
      * 寻找彩蛋线索
      */
@@ -117,7 +125,8 @@ Page({
         this.setData({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX,
-            userAvatar: getApp().globalData.wechat_user.wechat_photo
+            userAvatar: getApp().globalData.wechat_user.wechat_photo,
+            firstLogin: getApp().globalData.firstLogin
         });
     },
 

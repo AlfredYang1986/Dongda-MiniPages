@@ -81,6 +81,7 @@ Page({
                 }
             })
         }
+
     },
 
     getUserInfo: function (e) {

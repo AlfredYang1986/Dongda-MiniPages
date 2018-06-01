@@ -19,9 +19,6 @@ button::after {
 .content_has_padding {
     min-height: 100%;
     padding: 0 40rpx;
-    /* background-image: url(https://dongdakid.com/assets/images/countingdown_bg@2x.png);
-    background-repeat: no-repeat;
-    background-size: 100% 100%; */
 }
 
 .content_no_padding {
@@ -141,8 +138,7 @@ button::after {
 
 .king {
     border: 3px solid #F1BB69;
-    box-shadow: 0 4px 10px 0 rgba(255,207,99,0.2);
-    
+    box-shadow: 0 4px 10px 0 rgba(255,207,99,0.2);   
 }
 
 .bottom_blank {

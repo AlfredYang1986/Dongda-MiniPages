@@ -75,8 +75,8 @@
         </view>
 
         <view class='title'>活动场次 <text class='month'>6月</text></view>
-        <scroll-view class='day-container' scroll-x >
-            <view class='day-content' wx:for="{{businessInfo.server_time}}" wx:for-item="day">
+        <scroll-view class='day-container' scroll-x scroll-left='120'>
+            <view class='day-content' wx:if="{{days.sub(day.day) >= today}}" wx:for="{{businessInfo.server_time}}" wx:for-item="day">
                 <view class='day'><text>{{days.sub(day.day)}}</text>日</view>
                 <view class='line'><image src='../../utils/images/timeline@2x.png' mode='widthFix'></image></view>
                 <view class='open_time'>

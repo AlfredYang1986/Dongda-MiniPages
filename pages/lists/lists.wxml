@@ -40,7 +40,6 @@
             <view class='brand_logo_area'>
                 <view class="brand_avatar">
                       <image lazy-load='true' src="https://dongdakid.com/assets/images/{{item.logo === ''?'avatar_default@2x.png':item.logo}}" mode='aspectFit'></image>  
-                      <!-- <image lazy-load='true' src="http://192.168.100.115:9999/assets/images/{{item.logo === ''?'avatar_default@2x.png':item.logo}}" mode='aspectFit'></image>    -->
                 </view>
                 <view class='brand_name_area'>
                     <view class='brand_name'>{{item.brand_name}}</view>

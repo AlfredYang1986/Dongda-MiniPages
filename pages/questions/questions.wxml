@@ -14,6 +14,7 @@
     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
 
     <view class='ready_start' wx:if="{{!readyStart}}">
+
         <view class='start_text'>
             <view>
                 <text>每轮答题消耗一枚咚哒币</text>
@@ -35,6 +36,11 @@
                 <view class='spot' wx:for="{{questionsShow}}">
                     <view class='spot_circle {{item?"active":""}}'></view>
                 </view>
+            </view>
+            <view class='countdown_container' wx:if="{{!hiddenCountdown}}">
+                <circle id="circle1" bg="circle_bg" draw="circle_draw" bind:runEvent="_runEvent">
+                    <view class='countdown'>{{countDown}}</view>
+                </circle>
             </view>
 
             <view class='question_content' wx:for="{{questions.answers}}" wx:if="{{index === currentQuestion}}">

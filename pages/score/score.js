@@ -9,6 +9,8 @@ Page({
         deviceHeight: getApp().globalData.deviceHeight,
         eggtype: "eggs",
         scores: {},
+        first: false,
+        animateState: 'running',
         hintContent: [
             {
                 sign: "conis", title: "如何获得", content: [
@@ -109,23 +111,18 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                // console.log(res.data.result);
-                if (res.data.result.scores === "not exist") {
-                    let scoresData = {
-                        scores_A: 0,
-                        scores_B: 0,
-                        scores_C: 0,
-                        scores_D: 0,
-                        scores_E: 0,
-                    }
+                
                     that.setData({
-                        scores: scoresData
+                        scores: res.data.result.scores,
+                        first: !!res.data.result.first
                     });
-                } else {
-                    that.setData({
-                        scores: res.data.result.scores
-                    });
-                }
+                    // console.log(res.data.result.first);
+                    // console.log(that.data.first);
+                    setTimeout(()=> {
+                        that.setData({
+                            first: false
+                        });
+                    },3000)
             },
             fail: (error) => {
                 wx.hideLoading();
@@ -189,6 +186,9 @@ Page({
         } else {
             that.getScores();
         }
+        this.setData({
+            animateState: 'running',
+        })
         // that.getScores(data);
     },
 
@@ -197,6 +197,9 @@ Page({
      */
     onHide: function () {
         wx.hideLoading();
+        this.setData({
+            animateState: 'paused',
+        })
     },
     /**
      * 生命周期函数--监听页面卸载

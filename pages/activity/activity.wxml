@@ -1,6 +1,9 @@
 <!--pages/activity/activity.wxml-->
-<view class='content_no_padding'>
 
+<view class='content_no_padding'>
+    <view class='first_know_play' wx:if="{{firstLogin}}" bindtap='hideguide'>
+        <image class='howtoplay' src='../../utils/images/howtoplay@2x.png' mode='widthFix'></image>
+    </view>
     <view class="navigationBar {{android?'android':'nav'}} {{iosX?'iosx':''}}">
 
         <view class='backArea'>

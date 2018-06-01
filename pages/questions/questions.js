@@ -1,4 +1,5 @@
 // pages/questions/questions.js
+var timerCountdown;
 Page({
 
     data: {
@@ -15,9 +16,15 @@ Page({
         questionsShow: [true, false, false, false, false],// 用户答题的显示状态
         errorHint: false,
         rightHint: false,
+        countDown: 10,
+        hiddenCountdown: false,
         questions: {},
+        // 倒计时进度条
+        num: 100,
+        step: null,
+        time: null,
+        stepTimer: null
     },
-
     /**
      * 返回按钮
      */
@@ -83,28 +90,106 @@ Page({
     start: function () {
         const that = this;
         // console.log(that.data.questions.answers)
-        if(that.data.questions.answers.length > 0) {
+        if (that.data.questions.answers.length > 0) {
             this.setData({
                 readyStart: true,
-            })
+            });
+            that.countdown();
+            this.circle = this.selectComponent("#circle1");
+            this.circle.drawCircleBg('circle_bg', 30, 4);
+            // this.circle.drawCircle('circle_draw', 40, 4, 2);
+            // 绘制彩色圆环
+            this.stepInterval()
         } else {
 
         }
-        
+
     },
 
+    /**
+     * reset
+     */
+    reset: function() {
+        const that = this;
+        clearInterval(timerCountdown);
+        that.setData({
+            countDown: 10,
+            num: 100,
+        })
+    },
+    /**
+     * 倒计时
+     */
+    countdown: function () {
+        const that = this;
+        // jindutiao
+        let countdown = that.data.countDown;
+        setTimeout(() => {
+            timerCountdown = setInterval(function () {
+                countdown--;
+                that.setData({
+                    countDown: countdown
+                })
+                if ( countdown == 0 ) {
+                    clearInterval(timerCountdown);
+                    that.setData({
+                        errorHint: true,
+                    })
+                }
+            }, 1000)
+        }, 600)
+    },
+    stepInterval: function () {
+        const that = this;
+        // 设置倒计时 定时器
+        var n = this.data.num / 2
+        that.data.stepTimer = setInterval(() => {
+            if (this.data.num >= 0) {
+                this.data.step = this.data.num / n;
+                // 绘制彩色圆环进度条
+                this.circle.drawCircle('circle_draw', 30, 4, this.data.step)
+                if ((/(^[1-9]\d*$)/.test(this.data.num / 10))) {
+                    // 当时间为整数秒的时候 改变时间
+                    this.setData({
+                        time: this.data.num / 10
+                    });
+                }
+                this.data.num--;
+            } else {
+                this.setData({
+                    time: 0
+                });
+            }
+        }, 100)
+    },
+    changeTime: function () {
+        const that = this;
+        // 先清除定时器
+        clearInterval(that.data.stepTimer);
+        // 计数器 还原到100
+        this.setData({
+            num: 100
+        });
+        // 重新开启倒计时
+        this.stepInterval()
+        // 触发自定义组件事件
+        this._runEvent()
+    },
     /**
      * 答案正确之后需要做的
      */
     rightAnswer: function (e) {
         const that = this;
         wx.hideLoading();
+        
         // console.log(e);
         that.setData({
             clickIndex: e.currentTarget.dataset.index,
             answerColor: 'right_answer',
-            rightAnswerCount: ++that.data.rightAnswerCount
-        })
+            rightAnswerCount: ++that.data.rightAnswerCount,
+            
+        });
+        
         let currentQuestion = that.data.currentQuestion + 1;
         if (currentQuestion === 5) {
             let data = {
@@ -120,7 +205,8 @@ Page({
                 success: (res) => {
                     // console.log(res.data);
                     that.setData({
-                        rightHint: true
+                        rightHint: true,
+                        hiddenCountdown: true,
                     })
                 },
                 fail: (error) => {
@@ -128,6 +214,11 @@ Page({
                 }
             })
         } else {
+            // setTimeout(() => {
+            //     that.reset();
+            //     that.countdown();
+            //     that.stepInterval()
+            // }, 1200)
             setTimeout(function () {
                 that.setData({
                     currentQuestion: currentQuestion,
@@ -138,7 +229,10 @@ Page({
                     clickIndex: "",
                     answerColor: '',
                     hasClick: false,
-                })
+                });
+                that.reset();
+                that.countdown();
+                that.stepInterval()
                 // console.log(that.data.questionsShow)
             }, 1200)
         }
@@ -149,6 +243,8 @@ Page({
      */
     errorAnswer: function (e) {
         const that = this;
+        clearInterval(timerCountdown);
+        clearInterval(that.data.stepTimer);
         wx.hideLoading();
         that.setData({
             clickIndex: e.currentTarget.dataset.index,
@@ -157,6 +253,7 @@ Page({
         setTimeout(function () {
             that.setData({
                 errorHint: true,
+                hiddenCountdown: true
             })
         }, 600)
     },
@@ -194,6 +291,9 @@ Page({
                     }
                 ]
             };
+
+            clearInterval(timerCountdown);
+            clearInterval(that.data.stepTimer)
             // console.log(data);
             wx.request({
                 method: 'POST',
@@ -238,7 +338,7 @@ Page({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX,
         });
-        
+
         let data = {
             condition: {
                 wechat_id: getApp().globalData.userOpenId
@@ -251,9 +351,11 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
-                /**
-                 * 选项重新排列
-                 */
+                // console.log(res.data);
+                // 
+                //   选项重新排列
+                //  
+                // console.log(res.data);
                 let result = res.data.result;
                 function shuffle(arr) {
                     let i = arr.length;
@@ -262,14 +364,14 @@ Page({
                         [arr[j], arr[i]] = [arr[i], arr[j]];
                     }
                 }
-                for (let i = 0; i < 5; i++) {
-                    shuffle(result.answers[i].choice);
+                for (let i = 0,len = result.answers.length; i < len; i++) {
+                    let choice = result.answers[i].choice;
+                    shuffle(choice);
                 }
-
-                // console.log(result);
                 that.setData({
                     questions: result,
-                })
+                });
+                
             },
             fail: (error) => {
                 wx.hideLoading();

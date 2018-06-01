@@ -41,9 +41,12 @@
     width: 670rpx;
     height: 128rpx;
 }
-
+.question_content {
+    margin-top: -60rpx;
+}
 .question_index {
     margin-top: 106rpx;
+    margin-bottom: 64rpx;
     display: flex;
     padding: 0 160rpx;
 }
@@ -56,14 +59,14 @@
 .question_index .spot .spot_circle {
     display: inline-block;
     vertical-align: middle;
-    width: 40rpx;
-    height: 40rpx;
+    width: 28rpx;
+    height: 28rpx;
     border-radius: 50%;
     background-color: rgba(127, 174, 221, 0.8);
 }
 
 .active {
-    border: 3px solid #fff;
+    border: 2px solid #fff;
     background-color: #7faedd !important;
 }
 
@@ -76,6 +79,29 @@
     color: #34384a;
 }
 
+.countdown_container {
+    position: relative;
+    z-index: 9;
+    height: 200rpx;
+    overflow: hidden;
+}
+
+.circle_text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: red;
+}
+.countdown {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    font-size: 48rpx;
+    font-weight: 700;
+    color: #fff;
+}
 .choices_area {
     position: absolute;
     left: 0;
@@ -139,7 +165,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 5;
+    z-index: 10;
     background-color: rgba(20, 34, 57, 0.7);
 }
 

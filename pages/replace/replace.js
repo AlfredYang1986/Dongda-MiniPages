@@ -6,9 +6,20 @@ Page({
         iosX: false,
         hasScroll: false,
         allStory: false,
+        today: 1,
         businessInfo: {},
     },
-
+    /**
+     * 计算当前日期
+     */
+    getDate: function() {
+        const that = this;
+        let month = new Date().getMonth() + 1;
+        let day = new Date().getDate();
+        that.setDate({
+            today: day
+        })
+    },
     /**
      * 返回
      */
@@ -136,7 +147,7 @@ Page({
         })
         var userId = wx.getStorageSync('userId') || '';
         const that = this;
-
+        that.getDate();
         var data = {
             condition: {
                 wechat_id: open_id,

@@ -27,6 +27,8 @@ App({
                                 that.globalData.wechat_user.wechat_name = wx.getStorageSync('nickName');
                                 that.globalData.wechat_user.wechat_photo = wx.getStorageSync('avatarUrl');
                                 that.globalData.userId = res.data.result.user.user_id;
+                                that.globalData.firstLogin = !!res.data.result.first_login;
+                                
                                 wx.setStorageSync('userId', res.data.result.user.user_id);
                                 return resolve('app.js login success');
                             },
@@ -184,6 +186,7 @@ App({
         iosX: false,
         userInfo: null,
         userId: '',
+        firstLogin: false,
         wechat_user: {
             wechat_name: "",
             wechat_photo: "",
@@ -192,7 +195,7 @@ App({
         },
         userOpenId: '',
         userToken: '',
-        httpsAddress: 'https://dongdakid.com'
-        // httpsAddress: 'http://192.168.100.115:9999'
+        // httpsAddress: 'https://dongdakid.com',
+        httpsAddress: 'http://192.168.100.115:9999'
     }
 })

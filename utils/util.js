@@ -14,6 +14,40 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+// 覆写 wx.request
+function request(url,data) {
+    return new Promise(function(resolve,reject) {
+        wx.request({
+            url: getApp().globalData.httpsAddress + url,
+            data: data,
+            method: 'POST',
+            success: function(res) {
+                if(res.statusCode!== 200) {
+                    reject({error:'服务器忙,请稍后重试',code:500});
+                    return;
+                }
+                resolve(res.data)
+            },
+            fail: function(error) {
+                wx.hideLoading();
+                wx.showModal({
+                    title: '网络繁忙',
+                    content: '获取信息失败,请稍后重试',
+                    showCancel: false,
+                    success: (res) => {
+                        if (res.confirm) {
+                            wx.navigateBack({
+                                delta: 1
+                            })
+                        }
+                    }
+                })
+            },
+            complete: function(res) {},
+        })
+    })
+}
+
 // 防止多次点击
 function throttle(fn, gapTime) {
     if (gapTime == null || gapTime == undefined) {
