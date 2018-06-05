@@ -16,7 +16,7 @@ Page({
         const that = this;
         let month = new Date().getMonth() + 1;
         let day = new Date().getDate();
-        that.setDate({
+        that.setData({
             today: day
         })
     },
@@ -161,6 +161,7 @@ Page({
             method: 'POST',
             success: (res) => {
                 wx.hideLoading();
+                console.log(res.data)
                 that.setData({
                     businessInfo: res.data.result.provider
                 });

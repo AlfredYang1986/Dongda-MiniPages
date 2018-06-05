@@ -9,7 +9,7 @@ Page({
         disabled: true,
         userAvatar: '',
         hasClick: false,
-        firstLogin: false,
+        firstLogin: true,
     },
     // 
     hideguide: function() {
@@ -126,7 +126,7 @@ Page({
             android: getApp().globalData.android,
             iosX: getApp().globalData.iosX,
             userAvatar: getApp().globalData.wechat_user.wechat_photo,
-            firstLogin: getApp().globalData.firstLogin
+            // firstLogin: getApp().globalData.firstLogin
         });
     },
 

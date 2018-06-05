@@ -1,7 +1,8 @@
 /* pages/questions/questions.wxss */
 
 .content_no_padding {
-    background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png);
+    /* background-image: url(https://i.loli.net/2018/06/04/5b152916a96cb.png); */
+    background-image: url(https://dongdakid.com/assets/images/bg_challenge@2x.png);
 }
 
 .ready_start {
@@ -12,20 +13,32 @@
     right: 0;
 }
 
+.ready_start .start_header {
+    margin-top: 64rpx;
+    text-align: center;
+}
+
+.ready_start .start_header .challenge {
+    width: 562rpx;
+    height: 480rpx;
+}
+
+.ready_start .start_header .challenge_rule {
+    margin-top: 108rpx;
+    width: 304rpx;
+    height: 66rpx;
+}
+
 .ready_start .start_text {
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    padding-left: 80rpx;
-    font-size: 36rpx;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #34384a;
+    padding-top: 7px;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #5f6270;
+    padding-left: 144rpx;
 }
 
 .ready_start .start_text view {
-    height: 50rpx;
-    line-height: 50rpx;
+    line-height: 40rpx;
 }
 
 .ready_start .start_btn {
@@ -41,9 +54,11 @@
     width: 670rpx;
     height: 128rpx;
 }
+
 .question_content {
     margin-top: -60rpx;
 }
+
 .question_index {
     margin-top: 106rpx;
     margin-bottom: 64rpx;
@@ -90,18 +105,20 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background: red;
 }
+
 .countdown {
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     font-size: 48rpx;
     font-weight: 700;
     color: #fff;
 }
+
 .choices_area {
     position: absolute;
     left: 0;

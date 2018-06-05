@@ -101,7 +101,16 @@ Page({
             // 绘制彩色圆环
             this.stepInterval()
         } else {
-
+            wx.showLoading({
+                title: '正在获取题目中...',
+                mask: true,
+                success: function(res) {},
+                fail: function(res) {},
+                complete: function(res) {},
+            })
+            setTimeout(function(){
+                wx.hideLoading()
+            },1600)
         }
 
     },

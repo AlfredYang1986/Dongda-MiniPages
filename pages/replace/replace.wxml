@@ -82,7 +82,8 @@
                 <view class='open_time'>
                     <view  wx:for="{{day.detail}}" wx:for-item="opentime">
                         <view class='time'>{{opentime.hourstart}}</view>
-                        <view class='age'>{{opentime.age}}岁</view>
+                        <view class='age'><text>{{opentime.age}}岁</text></view> 
+                        
                     </view>
                     
                 </view>
@@ -108,14 +109,16 @@
         <view class='booking'>
             {{businessInfo.book.method}}
         </view>
-        <view class='title'>活动描述<text class='duration'>30-90分钟</text></view>
+        <view class='title'>活动描述<text class='duration'> {{businessInfo.length}}</text></view>
 
         <view class='descript_items'>
             <view class='data_left descript_item'>
-                <text class='point point_green'></text>
+                <!-- <text class='point point_green'></text> -->
             </view>
             <view class='content_right descript_item'>
-                <text class='subtitle'>头号玩家专属活动</text>
+                <!-- <text class='subtitle'>头号玩家专属活动</text> -->
+                <text class='subtitle'> </text>
+                
                 <view>
                     <text>{{businessInfo.description}}</text>
                 </view>

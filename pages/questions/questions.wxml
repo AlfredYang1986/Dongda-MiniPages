@@ -11,16 +11,22 @@
         </view>
     </view>
 
-    <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+     <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view> 
 
-    <view class='ready_start' wx:if="{{!readyStart}}">
-
+    <view class='ready_start ' wx:if="{{!readyStart}}">
+        <view class="start_header {{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}" >
+            <image class='challenge' src='../../utils/images/challenge@2x.png'></image>
+            <image class='challenge_rule' src='../../utils/images/challenge_rule@2x.png'></image>
+        </view>
         <view class='start_text'>
             <view>
-                <text>每轮答题消耗一枚咚哒币</text>
+                <text>·每轮答题消耗一枚咚哒币</text>
             </view>
             <view>
-                <text>连续答对5题就可以获得“惊喜彩蛋”啦</text>
+                <text>·每道题10秒钟作答时间</text>
+            </view>
+            <view>
+                <text>·连续答对5题就可以获得“惊喜彩蛋”啦</text>
             </view>
         </view>
         <view class='start_btn'>

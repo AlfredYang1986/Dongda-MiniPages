@@ -118,6 +118,7 @@ Page({
                     });
                     // console.log(res.data.result.first);
                     // console.log(that.data.first);
+
                     setTimeout(()=> {
                         that.setData({
                             first: false
@@ -169,11 +170,7 @@ Page({
      */
     onShow: function () {
         const that = this;
-        // let data = {
-        //     condition: {
-        //         wechat_id: getApp().globalData.userOpenId
-        //     }
-        // };
+
         if (getApp().globalData.userOpenId === "") {
             // console.log();
             getApp().userlogin()
@@ -189,7 +186,7 @@ Page({
         this.setData({
             animateState: 'running',
         })
-        // that.getScores(data);
+
     },
 
     /**

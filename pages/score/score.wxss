@@ -35,10 +35,10 @@ page {
 }
 .eggs_total .total .vip {
     position: absolute;
-    left: 160rpx;
-    top: -16rpx;
-    width: 376rpx;
-    height: 174rpx;
+    left: 150rpx;
+    top: -70rpx;
+    width: 294rpx;
+    height: 166rpx;
 }
 .rainbow {
     position: absolute;
