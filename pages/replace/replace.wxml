@@ -3,7 +3,11 @@
     var sub = function(val) {
         return parseInt(val.substring(2))
     }
+    var split = function(val) {
+        return val.replace(' ','\n');    
+    }
     module.exports.sub = sub;
+    module.exports.split = split;
 </wxs>
 <view class='content_has_padding'>
 
@@ -82,7 +86,9 @@
                 <view class='open_time'>
                     <view  wx:for="{{day.detail}}" wx:for-item="opentime">
                         <view class='time'>{{opentime.hourstart}}</view>
-                        <view class='age'><text>{{opentime.age}}岁</text></view> 
+                        <!-- <view class='age'><text>{{opentime.age}}岁</text></view>  -->
+                        <view class='age'><text>{{days.split(opentime.age)}}岁</text></view> 
+                        
                         
                     </view>
                     
@@ -112,9 +118,9 @@
         <view class='title'>活动描述<text class='duration'> {{businessInfo.length}}</text></view>
 
         <view class='descript_items'>
-            <view class='data_left descript_item'>
-                <!-- <text class='point point_green'></text> -->
-            </view>
+            <!-- <view class='data_left descript_item'>
+                 <text class='point point_green'></text> 
+            </view> -->
             <view class='content_right descript_item'>
                 <!-- <text class='subtitle'>头号玩家专属活动</text> -->
                 <text class='subtitle'> </text>

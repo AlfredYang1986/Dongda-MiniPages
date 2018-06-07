@@ -2,7 +2,7 @@
     "pages": [
         "pages/index/index",
         "pages/fxq/fxq",
-        
+        "pages/questions/questions",
         "pages/mission/mission",
         "pages/privacy/privacy",
         "pages/replace/replace",
@@ -12,7 +12,6 @@
         "pages/details/details", 
         
         "pages/didi/didi",
-        "pages/questions/questions",
         "pages/lists/lists",
         "pages/activity/activity",
         "pages/countingdown/countingdown",

@@ -2,7 +2,9 @@
 
 .content_no_padding {
     /* background-image: url(https://i.loli.net/2018/06/04/5b152916a96cb.png); */
-    background-image: url(https://dongdakid.com/assets/images/bg_challenge@2x.png);
+     background-image: url(https://dongdakid.com/assets/images/bg_challenge@2x.png); 
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .ready_start {
@@ -11,6 +13,9 @@
     bottom: 0;
     left: 0;
     right: 0;
+    /* background-image: url(https://dongdakid.com/assets/images/bg_challenge@2x.png);  */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
 }
 
 .ready_start .start_header {

@@ -167,7 +167,7 @@ page {
 .day-container .day-content .open_time .age {
     margin-bottom: 8rpx;
     font-family: SFProText-Light;
-    height: 32rpx;
+    /* height: 32rpx; */
     line-height: 32rpx;
     font-size: 22rpx;
     /* overflow: hidden; */
@@ -235,33 +235,33 @@ page {
 }
 
 .descript .descript_items {
-    display: flex;
+    /* display: flex; */
     margin: 20rpx 0;
 }
 
-.descript .data_left {
-    flex: 0 0 20rpx;
+/* .descript .data_left {
+     flex: 0 0 20rpx; 
     position: relative;
-}
+} */
 
-.descript .data_left .point {
+/* .descript .data_left .point {
     position: absolute;
     top: 13rpx;
     display: inline-block;
     width: 16rpx;
     height: 16rpx;
     border-radius: 50%;
-}
+} */
 
-.descript .data_left text:last-child {
+/* .descript .data_left text:last-child {
     font-size: 28rpx;
     letter-spacing: 0.93px;
     color: #112a51;
-}
+} */
 
 .descript .content_right {
-    flex: 1;
-    padding-left: 20rpx;
+    /* flex: 1; */
+    /* padding-left: 20rpx; */
     line-height: 40rpx;
     text-align: left;
     font-size: 28rpx;

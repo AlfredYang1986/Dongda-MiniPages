@@ -147,6 +147,9 @@ App({
                 that.globalData.deviceHeight = res.screenHeight;
                 if (res.platform === 'android') {
                     that.globalData.android = true;
+                    if ((res.brand === "Xiaomi" && res.model === "MIX 2") || (res.brand === "Xiaomi" && res.model === "MIX 2s")) {
+                        that.globalData.deviceHeight = 785;
+                    }
                 } else {
                     if (res.model.slice(0, 8) === "iPhone X") {
                         that.globalData.iosX = true;
@@ -154,6 +157,7 @@ App({
                         that.globalData.iosX = false;
                     }
                 }
+
             }
         })
         /*
