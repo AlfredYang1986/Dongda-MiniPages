@@ -1,0 +1,24 @@
+<!--exchange.wxml-->
+<scroll-view scroll-y enable-back-to-top style='height:{{deviceHeight}}px' class='scroll-view' bindscroll="pageScroll">
+    <view class='content_has_padding'>
+        <view class="navigationBar {{hasScroll?'cover':''}} {{android?'android':'nav'}} {{iosX?'iosx':''}}">
+            <view class='backArea'>
+                <image src='../../utils/images/icon_back@2x.png'></image>
+                <button class='btn_back' size='mini' bindtap='backBeforePage'></button>
+            </view>
+            <view class='navigationTitle'>
+                <text></text>
+            </view>
+        </view>
+        <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
+        <view class='title'>兑换条款</view>
+
+        <text class='content'>· 请于活动结束后三天内（6月11日-6月13日）联系玩家专属客服“咚小喵”领取奖品\n</text>
+        <text class='content'>· 每次兑换消耗相应数额彩蛋，奖品可叠加，可任意组合彩蛋兑换中意的礼物\n</text>
+        <text class='content'>· 奖品一旦确认并发放，不设退、换服务\n</text>
+        <text class='content'>· 因中奖者提供的有效个人信息不正确或不准确而导致获奖通知及奖品无法送达，活动主办方及活动服务商不承担责任，其得奖资格将视作无效\n</text>
+        <text class='content'>·为保障玩家和服务商权益，针对不当手段参加活动者，活动主办方有权在不事先通知的前提下，取消活动参与者获得奖励或参与本活动的资格\n</text>
+        <text class='content'>·非由活动主办方故意或重大过失造成获奖者在领取和使用奖品过程中所发生的事故，活动主办方无须承担相应责任\n</text>
+        <text class='content'>·在法律允许的范围内，活动主办方对本次活动拥有最终解释权\n</text>
+    </view>
+</scroll-view>

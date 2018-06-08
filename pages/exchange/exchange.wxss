@@ -1,0 +1,27 @@
+/* exchange.wxss */
+
+page {
+    height: 100%;
+}
+
+.scroll-view {
+    background-image: url(https://dongdakid.com/assets/images/bg_detail@2x.png);
+}
+
+.title {
+    margin-bottom: 40rpx;
+    text-align: center;
+    line-height: 38rpx;
+    font-family: SFProText-Medium;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #5f6270;
+}
+
+.content {
+    margin-bottom: 10rpx;
+    font-family: PingFangSC-Regular;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #5f6270;
+}

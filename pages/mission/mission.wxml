@@ -17,7 +17,7 @@
         <view class="{{android?'top_blank_android':'top_blank_nav'}} {{iosX?'top_blank_iosx':''}}"></view>
 
         <view class='didi_area' bindtap='didiCoupon' wx:if="{{businessList.length>0}}">
-            <image src='../../utils/images/didi@2x.png' mode='widthFix'></image>
+            <image src='../../utils/images/didi@2x.jpg' mode='widthFix'></image>
         </view>
 
         <view class='item' data-brandid='{{item.provider_id}}' wx:for="{{businessList}}" bindtap='checkStarDetail'>

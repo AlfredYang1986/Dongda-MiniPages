@@ -69,34 +69,26 @@
         </view>
 
         <view class='eggs_explain'>
-
             <view class='egg_title'>
-                <text>彩蛋兑换规则</text>
+              <text>彩蛋兑换规则</text>
+            </view>
+            <view class='egg_content, egg_content_bottom'>
+                <view class='title'></view>
+                <image class='egg_result' src='../../utils/images/result@2x.png' mode='widthFix'></image>
             </view>
 
-            <view class='egg_content'>
-
-                <view class='title'>
-                    <!-- <text>经典彩蛋</text> -->
-                </view>
-
-                <!-- <text>活动期间，集齐不同类型的三枚经典彩蛋，即可获得由咚哒提供给孩子的“6.1经典礼物”。（一个帐号最多兑换两次）.每个微信帐号在每个场地扫码只能获得一个经典彩蛋。</text>  -->
-                <text>活动结束后不同彩蛋可兑换各式奖品，奖品丰富，敬请期待。</text>
-                <view class='title'>
-                    <!-- <text>惊喜彩蛋</text> -->
-                </view>
-
-                <!-- <text>每个“惊喜彩蛋”可以兑换一次当日答题机会。答题全对，即可获得由咚哒提供给年轻的一家人的Surprise礼物。每个微信帐号在每个星耀挑战场地扫码只能获得一个惊喜彩蛋。</text> -->
-
-                <view class='title'>
-                    <!-- <text>王者彩蛋</text> -->
-                </view>
-
-                <!-- <text>活动期间，集齐不同类型的四枚“王者彩蛋”，将获得一份由咚哒为孩子专属定制的王者大礼。</text> -->
-
+            <view class='egg_content_text'>
+                <text>请于活动结束后三天内（6月11日-6月13日）\n</text>
+                <text>联系玩家专属客服“咚小喵”领取奖品</text>
             </view>
 
+            <view class='egg_rules'>
+                <text class='egg_rules' bindtap='exchange'>兑换条款</text>
+            </view>
         </view>
+
+
+
 
     </view>
 

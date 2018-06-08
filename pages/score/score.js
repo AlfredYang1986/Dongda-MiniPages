@@ -30,6 +30,15 @@ Page({
     },
 
     /**
+     * 兑换条款
+     */
+    exchange: function () {
+      wx.navigateTo({
+        url: '../exchange/exchange',
+      })
+    },
+
+    /**
      * scroll-view 监听页面滚动
      */
     pageScroll: function (res) {

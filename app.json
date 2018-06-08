@@ -1,31 +1,29 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/fxq/fxq",
-        "pages/questions/questions",
-        "pages/mission/mission",
-        "pages/privacy/privacy",
-        "pages/replace/replace",
-        
-        "pages/score/score",
-        
-        "pages/details/details", 
-        
-        "pages/didi/didi",
-        "pages/lists/lists",
-        "pages/activity/activity",
-        "pages/countingdown/countingdown",
-        "pages/bizsuccess/bizsuccess",
-        "pages/business/business",
-        "pages/player/players",
-        "pages/logs/logs"
-    ],
-    "window": {
-        "backgroundTextStyle": "dark",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "white",
-        "navigationStyle": "custom",
-        "backgroundColorTop": "transparent"
-    }
+  "pages": [
+    "pages/index/index",
+    "pages/fxq/fxq",
+    "pages/questions/questions",
+    "pages/mission/mission",
+    "pages/privacy/privacy",
+    "pages/replace/replace",
+    "pages/score/score",
+    "pages/details/details",
+    "pages/didi/didi",
+    "pages/lists/lists",
+    "pages/activity/activity",
+    "pages/countingdown/countingdown",
+    "pages/bizsuccess/bizsuccess",
+    "pages/business/business",
+    "pages/player/players",
+    "pages/logs/logs",
+    "pages/exchange/exchange"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom",
+    "backgroundColorTop": "transparent"
+  }
 }

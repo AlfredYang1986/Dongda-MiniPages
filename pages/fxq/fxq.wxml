@@ -11,7 +11,7 @@
         </view>
     </view>
     <view class='headbar'>
-        <image src='../../utils/images/fanxiaoqie@2x.png' mode='widthFix'></image>
+        <image src='../../utils/images/fanxiaoqie@2x.jpg' mode='widthFix'></image>
     </view>
     <view class='fxq_qrcode'>
         <image src='../../utils/images/fxq_qrcode@2x.png' bindlongpress='saveImage' data-whichimg='fxq_qrcode'></image>

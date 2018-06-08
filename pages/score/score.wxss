@@ -138,7 +138,7 @@ page {
     position: relative;
     margin-top: 120rpx;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 1.0);
 }
 
 .eggs_explain .egg_title {
@@ -276,4 +276,26 @@ page {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.egg_result {
+  width: 99%
+}
+.egg_rules {
+    text-align: center;
+    font-size: 30rpx;
+    color: #112a51;
+    padding-bottom: 40rpx;
+    text-decoration:underline;
+}
+.egg_content_text {
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+    letter-spacing: 1px;
+    color: #34384a;
+}
+.egg_content_bottom {
+    margin-bottom: 4rpx important!
 }
